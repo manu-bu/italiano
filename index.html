@@ -1461,41 +1461,106 @@ const UNIDADES = {
     tipo: 'fija',
     temas: {
       'G1': { nombre: 'Ausiliari',   subtemas: {
-        'andare': { nombre: 'Andare', verbo: 'Andare', participio: 'andato' },
-        'essere': { nombre: 'Essere', verbo: 'Essere', participio: 'stato' },
-        'avere':  { nombre: 'Avere',  verbo: 'Avere', participio: 'avuto' }
+        'andare': { nombre_esp: 'Ir',        nombre: 'Andare', verbo: 'Andare', participio: 'andato' },
+        'essere': { nombre_esp: 'Ser/Estar', nombre: 'Essere', verbo: 'Essere', participio: 'stato' },
+        'avere':  { nombre_esp: 'Tener',     nombre: 'Avere',  verbo: 'Avere', participio: 'avuto' }
       } },
       'G2': { nombre: 'Irregolari',  subtemas: {
-        'venire':    { nombre: 'Venire',       verbo: 'Venire',    participio: 'venuto' },
-        'vivere':    { nombre: 'Vivere',       verbo: 'Vivere',    participio: 'vissuto' },
-        'volere':    { nombre: 'Volere',       verbo: 'Volere',    participio: 'voluto' },
-        'uscire':    { nombre: 'Uscire',       verbo: 'Uscire',    participio: 'uscito' },
-        'prendere':  { nombre: 'Prendere',     verbo: 'Prendere',  participio: 'preso' },
-        'mettere':   { nombre: 'Mettere',      verbo: 'Mettere',   participio: 'messo' },
-        'potere':    { nombre: 'Potere',       verbo: 'Potere',    participio: 'potuto' },
-        'fare':      { nombre: 'Fare',         verbo: 'Fare',      participio: 'fatto' },
-        'dire':      { nombre: 'Dire',          verbo: 'Dire',      participio: 'detto' },
-        'dovere':    { nombre: 'Dovere',        verbo: 'Dovere',    participio: 'dovuto' },
-        'conoscere': { nombre: 'Conoscere',     verbo: 'Conoscere', participio: 'conosciuto' }
+        'venire':    { nombre_esp: 'Venir',       nombre: 'Venire',       verbo: 'Venire',    participio: 'venuto' },
+        'vivere':    { nombre_esp: 'Vivir',       nombre: 'Vivere',       verbo: 'Vivere',    participio: 'vissuto' },
+        'volere':    { nombre_esp: 'Querer',      nombre: 'Volere',       verbo: 'Volere',    participio: 'voluto' },
+        'uscire':    { nombre_esp: 'Salir',       nombre: 'Uscire',       verbo: 'Uscire',    participio: 'uscito' },
+        'prendere':  { nombre_esp: 'Agarrar',     nombre: 'Prendere',     verbo: 'Prendere',  participio: 'preso' },
+        'mettere':   { nombre_esp: 'Poner/Meter', nombre: 'Mettere',      verbo: 'Mettere',   participio: 'messo' },
+        'potere':    { nombre_esp: 'Poder',       nombre: 'Potere',       verbo: 'Potere',    participio: 'potuto' },
+        'fare':      { nombre_esp: 'Hacer',       nombre: 'Fare',         verbo: 'Fare',      participio: 'fatto' },
+        'dire':      { nombre_esp: 'Decir',        nombre: 'Dire',          verbo: 'Dire',      participio: 'detto' },
+        'dovere':    { nombre_esp: 'Deber',        nombre: 'Dovere',        verbo: 'Dovere',    participio: 'dovuto' },
+        'conoscere': { nombre_esp: 'Conocer',     nombre: 'Conoscere',     verbo: 'Conoscere', participio: 'conosciuto' },
+        'vedere':    { nombre_esp: 'Ver',         nombre: 'Vedere',        verbo: 'Vedere',    participio: 'visto' },
+        'tenere':    { nombre_esp: 'Tener',       nombre: 'Tenere',        verbo: 'Tenere',    participio: 'tenuto' },
+        'sapere':    { nombre_esp: 'Saber',       nombre: 'Sapere',        verbo: 'Sapere',    participio: 'saputo' },
+        'portare':   { nombre_esp: 'Llevar',      nombre: 'Portare',       verbo: 'Portare',   participio: 'portato' },
+        'cadere':    { nombre_esp: 'Caer',        nombre: 'Cadere',        verbo: 'Cadere',    participio: 'caduto' },
+        'valere':    { nombre_esp: 'Valer',       nombre: 'Valere',        verbo: 'Valere',    participio: 'valso' },
+        'produrre':  { nombre_esp: 'Producir',    nombre: 'Produrre',      verbo: 'Produrre',  participio: 'prodotto' },
+        'tradurre':  { nombre_esp: 'Traducir',    nombre: 'Tradurre',      verbo: 'Tradurre',  participio: 'tradotto' },
+        'condurre':  { nombre_esp: 'Conducir',    nombre: 'Condurre',      verbo: 'Condurre',  participio: 'condotto' }
       } },
       'G3': { nombre: 'Regolari',    subtemas: {
-        'amare':    { nombre: 'Amare',    verbo: 'Amare',    participio: 'amato' },
-        'portare':  { nombre: 'Portare',  verbo: 'Portare',  participio: 'portato' },
-        'arrivare': { nombre: 'Arrivare', verbo: 'Arrivare', participio: 'arrivato' },
-        'dare':     { nombre: 'Dare',     verbo: 'Dare',     participio: 'dato' },
-        'abitare':  { nombre: 'Abitare',  verbo: 'Abitare',  participio: 'abitato' },
-        'parlare':  { nombre: 'Parlare',  verbo: 'Parlare',  participio: 'parlato' },
-        'riparare': { nombre: 'Riparare', verbo: 'Riparare', participio: 'riparato' },
-        'pensare':  { nombre: 'Pensare',  verbo: 'Pensare',  participio: 'pensato' },
-        'lavorare': { nombre: 'Lavorare', verbo: 'Lavorare', participio: 'lavorato' }
+        'amare':    { nombre_esp: 'Amar',     nombre: 'Amare',    verbo: 'Amare',    participio: 'amato' },
+        'portare':  { nombre_esp: 'Traer',    nombre: 'Portare',  verbo: 'Portare',  participio: 'portato' },
+        'arrivare': { nombre_esp: 'Llegar',   nombre: 'Arrivare', verbo: 'Arrivare', participio: 'arrivato' },
+        'dare':     { nombre_esp: 'Dar',      nombre: 'Dare',     verbo: 'Dare',     participio: 'dato' },
+        'abitare':  { nombre_esp: 'Habitar',  nombre: 'Abitare',  verbo: 'Abitare',  participio: 'abitato' },
+        'parlare':  { nombre_esp: 'Hablar',   nombre: 'Parlare',  verbo: 'Parlare',  participio: 'parlato' },
+        'riparare': { nombre_esp: 'Reparar',  nombre: 'Riparare', verbo: 'Riparare', participio: 'riparato' },
+        'pensare':  { nombre_esp: 'Pensar',   nombre: 'Pensare',  verbo: 'Pensare',  participio: 'pensato' },
+        'lavorare': { nombre_esp: 'Trabajar', nombre: 'Lavorare', verbo: 'Lavorare', participio: 'lavorato' },
+        'entrare':  { nombre_esp: 'Entrar',   nombre: 'Entrare',  verbo: 'Entrare',  participio: 'entrato' },
+        'comprare': { nombre_esp: 'Comprar',  nombre: 'Comprare', verbo: 'Comprare', participio: 'comprato' },
+        'aspettare': { nombre_esp: 'Esperar', nombre: 'Aspettare', verbo: 'Aspettare', participio: 'aspettato' },
+        'cercare': { nombre_esp: 'Buscar',    nombre: 'Cercare',  verbo: 'Cercare',  participio: 'cercato' },
+        'trovare': { nombre_esp: 'Encontrar', nombre: 'Trovare',  verbo: 'Trovare',  participio: 'trovato' },
+        'cominciare': { nombre_esp: 'Empezar', nombre: 'Cominciare', verbo: 'Cominciare', participio: 'cominciato' },
+        'finire':  { nombre_esp: 'Terminar',  nombre: 'Finire',   verbo: 'Finire',   participio: 'finito' },
+        'cambiare': { nombre_esp: 'Cambiar',  nombre: 'Cambiare', verbo: 'Cambiare', participio: 'cambiato' },
+        'creare':  { nombre_esp: 'Crear',     nombre: 'Creare',   verbo: 'Creare',   participio: 'creato' },
+        'lasciare': { nombre_esp: 'Dejar',    nombre: 'Lasciare', verbo: 'Lasciare', participio: 'lasciato' },
+        'domandare': { nombre_esp: 'Preguntar', nombre: 'Domandare', verbo: 'Domandare', participio: 'domandato' },
+        'rispondere': { nombre_esp: 'Responder', nombre: 'Rispondere', verbo: 'Rispondere', participio: 'risposto' },
+        'guardare': { nombre_esp: 'Mirar',    nombre: 'Guardare', verbo: 'Guardare', participio: 'guardato' },
+        'ascoltare': { nombre_esp: 'Escuchar', nombre: 'Ascoltare', verbo: 'Ascoltare', participio: 'ascoltato' },
+        'seguire': { nombre_esp: 'Seguir',    nombre: 'Seguire',  verbo: 'Seguire',  participio: 'seguito' },
+        'toccare': { nombre_esp: 'Tocar',     nombre: 'Toccare',  verbo: 'Toccare',  participio: 'toccato' },
+        'chiedere': { nombre_esp: 'Pedir',    nombre: 'Chiedere', verbo: 'Chiedere', participio: 'chiesto' },
+        'leggere': { nombre_esp: 'Leer',      nombre: 'Leggere',  verbo: 'Leggere',  participio: 'letto' },
+        'scrivere': { nombre_esp: 'Escribir', nombre: 'Scrivere', verbo: 'Scrivere', participio: 'scritto' },
+        'mangiare': { nombre_esp: 'Comer',    nombre: 'Mangiare', verbo: 'Mangiare', participio: 'mangiato' },
+        'bere':    { nombre_esp: 'Beber',     nombre: 'Bere',     verbo: 'Bere',     participio: 'bevuto' },
+        'credere': { nombre_esp: 'Creer',     nombre: 'Credere',  verbo: 'Credere',  participio: 'creduto' },
+        'temere':  { nombre_esp: 'Temer',     nombre: 'Temere',   verbo: 'Temere',   participio: 'temuto' }
+      } },
+      'G3b': { nombre: 'Regolari -ERE/-IRE', subtemas: {
+        'vendere':  { nombre_esp: 'Vender',      nombre: 'Vendere',   verbo: 'Vendere',   participio: 'venduto' },
+        'apprendere': { nombre_esp: 'Aprender',  nombre: 'Apprendere', verbo: 'Apprendere', participio: 'appreso' },
+        'correre':  { nombre_esp: 'Correr',      nombre: 'Correre',   verbo: 'Correre',   participio: 'corso' },
+        'perdere':  { nombre_esp: 'Perder',      nombre: 'Perdere',   verbo: 'Perdere',   participio: 'perso' },
+        'proteggere': { nombre_esp: 'Proteger',  nombre: 'Proteggere', verbo: 'Proteggere', participio: 'protetto' },
+        'risolVere': { nombre_esp: 'Resolver',   nombre: 'Risolvere', verbo: 'Risolvere', participio: 'risolto' },
+        'difendere': { nombre_esp: 'Defender',   nombre: 'Difendere', verbo: 'Difendere', participio: 'difeso' },
+        'dormire':  { nombre_esp: 'Dormir',      nombre: 'Dormire',   verbo: 'Dormire',   participio: 'dormito' },
+        'partire':  { nombre_esp: 'Partir',      nombre: 'Partire',   verbo: 'Partire',   participio: 'partito' },
+        'aprire':   { nombre_esp: 'Abrir',       nombre: 'Aprire',    verbo: 'Aprire',    participio: 'aperto' },
+        'servire':  { nombre_esp: 'Servir',      nombre: 'Servire',   verbo: 'Servire',   participio: 'servito' },
+        'sentire':  { nombre_esp: 'Sentir',      nombre: 'Sentire',   verbo: 'Sentire',   participio: 'sentito' },
+        'morire':   { nombre_esp: 'Morir',       nombre: 'Morire',    verbo: 'Morire',    participio: 'morto' },
+        'subire':   { nombre_esp: 'Sufrir',      nombre: 'Subire',    verbo: 'Subire',    participio: 'subito' },
+        'ricevere': { nombre_esp: 'Recibir',     nombre: 'Ricevere',  verbo: 'Ricevere',  participio: 'ricevuto' },
+        'costruire': { nombre_esp: 'Construir',  nombre: 'Costruire', verbo: 'Costruire', participio: 'costruito' },
+        'discutere': { nombre_esp: 'Discutir',   nombre: 'Discutere', verbo: 'Discutere', participio: 'discusso' }
       } },
       'G4': { nombre: 'Riflessivi',   subtemas: {
-        'alzarsi':    { nombre: 'Alzarsi',    verbo: 'Alzarsi',    participio: 'alzato' },
-        'chiamarsi':  { nombre: 'Chiamarsi',  verbo: 'Chiamarsi',  participio: 'chiamato' },
-        'svegliarsi': { nombre: 'Svegliarsi', verbo: 'Svegliarsi', participio: 'svegliato' },
-        'coricarsi':  { nombre: 'Coricarsi',  verbo: 'Coricarsi',  participio: 'coricato' },
-        'sentirsi':   { nombre: 'Sentirsi',   verbo: 'Sentirsi',   participio: 'sentito' },
-        'scusarsi':   { nombre: 'Scusarsi',   verbo: 'Scusarsi',   participio: 'scusato' }
+        'alzarsi':    { nombre_esp: 'Levantarse',  nombre: 'Alzarsi',    verbo: 'Alzarsi',    participio: 'alzato' },
+        'chiamarsi':  { nombre_esp: 'Llamarse',    nombre: 'Chiamarsi',  verbo: 'Chiamarsi',  participio: 'chiamato' },
+        'svegliarsi': { nombre_esp: 'Despertarse', nombre: 'Svegliarsi', verbo: 'Svegliarsi', participio: 'svegliato' },
+        'coricarsi':  { nombre_esp: 'Acostarse',   nombre: 'Coricarsi',  verbo: 'Coricarsi',  participio: 'coricato' },
+        'sentirsi':   { nombre_esp: 'Sentirse',    nombre: 'Sentirsi',   verbo: 'Sentirsi',   participio: 'sentito' },
+        'scusarsi':   { nombre_esp: 'Disculparse', nombre: 'Scusarsi',   verbo: 'Scusarsi',   participio: 'scusato' },
+        'lavarsi':    { nombre_esp: 'Lavarse',     nombre: 'Lavarsi',    verbo: 'Lavarsi',    participio: 'lavato' },
+        'vestirsi':   { nombre_esp: 'Vestirse',    nombre: 'Vestirsi',   verbo: 'Vestirsi',   participio: 'vestito' },
+        'pettinarsi': { nombre_esp: 'Peinarse',    nombre: 'Pettinarsi', verbo: 'Pettinarsi', participio: 'pettinato' },
+        'truccarsi':  { nombre_esp: 'Maquillarse', nombre: 'Truccarsi',  verbo: 'Truccarsi',  participio: 'truccato' },
+        'prepararsi': { nombre_esp: 'Prepararse',  nombre: 'Prepararsi', verbo: 'Prepararsi', participio: 'preparato' },
+        'farsi':      { nombre_esp: 'Hacerse',     nombre: 'Farsi',      verbo: 'Farsi',      participio: 'fatto' },
+        'mangiarsi':  { nombre_esp: 'Comerse',     nombre: 'Mangiarsi',  verbo: 'Mangiarsi',  participio: 'mangiato' },
+        'dividersi':  { nombre_esp: 'Divertirse',  nombre: 'Dividersi',  verbo: 'Dividersi',  participio: 'diviso' },
+        'annoiarsi':  { nombre_esp: 'Aburrirse',   nombre: 'Annoiarsi',  verbo: 'Annoiarsi',  participio: 'annoiato' },
+        'ricordarsi': { nombre_esp: 'Acordarse',   nombre: 'Ricordarsi', verbo: 'Ricordarsi', participio: 'ricordato' },
+        'preoccuparsi': { nombre_esp: 'Preocuparse', nombre: 'Preoccuparsi', verbo: 'Preoccuparsi', participio: 'preoccupato' },
+        'spostarsi':  { nombre_esp: 'Mudarse',     nombre: 'Spostarsi',  verbo: 'Spostarsi',  participio: 'spostato' },
+        'allontanarsi': { nombre_esp: 'Alejarse',  nombre: 'Allontanarsi', verbo: 'Allontanarsi', participio: 'allontanato' },
+        'innamorarsi': { nombre_esp: 'Enamorarse', nombre: 'Innamorarsi', verbo: 'Innamorarsi', participio: 'innamorato' }
       } }
     }
   },
@@ -1614,7 +1679,9 @@ const CONTENIDO_TARJETAS = {
     { id: 'perifrasis-verbales',  tipo: 'texto-largo', titulo: 'Perífrasis Verbales — Habla real', render: renderTarjetaPerifrasisVerbales },
     { id: 'discorso-indiretto',   tipo: 'texto-largo', titulo: 'Discorso Indiretto — Estilo indirecto', render: renderTarjetaDiscorsoIndiretto },
     { id: 'si-impersonale',       tipo: 'texto-largo', titulo: 'Si impersonale — Construcción impersonal', render: renderTarjetaSiImpersonale },
-    { id: 'participio-assoluto',  tipo: 'texto-largo', titulo: 'Participio Assoluto — Construcción absoluta', render: renderTarjetaParticiploAssoluto }
+    { id: 'participio-assoluto',  tipo: 'texto-largo', titulo: 'Participio Assoluto — Construcción absoluta', render: renderTarjetaParticiploAssoluto },
+    { id: 'pronomi-ne-ci',        tipo: 'texto-largo', titulo: 'Pronomi "ne" e "ci" — Pronombres adverbiales', render: renderTarjetaPronomiNeCi },
+    { id: 'fare-lasciare-inf',    tipo: 'texto-largo', titulo: 'Fare + Infinito / Lasciare + Infinito', render: renderTarjetaFareLasciareInf }
   ],
   'F-F1': [
     { id: 'sujeto-tonico-reflexivo', tipo: 'columnas', titulo: 'Sujeto, tónico, reflexivo', render: renderTarjetaPersonasSujetoTonicoReflexivo },
@@ -3692,6 +3759,32 @@ function renderTarjetaParticiploAssoluto() {
   });
 }
 
+function renderTarjetaPronomiNeCi() {
+  return crearTarjetaTextoLargo({
+    titulo: 'Pronomi "ne" e "ci" — Pronombres adverbiales',
+    parrafos: [
+      '<strong>NE:</strong> Pronombre que sustituye "di + algo" (de eso). <span class="hablar" data-hablar="Hai un caffè? Sì, ne ho uno">Hai un caffè? Sì, ne ho uno</span> (¿tienes un café? Sí, tengo uno [de eso]). <span class="hablar" data-hablar="Quanti ne vuoi?">Quanti ne vuoi?</span> (¿cuántos [de eso] quieres?). <span class="hablar" data-hablar="Ne parlo sempre">Ne parlo sempre</span> (siempre hablo de eso). Posición: antes del verbo conjugado, después en infinitivo <span class="hablar" data-hablar="Voglio parlarne">Voglio parlarne</span> (quiero hablar de eso).',
+      '<strong>CI:</strong> Pronombre que sustituye "a + lugar" o "di + cosa abstracta". <span class="hablar" data-hablar="Vai al rifugio? Sì, ci vado">Vai al rifugio? Sì, ci vado</span> (¿vas al refugio? Sí, voy [allí]). <span class="hablar" data-hablar="Credi a questa storia? Sì, ci credo">Credi a questa storia? Sì, ci credo</span> (¿crees esta historia? Sí, creo [en ello]). <span class="hablar" data-hablar="Ci abito">Ci abito</span> (vivo [allí]). Posición: antes del verbo conjugado, después en infinitivo <span class="hablar" data-hablar="Voglio andarci">Voglio andarci</span> (quiero ir allí).',
+      '<strong>C\'è / Ci sono:</strong> Construcción impersonal con "ci" + "essere". <span class="hablar" data-hablar="C\'è un problema">C\'è un problema</span> (hay un problema — singular). <span class="hablar" data-hablar="Ci sono molti turisti">Ci sono molti turisti</span> (hay muchos turistas — plural). Literalmente: "Aquí es..." / "Aquí están...".',
+      '<strong>NE vs CI:</strong> NE = de eso (cantidad, tema). CI = allí, en eso (lugar, creencia). <span class="hablar" data-hablar="Ho dei libri. Ne ho tre">Ho dei libri. Ne ho tre</span> (tengo libros. Tengo tres [de ellos]). <span class="hablar" data-hablar="Vado alla biblioteca. Ci vado domani">Vado alla biblioteca. Ci vado domani</span> (voy a la biblioteca. Voy [allí] mañana).',
+      '<strong>Con dos pronombres:</strong> NE + CI también pueden combinarse: <span class="hablar" data-hablar="Glielo">Glielo</span> (ya visto), pero NE y CI rara vez juntos. Más común: <span class="hablar" data-hablar="Ce ne sono molti">Ce ne sono molti</span> (hay muchos de eso — CE = "a nosotros", NE = "de eso").'
+    ]
+  });
+}
+
+function renderTarjetaFareLasciareInf() {
+  return crearTarjetaTextoLargo({
+    titulo: 'Fare + Infinito / Lasciare + Infinito — Construcciones causativas',
+    parrafos: [
+      '<strong>FARE + INFINITO:</strong> Expresar que alguien HACE que otra persona haga algo (causativo). <span class="hablar" data-hablar="Mi fai ridere">Mi fai ridere</span> (me haces reír). <span class="hablar" data-hablar="La guida ci fa salire la montagna">La guida ci fa salire la montagna</span> (la guía nos hace subir la montaña). <span class="hablar" data-hablar="Fammi vedere">Fammi vedere</span> (hazme ver — imperativo).',
+      '<strong>Pronombres con FARE + inf:</strong> El pronombre va ANTES de "fare": <span class="hablar" data-hablar="Mi fai stare">Mi fai stare</span> (me haces estar). <span class="hablar" data-hablar="Ti farò aspettare">Ti farò aspettare</span> (te haré esperar). En infinitivo, fusionado: <span class="hablar" data-hablar="Voglio farvi capire">Voglio farvi capire</span> (quiero haceros entender).',
+      '<strong>Variaciones de FARE:</strong> <span class="hablar" data-hablar="Faccio mangiare i bambini">Faccio mangiare i bambini</span> (hago comer a los niños — alguien más come). <span class="hablar" data-hablar="Mi faccio tagliare i capelli">Mi faccio tagliare i capelli</span> (me hago cortar el cabello — yo recibo la acción).',
+      '<strong>LASCIARE + INFINITO:</strong> Expresar que se PERMITE que alguien haga algo (permisivo). <span class="hablar" data-hablar="Ti lascio andare">Ti lascio andare</span> (te dejo ir). <span class="hablar" data-hablar="Lasciami in pace">Lasciami in pace</span> (déjame en paz). <span class="hablar" data-hablar="Non mi lasci lavorare">Non mi lasci lavorare</span> (no me dejas trabajar).',
+      '<strong>Diferencia FARE vs LASCIARE:</strong> FARE = obligar/hacer que. LASCIARE = permitir/dejar que. <span class="hablar" data-hablar="Mi fai uscire">Mi fai uscire</span> (me haces salir — obligado). <span class="hablar" data-hablar="Mi lasci uscire">Mi lasci uscire</span> (me dejas salir — permitido). En conversación alpina/cotidiana: <span class="hablar" data-hablar="Lascia, ci penso io">Lascia, ci penso io</span> (déjalo, yo me encargo).'
+    ]
+  });
+}
+
 // ── Modos y Frases → Preguntas (E3) ───────────────────────────────────
 function renderTarjetaInterrogacionNiveles() {
   return crearTarjetaTablaGenerica({
@@ -3803,9 +3896,9 @@ function actualizarSelectores() {
       // que el selector de Sub-tema funcione sin pasos previos.
       poblarDropSubtema(temaObj);
       const subObj = temaObj.subtemas[estado.subtema];
-      // En Verbos, el sub-tema muestra: español · verbo en el idioma · participio
+      // En Verbos, el sub-tema muestra: español - verbo en el idioma - participio
       s3.textContent = (estado.unidad === 'G' && subObj.verbo)
-        ? `${subObj.nombre} · ${subObj.verbo} · ${subObj.participio}`
+        ? `${subObj.nombre_esp} - ${subObj.verbo} - ${subObj.participio}`
         : subObj.nombre;
       s3.className = 'selector sel-subtema activo';
       s3.style.pointerEvents = '';
@@ -4094,7 +4187,12 @@ function poblarDropSubtema(temaObj) {
     Object.entries(temaObj.subtemas).forEach(([k, s]) => {
       const div = document.createElement('div');
       div.className = 'dropdown-item';
-      div.textContent = (estado.unidad === 'G' && s.verbo) ? `${s.nombre} · ${s.verbo}` : s.nombre;
+      // Para verbos (G): mostrar "español - italiano - participio"
+      if (estado.unidad === 'G' && s.verbo) {
+        div.textContent = `${s.nombre_esp} - ${s.verbo} - ${s.participio}`;
+      } else {
+        div.textContent = s.nombre;
+      }
       div.onclick = () => elegirSubtema(k, s.nombre);
       dropSub.appendChild(div);
     });
@@ -6276,6 +6374,278 @@ const VERBOS_DATA = {
           { p: 'noi', f: 'ci scuseremmo' },
           { p: 'voi', f: 'vi scusereste' },
           { p: 'loro', f: 'si scuserebbero' }
+        ], nota: null }
+    ]
+  },
+  'entrare': {
+    tiempos: [
+      { subtitulo: 'yo había entrado', filas: [
+          { p: 'io', f: 'ero entrato' },
+          { p: 'tu', f: 'eri entrato' },
+          { p: 'lui, lei', f: 'era entrato' },
+          { p: 'noi', f: 'eravamo entrati' },
+          { p: 'voi', f: 'eravate entrati' },
+          { p: 'loro', f: 'erano entrati' }
+        ], nota: 'Entrare se auxilia con essere (verbo de movimiento)' },
+      { subtitulo: 'yo entré / he entrado', filas: [
+          { p: 'io', f: 'sono entrato' },
+          { p: 'tu', f: 'sei entrato' },
+          { p: 'lui, lei', f: 'è entrato' },
+          { p: 'noi', f: 'siamo entrati' },
+          { p: 'voi', f: 'siete entrati' },
+          { p: 'loro', f: 'sono entrati' }
+        ], nota: null },
+      { subtitulo: 'yo entraba', filas: [
+          { p: 'io', f: 'entravo' },
+          { p: 'tu', f: 'entravi' },
+          { p: 'lui, lei', f: 'entrava' },
+          { p: 'noi', f: 'entravamo' },
+          { p: 'voi', f: 'entravate' },
+          { p: 'loro', f: 'entravano' }
+        ], nota: null },
+      { subtitulo: 'yo habría entrado', filas: [
+          { p: 'io', f: 'sarei entrato' },
+          { p: 'tu', f: 'saresti entrato' },
+          { p: 'lui, lei', f: 'sarebbe entrato' },
+          { p: 'noi', f: 'saremmo entrati' },
+          { p: 'voi', f: 'sareste entrati' },
+          { p: 'loro', f: 'sarebbero entrati' }
+        ], nota: null },
+      { subtitulo: 'yo entro', filas: [
+          { p: 'io', f: 'entro' },
+          { p: 'tu', f: 'entri' },
+          { p: 'lui, lei', f: 'entra' },
+          { p: 'noi', f: 'entriamo' },
+          { p: 'voi', f: 'entrate' },
+          { p: 'loro', f: 'entrano' }
+        ], nota: null },
+      { subtitulo: 'estoy por entrar', filas: [
+          { p: 'io', f: 'sto per entrare' },
+          { p: 'tu', f: 'stai per entrare' },
+          { p: 'lui, lei', f: 'sta per entrare' },
+          { p: 'noi', f: 'stiamo per entrare' },
+          { p: 'voi', f: 'state per entrare' },
+          { p: 'loro', f: 'stanno per entrare' }
+        ], nota: null },
+      { subtitulo: 'yo entraré', filas: [
+          { p: 'io', f: 'entrerò' },
+          { p: 'tu', f: 'entrerai' },
+          { p: 'lui, lei', f: 'entrerà' },
+          { p: 'noi', f: 'entreremo' },
+          { p: 'voi', f: 'entrerete' },
+          { p: 'loro', f: 'entreranno' }
+        ], nota: null },
+      { subtitulo: 'yo entraría', filas: [
+          { p: 'io', f: 'entrerei' },
+          { p: 'tu', f: 'entreresti' },
+          { p: 'lui, lei', f: 'entrerebbe' },
+          { p: 'noi', f: 'entreremmo' },
+          { p: 'voi', f: 'entrereste' },
+          { p: 'loro', f: 'entrerebbero' }
+        ], nota: null }
+    ]
+  },
+  'aspettare': {
+    tiempos: [
+      { subtitulo: 'yo había aspettato', filas: [
+          { p: 'io', f: 'avevo aspettato' },
+          { p: 'tu', f: 'avevi aspettato' },
+          { p: 'lui, lei', f: 'aveva aspettato' },
+          { p: 'noi', f: 'avevamo aspettato' },
+          { p: 'voi', f: 'avevate aspettato' },
+          { p: 'loro', f: 'avevano aspettato' }
+        ], nota: null },
+      { subtitulo: 'yo he aspettato', filas: [
+          { p: 'io', f: 'ho aspettato' },
+          { p: 'tu', f: 'hai aspettato' },
+          { p: 'lui, lei', f: 'ha aspettato' },
+          { p: 'noi', f: 'abbiamo aspettato' },
+          { p: 'voi', f: 'avete aspettato' },
+          { p: 'loro', f: 'hanno aspettato' }
+        ], nota: null },
+      { subtitulo: 'yo aspettava', filas: [
+          { p: 'io', f: 'aspettavo' },
+          { p: 'tu', f: 'aspettavi' },
+          { p: 'lui, lei', f: 'aspettava' },
+          { p: 'noi', f: 'aspettavamo' },
+          { p: 'voi', f: 'aspettavate' },
+          { p: 'loro', f: 'aspettavano' }
+        ], nota: null },
+      { subtitulo: 'yo habría aspettato', filas: [
+          { p: 'io', f: 'avrei aspettato' },
+          { p: 'tu', f: 'avresti aspettato' },
+          { p: 'lui, lei', f: 'avrebbe aspettato' },
+          { p: 'noi', f: 'avremmo aspettato' },
+          { p: 'voi', f: 'avreste aspettato' },
+          { p: 'loro', f: 'avrebbero aspettato' }
+        ], nota: null },
+      { subtitulo: 'yo aspetto', filas: [
+          { p: 'io', f: 'aspetto' },
+          { p: 'tu', f: 'aspetti' },
+          { p: 'lui, lei', f: 'aspetta' },
+          { p: 'noi', f: 'aspettiamo' },
+          { p: 'voi', f: 'aspettate' },
+          { p: 'loro', f: 'aspettano' }
+        ], nota: null },
+      { subtitulo: 'estoy por aspettare', filas: [
+          { p: 'io', f: 'sto per aspettare' },
+          { p: 'tu', f: 'stai per aspettare' },
+          { p: 'lui, lei', f: 'sta per aspettare' },
+          { p: 'noi', f: 'stiamo per aspettare' },
+          { p: 'voi', f: 'state per aspettare' },
+          { p: 'loro', f: 'stanno per aspettare' }
+        ], nota: null },
+      { subtitulo: 'yo aspetteró', filas: [
+          { p: 'io', f: 'aspetterò' },
+          { p: 'tu', f: 'aspetterai' },
+          { p: 'lui, lei', f: 'aspetterà' },
+          { p: 'noi', f: 'aspetteremo' },
+          { p: 'voi', f: 'aspetterete' },
+          { p: 'loro', f: 'aspetteranno' }
+        ], nota: null },
+      { subtitulo: 'yo aspettería', filas: [
+          { p: 'io', f: 'aspetterei' },
+          { p: 'tu', f: 'aspetteresti' },
+          { p: 'lui, lei', f: 'aspetterebbe' },
+          { p: 'noi', f: 'aspetteremmo' },
+          { p: 'voi', f: 'aspettereste' },
+          { p: 'loro', f: 'aspetterebbero' }
+        ], nota: null }
+    ]
+  },
+  'cercare': {
+    tiempos: [
+      { subtitulo: 'yo había cercato', filas: [
+          { p: 'io', f: 'avevo cercato' },
+          { p: 'tu', f: 'avevi cercato' },
+          { p: 'lui, lei', f: 'aveva cercato' },
+          { p: 'noi', f: 'avevamo cercato' },
+          { p: 'voi', f: 'avevate cercato' },
+          { p: 'loro', f: 'avevano cercato' }
+        ], nota: null },
+      { subtitulo: 'yo he cercato', filas: [
+          { p: 'io', f: 'ho cercato' },
+          { p: 'tu', f: 'hai cercato' },
+          { p: 'lui, lei', f: 'ha cercato' },
+          { p: 'noi', f: 'abbiamo cercato' },
+          { p: 'voi', f: 'avete cercato' },
+          { p: 'loro', f: 'hanno cercato' }
+        ], nota: null },
+      { subtitulo: 'yo cercaba', filas: [
+          { p: 'io', f: 'cercavo' },
+          { p: 'tu', f: 'cercavi' },
+          { p: 'lui, lei', f: 'cercava' },
+          { p: 'noi', f: 'cercavamo' },
+          { p: 'voi', f: 'cercavate' },
+          { p: 'loro', f: 'cercavano' }
+        ], nota: null },
+      { subtitulo: 'yo habría cercato', filas: [
+          { p: 'io', f: 'avrei cercato' },
+          { p: 'tu', f: 'avresti cercato' },
+          { p: 'lui, lei', f: 'avrebbe cercato' },
+          { p: 'noi', f: 'avremmo cercato' },
+          { p: 'voi', f: 'avreste cercato' },
+          { p: 'loro', f: 'avrebbero cercato' }
+        ], nota: null },
+      { subtitulo: 'yo cerco', filas: [
+          { p: 'io', f: 'cerco' },
+          { p: 'tu', f: 'cerchi' },
+          { p: 'lui, lei', f: 'cerca' },
+          { p: 'noi', f: 'cerchiamo' },
+          { p: 'voi', f: 'cercate' },
+          { p: 'loro', f: 'cercano' }
+        ], nota: null },
+      { subtitulo: 'estoy por cercare', filas: [
+          { p: 'io', f: 'sto per cercare' },
+          { p: 'tu', f: 'stai per cercare' },
+          { p: 'lui, lei', f: 'sta per cercare' },
+          { p: 'noi', f: 'stiamo per cercare' },
+          { p: 'voi', f: 'state per cercare' },
+          { p: 'loro', f: 'stanno per cercare' }
+        ], nota: null },
+      { subtitulo: 'yo cercaré', filas: [
+          { p: 'io', f: 'cercherò' },
+          { p: 'tu', f: 'cercherai' },
+          { p: 'lui, lei', f: 'cercherà' },
+          { p: 'noi', f: 'cercheremo' },
+          { p: 'voi', f: 'cercherete' },
+          { p: 'loro', f: 'cercheranno' }
+        ], nota: null },
+      { subtitulo: 'yo cercaría', filas: [
+          { p: 'io', f: 'cercherei' },
+          { p: 'tu', f: 'cercheresti' },
+          { p: 'lui, lei', f: 'cercherebbe' },
+          { p: 'noi', f: 'cercheremmo' },
+          { p: 'voi', f: 'cerchereste' },
+          { p: 'loro', f: 'cercherebbero' }
+        ], nota: null }
+    ]
+  },
+  'trovare': {
+    tiempos: [
+      { subtitulo: 'yo había trovato', filas: [
+          { p: 'io', f: 'avevo trovato' },
+          { p: 'tu', f: 'avevi trovato' },
+          { p: 'lui, lei', f: 'aveva trovato' },
+          { p: 'noi', f: 'avevamo trovato' },
+          { p: 'voi', f: 'avevate trovato' },
+          { p: 'loro', f: 'avevano trovato' }
+        ], nota: null },
+      { subtitulo: 'yo he trovato', filas: [
+          { p: 'io', f: 'ho trovato' },
+          { p: 'tu', f: 'hai trovato' },
+          { p: 'lui, lei', f: 'ha trovato' },
+          { p: 'noi', f: 'abbiamo trovato' },
+          { p: 'voi', f: 'avete trovato' },
+          { p: 'loro', f: 'hanno trovato' }
+        ], nota: null },
+      { subtitulo: 'yo trovaba', filas: [
+          { p: 'io', f: 'trovavo' },
+          { p: 'tu', f: 'trovavi' },
+          { p: 'lui, lei', f: 'trovava' },
+          { p: 'noi', f: 'trovavamo' },
+          { p: 'voi', f: 'trovavate' },
+          { p: 'loro', f: 'trovavano' }
+        ], nota: null },
+      { subtitulo: 'yo habría trovato', filas: [
+          { p: 'io', f: 'avrei trovato' },
+          { p: 'tu', f: 'avresti trovato' },
+          { p: 'lui, lei', f: 'avrebbe trovato' },
+          { p: 'noi', f: 'avremmo trovato' },
+          { p: 'voi', f: 'avreste trovato' },
+          { p: 'loro', f: 'avrebbero trovato' }
+        ], nota: null },
+      { subtitulo: 'yo trovo', filas: [
+          { p: 'io', f: 'trovo' },
+          { p: 'tu', f: 'trovi' },
+          { p: 'lui, lei', f: 'trova' },
+          { p: 'noi', f: 'troviamo' },
+          { p: 'voi', f: 'trovate' },
+          { p: 'loro', f: 'trovano' }
+        ], nota: null },
+      { subtitulo: 'estoy por trovare', filas: [
+          { p: 'io', f: 'sto per trovare' },
+          { p: 'tu', f: 'stai per trovare' },
+          { p: 'lui, lei', f: 'sta per trovare' },
+          { p: 'noi', f: 'stiamo per trovare' },
+          { p: 'voi', f: 'state per trovare' },
+          { p: 'loro', f: 'stanno per trovare' }
+        ], nota: null },
+      { subtitulo: 'yo trovaré', filas: [
+          { p: 'io', f: 'troverò' },
+          { p: 'tu', f: 'troverai' },
+          { p: 'lui, lei', f: 'troverà' },
+          { p: 'noi', f: 'troveremo' },
+          { p: 'voi', f: 'troverete' },
+          { p: 'loro', f: 'troveranno' }
+        ], nota: null },
+      { subtitulo: 'yo trovaría', filas: [
+          { p: 'io', f: 'troverei' },
+          { p: 'tu', f: 'troveresti' },
+          { p: 'lui, lei', f: 'troverebbe' },
+          { p: 'noi', f: 'troveremmo' },
+          { p: 'voi', f: 'trovereste' },
+          { p: 'loro', f: 'troverebbero' }
         ], nota: null }
     ]
   }
