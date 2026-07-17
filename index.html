@@ -73,12 +73,12 @@ body.unidad-verbos {
   background: #ffffff;
 }
 
-/* Cultura tiene 3 temas (Chamonix, Actividades, País) + Abecedario
+/* Cultura tiene 3 temas (Alpi Italiani, Actividades, País) + Abecedario
    (unidad A). Cada uno enciende su PROPIA clase de body, con sus
    propias variables de color (--tema-c1..c5) — hoy los 3 valen lo
-   mismo (marino/verde/arena/marrón/violeta, "campo francés"), pero
-   quedan desenganchados a propósito: Chamonix y Actividades describen
-   un LUGAR (el valle de Chamonix), que no cambia aunque el idioma que
+   mismo (marino/verde/arena/marrón/violeta, "campo alpino"), pero
+   quedan desenganchados a propósito: Alpi Italiani y Actividades describen
+   un LUGAR (los Alpes italianos), que no cambia aunque el idioma que
    se estudie sí cambie — solo País (+ Abecedario, que copia su
    paleta) representa "el país/idioma" y es lo que hay que retocar
    cuando esto se adapte a otro idioma (ej. Italia). Por eso, aunque
@@ -96,7 +96,7 @@ body.tema-pais-it {
   --tema-c5: #2C5F8A;
   background: #f2ede1;
 }
-body.tema-chamonix-fr {
+body.tema-chamonix-it {
   --tema-c1: #2C4A6E;
   --tema-c2: #3F5D3A;
   --tema-c3: #D9C39A;
@@ -104,7 +104,7 @@ body.tema-chamonix-fr {
   --tema-c5: #6B4C7A;
   background: #dcedfa;
 }
-body.tema-actividadesvalle-fr {
+body.tema-actividadesvalle-it {
   --tema-c1: #2C4A6E;
   --tema-c2: #3F5D3A;
   --tema-c3: #D9C39A;
@@ -275,7 +275,7 @@ header {
     ) border-box;
 }
 
-/* Chamonix / Actividades / País (+ Abecedario) — misma regla para los
+/* Alpi Italiani / Actividades / País (+ Abecedario) — misma regla para los
    3, pero leyendo las variables --tema-cX que cada body.tema-XXX-fr
    define por su cuenta (ver el bloque de fondo, arriba) — así el
    degradé está escrito una sola vez, aunque las 3 fuentes de color
@@ -918,14 +918,14 @@ header {
   margin-bottom: 4px;
 }
 
-/* Chamonix / Actividades / País (+ Abecedario) — mismo borde de 5
+/* Alpi Italiani / Actividades / País (+ Abecedario) — mismo borde de 5
    colores que los selectores, en línea recta (las tarjetas son
    rectangulares, no un óvalo), leyendo las mismas variables --tema-cX.
    Cubre tanto tarjetas sueltas (mesa libre) como tarjetas fijas (País,
    Abecedario). Fondo blanco puro en los dos casos. */
 body.tema-pais-it .tarjeta, body.tema-pais-it .tarjeta-fija,
-body.tema-chamonix-fr .tarjeta, body.tema-chamonix-fr .tarjeta-fija,
-body.tema-actividadesvalle-fr .tarjeta, body.tema-actividadesvalle-fr .tarjeta-fija {
+body.tema-chamonix-it .tarjeta, body.tema-chamonix-it .tarjeta-fija,
+body.tema-actividadesvalle-it .tarjeta, body.tema-actividadesvalle-it .tarjeta-fija {
   background:
     linear-gradient(#ffffff, #ffffff) padding-box,
     linear-gradient(
@@ -1386,7 +1386,7 @@ const estado = {
   tema:     null,
   subtema:  null,
   tipoMesa: null,   // 'libre' | 'fija'
-  editor:   false,
+  editor:   true,
   tarjetas: {},     // posiciones guardadas por id de tarjeta: { left, top }
   sacadas:  {}       // ids de tarjeta actualmente fuera de la caja, por clave de nivel
 };
@@ -1395,111 +1395,111 @@ const estado = {
 const UNIDADES = {
   'A': {
     nombre: 'Abecedario',
-    tipo: 'fija',
+    tipo: 'libre',
     temas: null
   },
   'B': {
     nombre: 'Cultura',
     tipo: 'libre',
     temas: {
-      'B1': { nombre: 'Chamonix',    tipo: 'libre', subtemas: null },
-      'B2': { nombre: 'Actividades', tipo: 'libre', subtemas: null },
-      'B3': { nombre: 'País',        tipo: 'fija',  subtemas: null }
+      'B1': { nombre: 'Alpi Italiani',       tipo: 'libre', subtemas: null },
+      'B2': { nombre: 'Attività Alpina',    tipo: 'libre', subtemas: null },
+      'B3': { nombre: 'Paese (Italia)',     tipo: 'fija',  subtemas: null }
     }
   },
   'C': {
-    nombre: 'La Geografía y el Clima',
+    nombre: 'Geografia e Clima Alpino',
     tipo: 'libre',
     temas: {
-      'C1': { nombre: 'Terreno',            subtemas: null },
-      'C2': { nombre: 'Flora y Fauna',      subtemas: null },
-      'C3': { nombre: 'Clima y Estaciones', subtemas: null },
+      'C1': { nombre: 'Terreno Alpino',       subtemas: null },
+      'C2': { nombre: 'Flora e Fauna',        subtemas: null },
+      'C3': { nombre: 'Clima e Stagioni',     subtemas: null },
       'C4': {
-        nombre: 'Actividades',
+        nombre: 'Sport Montani',
         subtemas: {
-          'C4a': { nombre: 'Invierno' },
-          'C4b': { nombre: 'Verano' }
+          'C4a': { nombre: 'Inverno' },
+          'C4b': { nombre: 'Estate' }
         }
       }
     }
   },
   'D': {
-    nombre: 'Los Números y el Tiempo',
+    nombre: 'Numeri e Tempo',
     tipo: 'libre',
     temas: {
-      'D1': { nombre: 'Números',    subtemas: null },
-      'D2': { nombre: 'El Tiempo',  subtemas: null }
+      'D1': { nombre: 'Numeri',     subtemas: null },
+      'D2': { nombre: 'Tempo/Ora',  subtemas: null }
     }
   },
   'E': {
-    nombre: 'Modos y Frases',
+    nombre: 'Modi e Frasi',
     tipo: 'libre',
     temas: {
-      'E1': { nombre: 'Imperativo',  subtemas: null },
-      'E2': { nombre: 'Subjuntivo',  subtemas: null },
-      'E3': { nombre: 'Preguntas',   subtemas: null },
-      'E4': { nombre: 'Frases', subtemas: {
-        'E4a': { nombre: 'Partículas' },
-        'E4b': { nombre: 'Conversación' }
+      'E1': { nombre: 'Imperativo',     subtemas: null },
+      'E2': { nombre: 'Congiuntivo',    subtemas: null },
+      'E3': { nombre: 'Interrogazione', subtemas: null },
+      'E4': { nombre: 'Frasi', subtemas: {
+        'E4a': { nombre: 'Particelle' },
+        'E4b': { nombre: 'Conversazione' }
       } },
-      'E5': { nombre: 'Negación',    subtemas: null }
+      'E5': { nombre: 'Negazione',      subtemas: null }
     }
   },
   'F': {
-    nombre: 'Personas',
+    nombre: 'Persone e Pronomi',
     tipo: 'libre',
     temas: {
-      'F1': { nombre: 'Sujetos',      subtemas: null },
-      'F2': { nombre: 'Artículos',    subtemas: null },
-      'F3': { nombre: 'Ubicaciones',  subtemas: null },
-      'F4': { nombre: 'Adjetivos',    subtemas: null }
+      'F1': { nombre: 'Soggetti',       subtemas: null },
+      'F2': { nombre: 'Articoli',       subtemas: null },
+      'F3': { nombre: 'Preposizioni',   subtemas: null },
+      'F4': { nombre: 'Aggettivi',      subtemas: null }
     }
   },
   'G': {
-    nombre: 'Verbos',
+    nombre: 'Verbi',
     tipo: 'fija',
     temas: {
-      'G1': { nombre: 'Auxiliares',   subtemas: {
-        'andare': { nombre: 'Ir', verbo: 'Andare', participio: 'andato' },
-        'essere': { nombre: 'Ser/Estar', verbo: 'Essere', participio: 'stato' },
-        'avere':  { nombre: 'Tener', verbo: 'Avere', participio: 'avuto' }
+      'G1': { nombre: 'Ausiliari',   subtemas: {
+        'andare': { nombre: 'Andare', verbo: 'Andare', participio: 'andato' },
+        'essere': { nombre: 'Essere', verbo: 'Essere', participio: 'stato' },
+        'avere':  { nombre: 'Avere',  verbo: 'Avere', participio: 'avuto' }
       } },
-      'G2': { nombre: 'Irregulares',  subtemas: {
-        'venire':    { nombre: 'Venir',       verbo: 'Venire',    participio: 'venuto' },
-        'vivere':    { nombre: 'Vivir',       verbo: 'Vivere',    participio: 'vissuto' },
-        'volere':    { nombre: 'Querer',      verbo: 'Volere',    participio: 'voluto' },
-        'uscire':    { nombre: 'Salir',       verbo: 'Uscire',    participio: 'uscito' },
-        'prendere':  { nombre: 'Agarrar',     verbo: 'Prendere',  participio: 'preso' },
-        'mettere':   { nombre: 'Poner/Meter', verbo: 'Mettere',   participio: 'messo' },
-        'potere':    { nombre: 'Poder',       verbo: 'Potere',    participio: 'potuto' },
-        'fare':      { nombre: 'Hacer',       verbo: 'Fare',      participio: 'fatto' },
-        'dire':      { nombre: 'Decir',       verbo: 'Dire',      participio: 'detto' },
-        'dovere':    { nombre: 'Deber',       verbo: 'Dovere',    participio: 'dovuto' },
-        'conoscere': { nombre: 'Conocer',     verbo: 'Conoscere', participio: 'conosciuto' }
+      'G2': { nombre: 'Irregolari',  subtemas: {
+        'venire':    { nombre: 'Venire',       verbo: 'Venire',    participio: 'venuto' },
+        'vivere':    { nombre: 'Vivere',       verbo: 'Vivere',    participio: 'vissuto' },
+        'volere':    { nombre: 'Volere',       verbo: 'Volere',    participio: 'voluto' },
+        'uscire':    { nombre: 'Uscire',       verbo: 'Uscire',    participio: 'uscito' },
+        'prendere':  { nombre: 'Prendere',     verbo: 'Prendere',  participio: 'preso' },
+        'mettere':   { nombre: 'Mettere',      verbo: 'Mettere',   participio: 'messo' },
+        'potere':    { nombre: 'Potere',       verbo: 'Potere',    participio: 'potuto' },
+        'fare':      { nombre: 'Fare',         verbo: 'Fare',      participio: 'fatto' },
+        'dire':      { nombre: 'Dire',          verbo: 'Dire',      participio: 'detto' },
+        'dovere':    { nombre: 'Dovere',        verbo: 'Dovere',    participio: 'dovuto' },
+        'conoscere': { nombre: 'Conoscere',     verbo: 'Conoscere', participio: 'conosciuto' }
       } },
-      'G3': { nombre: 'Regulares',    subtemas: {
-        'amare':    { nombre: 'Gustar/Amar', verbo: 'Amare',    participio: 'amato' },
-        'portare':  { nombre: 'Traer',       verbo: 'Portare',  participio: 'portato' },
-        'arrivare': { nombre: 'Llegar',      verbo: 'Arrivare', participio: 'arrivato' },
-        'dare':     { nombre: 'Dar',         verbo: 'Dare',     participio: 'dato' },
-        'abitare':  { nombre: 'Habitar/Vivir en', verbo: 'Abitare', participio: 'abitato' },
-        'parlare':  { nombre: 'Hablar',      verbo: 'Parlare',  participio: 'parlato' },
-        'riparare': { nombre: 'Reparar',     verbo: 'Riparare', participio: 'riparato' },
-        'pensare':  { nombre: 'Pensar',      verbo: 'Pensare',  participio: 'pensato' },
-        'lavorare': { nombre: 'Trabajar',    verbo: 'Lavorare', participio: 'lavorato' }
+      'G3': { nombre: 'Regolari',    subtemas: {
+        'amare':    { nombre: 'Amare',    verbo: 'Amare',    participio: 'amato' },
+        'portare':  { nombre: 'Portare',  verbo: 'Portare',  participio: 'portato' },
+        'arrivare': { nombre: 'Arrivare', verbo: 'Arrivare', participio: 'arrivato' },
+        'dare':     { nombre: 'Dare',     verbo: 'Dare',     participio: 'dato' },
+        'abitare':  { nombre: 'Abitare',  verbo: 'Abitare',  participio: 'abitato' },
+        'parlare':  { nombre: 'Parlare',  verbo: 'Parlare',  participio: 'parlato' },
+        'riparare': { nombre: 'Riparare', verbo: 'Riparare', participio: 'riparato' },
+        'pensare':  { nombre: 'Pensare',  verbo: 'Pensare',  participio: 'pensato' },
+        'lavorare': { nombre: 'Lavorare', verbo: 'Lavorare', participio: 'lavorato' }
       } },
-      'G4': { nombre: 'Reflexivos',   subtemas: {
-        'alzarsi':    { nombre: 'Levantarse',  verbo: 'Alzarsi',    participio: 'alzato' },
-        'chiamarsi':  { nombre: 'Llamarse',    verbo: 'Chiamarsi',  participio: 'chiamato' },
-        'svegliarsi': { nombre: 'Despertarse', verbo: 'Svegliarsi', participio: 'svegliato' },
-        'coricarsi':  { nombre: 'Acostarse',   verbo: 'Coricarsi',  participio: 'coricato' },
-        'sentirsi':   { nombre: 'Sentirse',    verbo: 'Sentirsi',   participio: 'sentito' },
-        'scusarsi':   { nombre: 'Disculparse', verbo: 'Scusarsi',   participio: 'scusato' }
+      'G4': { nombre: 'Riflessivi',   subtemas: {
+        'alzarsi':    { nombre: 'Alzarsi',    verbo: 'Alzarsi',    participio: 'alzato' },
+        'chiamarsi':  { nombre: 'Chiamarsi',  verbo: 'Chiamarsi',  participio: 'chiamato' },
+        'svegliarsi': { nombre: 'Svegliarsi', verbo: 'Svegliarsi', participio: 'svegliato' },
+        'coricarsi':  { nombre: 'Coricarsi',  verbo: 'Coricarsi',  participio: 'coricato' },
+        'sentirsi':   { nombre: 'Sentirsi',   verbo: 'Sentirsi',   participio: 'sentito' },
+        'scusarsi':   { nombre: 'Scusarsi',   verbo: 'Scusarsi',   participio: 'scusato' }
       } }
     }
   },
   'H': {
-    nombre: 'Vocabulario',
+    nombre: 'Vocabolario',
     tipo: 'libre',
     temas: null
   }
@@ -1515,13 +1515,14 @@ function claveNivelActual() {
 // devuelve el nodo DOM completo de la tarjeta (sin posición).
 const CONTENIDO_TARJETAS = {
   'A': [
-    { id: 'abecedario-italiano', tipo: 'texto-largo', titulo: 'Abecedario italiano', render: renderTarjetaAbecedarioItaliano }
+    { id: 'abecedario-italiano', tipo: 'columnas', titulo: 'Alfabeto italiano', render: renderTarjetaAbecedarioItaliano },
+    { id: 'reglas-pronunciacion', tipo: 'texto-largo', titulo: 'Reglas de pronunciación', render: renderTarjetaReglasPronunciacion }
   ],
   'H': [
-    { id: 'colores',       tipo: 'colores',      titulo: 'Colores',      render: renderTarjetaColores },
-    { id: 'vocabulario',   tipo: 'variable',      titulo: 'Vocabulario',  render: renderTarjetaVocabulario },
-    { id: 'tonalidades',   tipo: 'columnas',      titulo: 'Tonalidades',  render: renderTarjetaTonalidades },
-    { id: 'texto-largo',   tipo: 'texto-largo',   titulo: 'Texto largo',  render: renderTarjetaTextoLargoEjemplo }
+    { id: 'colori',       tipo: 'colores',      titulo: 'Colori',                render: renderTarjetaColori },
+    { id: 'vocabolario',  tipo: 'variable',      titulo: 'Vocabolario',           render: renderTarjetaVocabolario },
+    { id: 'tonalita',     tipo: 'columnas',      titulo: 'Tonalità',              render: renderTarjetaTonalita },
+    { id: 'testo-lungo',  tipo: 'texto-largo',   titulo: 'Testo Lungo — Esempio', render: renderTarjetaTestoLungoEsempio }
   ],
   'D-D1': [
     { id: 'numeros',        tipo: 'variable',      titulo: 'Números',      render: renderTarjetaNumeros },
@@ -1530,37 +1531,37 @@ const CONTENIDO_TARJETAS = {
     { id: 'numeros-ordinales', tipo: 'columnas',   titulo: 'Números ordinales', render: renderTarjetaNumerosOrdinales }
   ],
   'D-D2': [
-    { id: 'relojes',           tipo: 'relojes',  titulo: 'Relojes',                              render: renderTarjetaRelojesEjemplo },
-    { id: 'meses-del-anio',    tipo: 'columnas', titulo: 'Meses del año',                        render: renderTarjetaMesesDelAnio },
-    { id: 'avant-apres',       tipo: 'columnas', titulo: 'Avant / après',                        render: renderTarjetaAvantApres },
-    { id: 'preposicion-a',     tipo: 'columnas', titulo: '"A qué hora": la preposición "à"',      render: renderTarjetaPreposicionA },
-    { id: 'sistema-informal',  tipo: 'columnas', titulo: 'Sistema informal (reloj de 12 horas)', render: renderTarjetaSistemaInformal },
-    { id: 'dias-semana',       tipo: 'columnas', titulo: 'Días de la semana',                     render: renderTarjetaDiasSemana },
-    { id: 'momentos-imprecisos', tipo: 'columnas', titulo: 'Momentos imprecisos',                 render: renderTarjetaMomentosImprecisos },
-    { id: 'dias-concretos',    tipo: 'columnas', titulo: 'Días concretos respecto a hoy',         render: renderTarjetaDiasConcretos },
-    { id: 'mediodia-medianoche', tipo: 'columnas', titulo: 'Mediodía y medianoche',                render: renderTarjetaMediodiaMedianoche }
+    { id: 'relojes',           tipo: 'relojes',  titulo: 'Orologi',                                render: renderTarjetaRelojesEjemplo },
+    { id: 'mesi-anno',         tipo: 'columnas', titulo: 'Mesi dell\'anno',                        render: renderTarjetaMesiDelAnno },
+    { id: 'prima-dopo',        tipo: 'columnas', titulo: 'Prima / Dopo',                           render: renderTarjetaPrimadopo },
+    { id: 'preposizione-a',    tipo: 'columnas', titulo: '"A che ora": la preposizione "a"',      render: renderTarjetaPreposizoneA },
+    { id: 'sistema-informale', tipo: 'columnas', titulo: 'Sistema informale (12 ore)',            render: renderTarjetaSistemaInformale },
+    { id: 'giorni-settimana',  tipo: 'columnas', titulo: 'Giorni della settimana',                render: renderTarjetaGiorniSettimana },
+    { id: 'momenti-imprecisi', tipo: 'columnas', titulo: 'Momenti imprecisi',                     render: renderTarjetaMomentiImprecisi },
+    { id: 'giorni-concreti',   tipo: 'columnas', titulo: 'Giorni concreti rispetto a oggi',       render: renderTarjetaGiorniConcreti },
+    { id: 'mezzogiorno-mezzanotte', tipo: 'columnas', titulo: 'Mezzogiorno e Mezzanotte',         render: renderTarjetaMezzogiornoMezzanotte }
   ],
   'B-B1': [
-    { id: 'historia-alpinismo',   tipo: 'columnas', titulo: 'Historia del alpinismo',    render: renderTarjetaHistoriaAlpinismo },
-    { id: 'el-pueblo-hoy',        tipo: 'columnas', titulo: 'El pueblo hoy',             render: renderTarjetaElPuebloHoy },
-    { id: 'compagnie-des-guides', tipo: 'columnas', titulo: 'La Compagnie des Guides',   render: renderTarjetaCompagnieDesGuides },
-    { id: 'eventos-festivales',   tipo: 'columnas', titulo: 'Eventos y festivales',      render: renderTarjetaEventosFestivales }
+    { id: 'historia-alpinismo',   tipo: 'columnas', titulo: 'Storia dell\'alpinismo italiano',    render: renderTarjetaHistoriaAlpinismo },
+    { id: 'alpes-hoy',            tipo: 'columnas', titulo: 'Gli Alpi italiani oggi',             render: renderTarjetaAlpesHoy },
+    { id: 'guide-alpine',         tipo: 'columnas', titulo: 'Le Guide Alpine Italiane',          render: renderTarjetaGuideAlpine },
+    { id: 'eventi-festival',      tipo: 'columnas', titulo: 'Festival ed Eventi Alpini',        render: renderTarjetaEventiFestival }
   ],
   'B-B2': [
-    { id: 'chamonix-mont-blanc', tipo: 'columnas', titulo: 'Chamonix-Mont-Blanc', render: renderTarjetaChamonixMontBlanc },
-    { id: 'vallorcine',          tipo: 'columnas', titulo: 'Vallorcine',          render: renderTarjetaVallorcine },
-    { id: 'servoz',              tipo: 'columnas', titulo: 'Servoz',              render: renderTarjetaServoz },
-    { id: 'les-houches',         tipo: 'columnas', titulo: 'Les Houches',         render: renderTarjetaLesHouches },
-    { id: 'argentiere',          tipo: 'columnas', titulo: 'Argentière',          render: renderTarjetaArgentiere }
+    { id: 'sci-alpino',          tipo: 'columnas', titulo: 'Sci Alpino',          render: renderTarjetaSciAlpino },
+    { id: 'alpinismo',           tipo: 'columnas', titulo: 'Alpinismo e Scalata',  render: renderTarjetaAlpinismo },
+    { id: 'sci-di-fondo',        tipo: 'columnas', titulo: 'Sci di Fondo',        render: renderTarjetaSciDiFondo },
+    { id: 'trekking',            tipo: 'columnas', titulo: 'Trekking e Sentieri',  render: renderTarjetaTrekking },
+    { id: 'parapendio',          tipo: 'columnas', titulo: 'Parapendio Alpino',    render: renderTarjetaParapendio }
   ],
   'C-C1': [
     { id: 'terreno',       tipo: 'variable',      titulo: 'Terreno',      render: renderTarjetaTerreno }
   ],
   'C-C2': [
-    { id: 'fauna-chamonix', tipo: 'columnas', titulo: 'Fauna de Chamonix / los Alpes',       render: renderTarjetaFaunaChamonix },
-    { id: 'flora-chamonix', tipo: 'columnas', titulo: 'Flora de Chamonix / los Alpes',       render: renderTarjetaFloraChamonix },
-    { id: 'flora-francia',  tipo: 'columnas', titulo: 'Flora típica de Francia',             render: renderTarjetaFloraFrancia },
-    { id: 'fauna-francia',  tipo: 'columnas', titulo: 'Fauna típica de Francia',             render: renderTarjetaFaunaFrancia }
+    { id: 'fauna-alpi',   tipo: 'columnas', titulo: 'Fauna degli Alpi italiani',    render: renderTarjetaFaunaAlpi },
+    { id: 'flora-alpi',   tipo: 'columnas', titulo: 'Flora degli Alpi italiani',    render: renderTarjetaFloraAlpi },
+    { id: 'uccelli-alpi', tipo: 'columnas', titulo: 'Uccelli Alpini',               render: renderTarjetaUccelliAlpi },
+    { id: 'insetti-alpi', tipo: 'columnas', titulo: 'Insetti e Piccoli Animali',    render: renderTarjetaInsettiAlpi }
   ],
   'C-C4-C4a': [
     { id: 'deportes-invierno',      tipo: 'columnas', titulo: 'Deportes de invierno',       render: renderTarjetaDeportesInvierno },
@@ -1579,9 +1580,9 @@ const CONTENIDO_TARJETAS = {
     { id: 'imperativo-negativo',    tipo: 'columnas', titulo: 'Imperativo negativo',              render: renderTarjetaImperativoNegativo }
   ],
   'E-E2': [
-    { id: 'subjuntivo-cuando-usar',        tipo: 'informatica', titulo: 'Subjuntivo — cuándo se usa',                  render: renderTarjetaSubjuntivoCuandoUsar },
-    { id: 'subjuntivo-presente-regulares', tipo: 'columnas',    titulo: 'Subjuntivo presente — verbos regulares',      render: renderTarjetaSubjuntivoPresenteRegulares },
-    { id: 'subjuntivo-presente-irregulares', tipo: 'columnas',  titulo: 'Subjuntivo presente — verbos irregulares clave', render: renderTarjetaSubjuntivoPresenteIrregulares }
+    { id: 'congiuntivo-quando-usare',        tipo: 'informatica', titulo: 'Congiuntivo — quando si usa',                  render: renderTarjetaCongiuntivoQuandoUsare },
+    { id: 'congiuntivo-presente-regulari',   tipo: 'columnas',    titulo: 'Congiuntivo presente — verbi regolari',      render: renderTarjetaCongiuntivoPreseniteRegolari },
+    { id: 'congiuntivo-presente-irregolari', tipo: 'columnas',    titulo: 'Congiuntivo presente — verbi irregolari chiave', render: renderTarjetaCongiuntivoPreseniteIrregolari }
   ],
   'E-E3': [
     { id: 'interrogacion-niveles', tipo: 'columnas', titulo: 'Interrogación: 3 niveles de registro', render: renderTarjetaInterrogacionNiveles },
@@ -1600,8 +1601,8 @@ const CONTENIDO_TARJETAS = {
     { id: 'discurso-indirecto',   tipo: 'columnas', titulo: 'Discurso indirecto', render: renderTarjetaDiscursoIndirecto }
   ],
   'E-E4-E4b': [
-    { id: 'quejas-disculpas',     tipo: 'columnas', titulo: 'Manejo de quejas y disculpas', render: renderTarjetaQuejasDisculpas },
-    { id: 'marcadores-conversacion', tipo: 'columnas', titulo: 'Marcadores de conversación', render: renderTarjetaMarcadoresConversacion }
+    { id: 'lamentele-scuse',         tipo: 'columnas', titulo: 'Gestione di lamentele e scuse', render: renderTarjetaLamentelScuse },
+    { id: 'marcatori-conversazione', tipo: 'columnas', titulo: 'Marcatori di conversazione',   render: renderTarjetaMarcatoriConversazione }
   ],
   'E-E5': [
     { id: 'negacion-basica',      tipo: 'columnas', titulo: 'Negación básica', render: renderTarjetaNegacionBasica },
@@ -1613,12 +1614,12 @@ const CONTENIDO_TARJETAS = {
     { id: 'posesivos',       tipo: 'columnas',      titulo: 'Pronombres posesivos',   render: renderTarjetaPronombresPosesivos }
   ],
   'F-F2': [
-    { id: 'definidos',       tipo: 'columnas',      titulo: 'Definidos',              render: renderTarjetaArticulosDefinidos },
-    { id: 'partitivos',      tipo: 'columnas',      titulo: 'Partitivos',             render: renderTarjetaArticulosPartitivos },
-    { id: 'indefinidos',     tipo: 'columnas',      titulo: 'Indefinidos',            render: renderTarjetaArticulosIndefinidos },
-    { id: 'cod',             tipo: 'columnas',      titulo: 'COD',                    render: renderTarjetaCOD },
-    { id: 'coi',             tipo: 'columnas',      titulo: 'COI',                    render: renderTarjetaCOI },
-    { id: 'doble-pronombre', tipo: 'columnas',      titulo: 'Combinación de dos pronombres', render: renderTarjetaDoblePronombre }
+    { id: 'articoli-definiti',    tipo: 'columnas',      titulo: 'Articoli Definiti',         render: renderTarjetaArticoliDefiniti },
+    { id: 'articoli-partitivi',   tipo: 'columnas',      titulo: 'Articoli Partitivi',        render: renderTarjetaArticoliPartitivi },
+    { id: 'articoli-indefiniti',  tipo: 'columnas',      titulo: 'Articoli Indefiniti',       render: renderTarjetaArticoliIndefiniti },
+    { id: 'pronomi-cod',          tipo: 'columnas',      titulo: 'Pronomi Complemento Oggetto', render: renderTarjetaPronomiCOD },
+    { id: 'pronomi-coi',          tipo: 'columnas',      titulo: 'Pronomi Complemento Indiretto', render: renderTarjetaPronomiCOI },
+    { id: 'due-pronomi',          tipo: 'columnas',      titulo: 'Combinazione di due pronomi', render: renderTarjetaDuePronomi }
   ],
   'F-F3': [
     { id: 'pronombres-y-en', tipo: 'columnas',      titulo: 'Pronombres "y" y "en"',  render: renderTarjetaPronombresYEn },
@@ -1939,7 +1940,7 @@ const DATOS_TONALIDADES = [
 ];
 
 // ── Render: tarjeta de colores ──────────────────────────────────────────
-function renderTarjetaColores() {
+function renderTarjetaColori() {
   const div = document.createElement('div');
   div.className = 'tarjeta';
   let filas = '';
@@ -1965,7 +1966,7 @@ function renderTarjetaColores() {
 }
 
 // ── Render: tarjeta de vocabulario (variable / contenido elegible) ─────
-function renderTarjetaVocabulario(temaKey) {
+function renderTarjetaVocabolario(temaKey) {
   const key = temaKey && TEMAS_VOCABULARIO[temaKey] ? temaKey : 'lugares-hotel';
   const tema = TEMAS_VOCABULARIO[key];
 
@@ -2081,39 +2082,39 @@ const TEMAS_TERRENO = {
     nombre: 'Picos y cumbres',
     columnaExtra: 'Altura',
     items: [
-      { fr: 'il Monte Bianco',        es: 'el Mont Blanc',        extra: '4805 m — el más alto de Europa occidental' },
-      { fr: "l'Aiguille du Midi",     es: 'la Aiguille du Midi',  extra: '3842 m — se sube en teleférico desde el pueblo' },
-      { fr: 'le Aiguilles Rouges',    es: 'las Aiguilles Rouges', extra: 'hasta 2965 m — cadena frente al Mont Blanc, mejor vista panorámica' },
-      { fr: 'il Monte Maudit',       es: 'el Mont Maudit',       extra: '4465 m — al lado del Mont Blanc, ruta de alpinistas' },
-      { fr: 'le Grandes Jorasses',    es: 'las Grandes Jorasses', extra: '4208 m — pared muy técnica, solo alpinismo experto' }
+      { fr: 'il Gran Paradiso',       es: 'el Gran Paradiso',       extra: '4061 m — la cima más alta completamente en Italia' },
+      { fr: 'la Marmolada',           es: 'la Marmolada',           extra: '3343 m — "la Reina de los Dolomitas", glaciar más grande Dolomitas' },
+      { fr: 'le Tre Cime di Lavaredo',es: 'las Tre Cime',           extra: '2999-3205 m — patrimonio UNESCO, paisaje icónico' },
+      { fr: 'il Monte Rosa',          es: 'el Monte Rosa',          extra: '4634 m — cadena fronteriza Italia-Suiza, glaciar más extenso' },
+      { fr: 'il Monte Bianco',        es: 'el Mont Blanc',          extra: '4808 m — disputado Italia-Francia, techo de Europa occidental' }
     ]
   },
   'valles-relieve': {
     nombre: 'Valles y relieve general',
     columnaExtra: 'Dato',
     items: [
-      { fr: 'la Valle di Chamonix',  es: 'el Valle de Chamonix', extra: '17 km de largo, entre 758 y 4805 m de altura' },
-      { fr: 'Argentière',            es: 'Argentière',           extra: 'pueblo del valle, 1252 m, punto de partida de varias rutas' },
-      { fr: 'Les Houches',           es: 'Les Houches',          extra: 'pueblo del valle, zona de esquí para principiantes' }
+      { fr: 'le Dolomiti',                es: 'las Dolomitas',            extra: 'Patrimonio UNESCO — cadena montañosa de piedra caliza, entre 1200-3205 m' },
+      { fr: 'la Valle d\'Aosta',          es: 'el Valle de Aosta',        extra: 'Valle fronterizo Italia-Francia, 700-4061 m de altitud, bilíngüe italiano-francés' },
+      { fr: 'il Trentino-Alto Adige',     es: 'Trentino-Alto Adige',      extra: 'Región autónoma con valles alpinos especializadas en turismo de montaña' }
     ]
   },
   'glaciares-nieves': {
     nombre: 'Glaciares y nieves permanentes',
     columnaExtra: 'Acceso',
     items: [
-      { fr: 'il Mar di Ghiaccio',        es: 'el Mar de Hielo',          extra: 'el glaciar más grande de Francia — accesible en tren' },
-      { fr: 'il ghiacciaio des Bossons', es: 'el Glaciar des Bossons',   extra: 'visible desde el pueblo, sin subir' },
-      { fr: "il ghiacciaio di Argentière", es: 'el Glaciar de Argentière', extra: 'visible desde el pueblo de Argentière' }
+      { fr: 'il ghiacciaio della Marmolada', es: 'el Glaciar de Marmolada',     extra: 'Glacier más grande Dolomitas — accesible por funivia desde Rocca Pian' },
+      { fr: 'il ghiacciaio del Gran Paradiso', es: 'el Glaciar del Gran Paradiso', extra: 'Parque Nacional — acceso regulado, permisos estacionales' },
+      { fr: 'il ghiacciaio del Monte Rosa',   es: 'el Glaciar del Monte Rosa',   extra: 'Glaciar más extenso Alpes italianos — frontera Italia-Suiza' }
     ]
   },
   'zonas-senderismo': {
     nombre: 'Zonas de senderismo',
     columnaExtra: 'Dificultad y distancia',
     items: [
-      { fr: 'il Lago Bianco',            es: 'el Lac Blanc',                 extra: 'difícil — 11 km, +950 m de desnivel, tramos con escalerillas' },
-      { fr: 'il sentiero del Mar di Ghiaccio', es: 'el sendero a la Mer de Glace', extra: 'fácil — tren de montaña + caminata corta' },
-      { fr: 'il sentiero dei Balconi', es: 'el Sendero de los Balcones',   extra: 'media — recorrido panorámico, sin grandes subidas' },
-      { fr: 'i laghi di Chéserys',     es: 'los Lacs des Chéserys',        extra: 'media — paso obligado antes de llegar al Lac Blanc' }
+      { fr: 'la GTA (Gran Traverse Alpi)',    es: 'Gran Traverse Alpi',       extra: 'Trekking clásico 65+ días, 60+ rifugios — camino transcontinental' },
+      { fr: 'il sentiero del Giro del Gran Paradiso', es: 'Giro Gran Paradiso', extra: 'Circular 2-3 días, +/- 1000m, máxima altitud 2.600 m' },
+      { fr: 'il sentiero Alta Via 1 (Dolomiti)', es: 'Alta Via 1 (Dolomiti)',   extra: 'Ruta clásica 12 días, rifugios cada día, vistas Tre Cime' },
+      { fr: 'il sentiero del Lago di Sorapis',  es: 'Lago di Sorapis (Cortina)', extra: 'Día completo desde Cortina — +650 m, lago alpino espectacular' }
     ]
   }
 };
@@ -2178,7 +2179,7 @@ function renderTarjetaTerreno(temaKey) {
 }
 
 // ── Render: tarjeta de tonalidades ──────────────────────────────────────
-function renderTarjetaTonalidades() {
+function renderTarjetaTonalita() {
   const div = document.createElement('div');
   div.className = 'tarjeta';
   let filas = '';
@@ -2439,22 +2440,51 @@ function crearTarjetaTablaGenerica(def) {
 
 // ── Ejemplos de uso (contenido de muestra, no de un idioma en particular) ─
 function renderTarjetaAbecedarioItaliano() {
-  return crearTarjetaTextoLargo({
-    titulo: 'Abecedario italiano',
-    parrafos: [
-      'El alfabeto italiano tiene <strong>21 letras</strong> (no usa <strong>j, k, w, x, y</strong> salvo en palabras extranjeras): <span class="hablar" data-hablar="a, bi, ci, di, e, effe, gi, acca, i, elle, emme, enne, o, pi, cu, erre, esse, ti, u, vu, zeta">a, bi, ci, di, e, effe, gi, acca, i, elle, emme, enne, o, pi, cu, erre, esse, ti, u, vu, zeta</span>.',
-      'Las vocales se pronuncian siempre igual, sin diptongar como en inglés: <span class="hablar" data-hablar="a, e, i, o, u">a, e, i, o, u</span> — casi idéntico al español.',
-      '<strong>C y G duras/suaves:</strong> antes de <strong>a, o, u</strong> son duras (<span class="hablar" data-hablar="casa">casa</span>, <span class="hablar" data-hablar="gatto">gatto</span>); antes de <strong>e, i</strong> son suaves, como "ch"/"y" en español (<span class="hablar" data-hablar="cena">cena</span> suena "chena", <span class="hablar" data-hablar="giorno">giorno</span> suena "yorno").',
-      'Para mantener el sonido duro delante de <strong>e, i</strong> se agrega una <strong>h</strong>: <span class="hablar" data-hablar="che">che</span>, <span class="hablar" data-hablar="chi">chi</span>, <span class="hablar" data-hablar="ghetto">ghetto</span>, <span class="hablar" data-hablar="ghiaccio">ghiaccio</span>. Para mantener el sonido suave delante de <strong>a, o, u</strong> se agrega una <strong>i</strong> muda: <span class="hablar" data-hablar="ciao">ciao</span>, <span class="hablar" data-hablar="giacca">giacca</span>, <span class="hablar" data-hablar="giorno">giorno</span>.',
-      '<strong>Combinaciones propias:</strong> <span class="hablar" data-hablar="gli">gli</span> (como "ly" fundido, ej. <span class="hablar" data-hablar="famiglia">famiglia</span>), <span class="hablar" data-hablar="gn">gn</span> (como la "ñ" española, ej. <span class="hablar" data-hablar="bagno">bagno</span>), <span class="hablar" data-hablar="sc">sc</span> antes de e/i suena "sh" (<span class="hablar" data-hablar="pesce">pesce</span>) y antes de a/o/u suena "sk" (<span class="hablar" data-hablar="scuola">scuola</span>).',
-      '<strong>Consonantes dobles:</strong> se pronuncian de verdad más largas/marcadas que la simple, y cambian el significado de la palabra (<span class="hablar" data-hablar="sono">sono</span> "soy/son" vs <span class="hablar" data-hablar="sonno">sonno</span> "sueño"; <span class="hablar" data-hablar="capello">capello</span> "cabello" vs <span class="hablar" data-hablar="cappello">cappello</span> "sombrero").',
-      '<strong>Acento tónico:</strong> la mayoría de las palabras acentúan la penúltima sílaba. Cuando la última sílaba lleva el acento, se marca con tilde: <span class="hablar" data-hablar="città">città</span>, <span class="hablar" data-hablar="perché">perché</span>, <span class="hablar" data-hablar="università">università</span>.',
-      'La <strong>h</strong> nunca suena sola — solo aparece para modificar el sonido de otra letra (ver arriba) o en formas del verbo <em>avere</em> (<span class="hablar" data-hablar="ho, hai, ha, hanno">ho, hai, ha, hanno</span>).'
+  return crearTarjetaVocabularioExtra({
+    titulo: 'Alfabeto italiano',
+    columnaExtra: 'Ejemplo',
+    filas: [
+      { fr: 'A a', es: 'A', extra: 'auto' },
+      { fr: 'B b', es: 'B', extra: 'bambino' },
+      { fr: 'C c', es: 'C', extra: 'casa / cena' },
+      { fr: 'D d', es: 'D', extra: 'dado' },
+      { fr: 'E e', es: 'E', extra: 'elefante' },
+      { fr: 'F f', es: 'F', extra: 'foco' },
+      { fr: 'G g', es: 'G', extra: 'gatto / giorno' },
+      { fr: 'H h', es: 'H', extra: '(muda, modifica C/G)' },
+      { fr: 'I i', es: 'I', extra: 'isola' },
+      { fr: 'L l', es: 'L', extra: 'luna' },
+      { fr: 'M m', es: 'M', extra: 'mano' },
+      { fr: 'N n', es: 'N', extra: 'naso' },
+      { fr: 'O o', es: 'O', extra: 'ora' },
+      { fr: 'P p', es: 'P', extra: 'pane' },
+      { fr: 'Q q', es: 'Q', extra: 'quanto' },
+      { fr: 'R r', es: 'R', extra: 'roma' },
+      { fr: 'S s', es: 'S', extra: 'sole / rosa' },
+      { fr: 'T t', es: 'T', extra: 'tavolo' },
+      { fr: 'U u', es: 'U', extra: 'università' },
+      { fr: 'V v', es: 'V', extra: 'vino' },
+      { fr: 'Z z', es: 'Z', extra: 'zero / pizza' }
     ]
   });
 }
 
-function renderTarjetaTextoLargoEjemplo() {
+function renderTarjetaReglasPronunciacion() {
+  return crearTarjetaTextoLargo({
+    titulo: 'Reglas de pronunciación italiana',
+    parrafos: [
+      '<strong>Vocales:</strong> Se pronuncian siempre igual, sin diptongar: <span class="hablar" data-hablar="a, e, i, o, u">a, e, i, o, u</span> — casi idéntico al español.',
+      '<strong>C y G duras/suaves:</strong> Antes de <strong>a, o, u</strong> son duras: <span class="hablar" data-hablar="casa">casa</span>, <span class="hablar" data-hablar="gatto">gatto</span>. Antes de <strong>e, i</strong> son suaves: <span class="hablar" data-hablar="cena">cena</span> (suena "chena"), <span class="hablar" data-hablar="giorno">giorno</span> (suena "yorno").',
+      '<strong>H muda:</strong> Solo modifica C y G. <span class="hablar" data-hablar="che">che</span>, <span class="hablar" data-hablar="chi">chi</span>, <span class="hablar" data-hablar="ghetto">ghetto</span>, <span class="hablar" data-hablar="ghiaccio">ghiaccio</span>. También en formas del verbo <em>avere</em>: <span class="hablar" data-hablar="ho, hai, ha">ho, hai, ha</span>.',
+      '<strong>GLI y GN:</strong> <span class="hablar" data-hablar="gli">gli</span> suena como "ly" fundido (<span class="hablar" data-hablar="famiglia">famiglia</span>). <span class="hablar" data-hablar="gn">gn</span> suena como "ñ" española: <span class="hablar" data-hablar="bagno">bagno</span>, <span class="hablar" data-hablar="montagna">montagna</span>.',
+      '<strong>SC ante e/i:</strong> Suena "sh": <span class="hablar" data-hablar="pesce">pesce</span>, <span class="hablar" data-hablar="scena">scena</span>. Ante a/o/u suena "sk": <span class="hablar" data-hablar="scuola">scuola</span>, <span class="hablar" data-hablar="scala">scala</span>.',
+      '<strong>Consonantes dobles:</strong> Se pronuncian más largas/marcadas que la simple, cambian significado: <span class="hablar" data-hablar="sono">sono</span> (soy) vs <span class="hablar" data-hablar="sonno">sonno</span> (sueño); <span class="hablar" data-hablar="cappello">cappello</span> (sombrero) vs <span class="hablar" data-hablar="capello">capello</span> (cabello).',
+      '<strong>Acento tónico:</strong> Mayoría en penúltima sílaba. Última sílaba acentuada se marca: <span class="hablar" data-hablar="città">città</span>, <span class="hablar" data-hablar="perché">perché</span>, <span class="hablar" data-hablar="università">università</span>.'
+    ]
+  });
+}
+
+function renderTarjetaTestoLungoEsempio() {
   return crearTarjetaTextoLargo({
     titulo: 'Texto largo (ejemplo)',
     parrafos: [
@@ -2479,9 +2509,9 @@ function renderTarjetaRelojesEjemplo() {
 }
 
 // ── Los Números y el Tiempo → El Tiempo (D2) — 8 tarjetas más ─────────
-function renderTarjetaMesesDelAnio() {
+function renderTarjetaMesiDelAnno() {
   return crearTarjetaVocabularioSimple({
-    titulo: 'Meses del año',
+    titulo: 'Mesi dell\'anno',
     filas: [
       { fr: 'gennaio',   es: 'enero' },
       { fr: 'febbraio',  es: 'febrero' },
@@ -2499,9 +2529,9 @@ function renderTarjetaMesesDelAnio() {
   });
 }
 
-function renderTarjetaAvantApres() {
+function renderTarjetaPrimadopo() {
   return crearTarjetaVocabularioExtra({
-    titulo: 'Prima / dopo',
+    titulo: 'Prima / Dopo',
     columnaExtra: 'Ejemplo',
     filas: [
       { fr: 'Prima',  es: 'Antes (de)',   extra: 'prima del check-in' },
@@ -2510,9 +2540,9 @@ function renderTarjetaAvantApres() {
   });
 }
 
-function renderTarjetaPreposicionA() {
+function renderTarjetaPreposizoneA() {
   return crearTarjetaVocabularioSimple({
-    titulo: '"A qué hora": la preposición "a" (alle)',
+    titulo: '"A che ora": la preposizione "a" (alle)',
     filas: [
       { fr: 'alle tre',        es: 'a las tres' },
       { fr: 'a mezzogiorno',   es: 'al mediodía' },
@@ -2521,9 +2551,9 @@ function renderTarjetaPreposicionA() {
   });
 }
 
-function renderTarjetaSistemaInformal() {
+function renderTarjetaSistemaInformale() {
   return crearTarjetaVocabularioSimple({
-    titulo: 'Sistema informal (reloj de 12 horas)',
+    titulo: 'Sistema informale (orologio di 12 ore)',
     filas: [
       { fr: 'Sono le tre e un quarto.',      es: 'Son las tres y cuarto.' },
       { fr: 'Sono le tre e mezza.',          es: 'Son las tres y media.' },
@@ -2533,9 +2563,9 @@ function renderTarjetaSistemaInformal() {
   });
 }
 
-function renderTarjetaDiasSemana() {
+function renderTarjetaGiorniSettimana() {
   return crearTarjetaVocabularioSimple({
-    titulo: 'Días de la semana',
+    titulo: 'Giorni della settimana',
     filas: [
       { fr: 'lunedì',     es: 'lunes' },
       { fr: 'martedì',    es: 'martes' },
@@ -2548,9 +2578,9 @@ function renderTarjetaDiasSemana() {
   });
 }
 
-function renderTarjetaMomentosImprecisos() {
+function renderTarjetaMomentiImprecisi() {
   return crearTarjetaVocabularioSimple({
-    titulo: 'Momentos imprecisos',
+    titulo: 'Momenti imprecisi',
     filas: [
       { fr: 'adesso',        es: 'ahora' },
       { fr: 'fra poco',      es: 'en un rato' },
@@ -2562,9 +2592,9 @@ function renderTarjetaMomentosImprecisos() {
   });
 }
 
-function renderTarjetaDiasConcretos() {
+function renderTarjetaGiorniConcreti() {
   return crearTarjetaVocabularioSimple({
-    titulo: 'Días concretos respecto a hoy',
+    titulo: 'Giorni concreti rispetto a oggi',
     filas: [
       { fr: 'avantieri',   es: 'anteayer' },
       { fr: 'ieri',        es: 'ayer' },
@@ -2575,9 +2605,9 @@ function renderTarjetaDiasConcretos() {
   });
 }
 
-function renderTarjetaMediodiaMedianoche() {
+function renderTarjetaMezzogiornoMezzanotte() {
   return crearTarjetaVocabularioSimple({
-    titulo: 'Mediodía y medianoche',
+    titulo: 'Mezzogiorno e Mezzanotte',
     filas: [
       { fr: 'È mezzogiorno.', es: 'Es mediodía.' },
       { fr: 'È mezzanotte.',  es: 'Es medianoche.' }
@@ -2674,64 +2704,64 @@ function renderTarjetaTemperatura() {
 }
 
 // ── Flora y Fauna (C2) — 4 tarjetas ───────────────────────────────────
-function renderTarjetaFaunaChamonix() {
+function renderTarjetaFaunaAlpi() {
   return crearTarjetaVocabularioFijo({
-    titulo: 'Fauna de Chamonix / los Alpes',
+    titulo: 'Fauna degli Alpi italiani',
     filas: [
-      { fr: 'il camoscio',       es: 'el rebeco/gamuza',        g: 'masc' },
-      { fr: 'la marmotta',      es: 'la marmota',              g: 'fem'  },
-      { fr: 'lo stambecco',    es: 'el íbice/cabra montés',   g: 'masc' },
-      { fr: 'il cervo',         es: 'el ciervo',               g: 'masc' },
-      { fr: 'il capriolo',     es: 'el corzo',                g: 'masc' },
-      { fr: "l'aquila reale",   es: 'el águila real',          g: 'masc' },
-      { fr: 'il gipeto',        es: 'el quebrantahuesos',      g: 'masc' },
-      { fr: 'il gallo forcello', es: 'el urogallo',             g: 'masc' },
-      { fr: 'lo scoiattolo rosso', es: 'la ardilla roja',       g: 'masc' },
-      { fr: 'la vipera',        es: 'la víbora',               g: 'fem'  }
+      { fr: 'il camoscio (camois alpino)',     es: 'el rebeco/gamuza alpina',    g: 'masc' },
+      { fr: 'la marmotta alpina',              es: 'la marmota alpina',          g: 'fem'  },
+      { fr: 'lo stambecco delle Alpi',        es: 'el íbice/cabra montés',      g: 'masc' },
+      { fr: 'il cervo rosso',                  es: 'el ciervo rojo',             g: 'masc' },
+      { fr: 'il capriolo europeo',            es: 'el corzo europeo',           g: 'masc' },
+      { fr: "l'aquila reale",                  es: 'el águila real',             g: 'masc' },
+      { fr: 'il gipeto (uccello reintrodotto)', es: 'el quebrantahuesos',        g: 'masc' },
+      { fr: 'il gallo forcello',              es: 'el urogallo',                g: 'masc' },
+      { fr: 'la volpe rossa',                 es: 'el zorro rojo',              g: 'fem'  },
+      { fr: 'la vipera aspid',                es: 'la víbora áspid (única venenosa)', g: 'fem'  }
     ]
   });
 }
 
-function renderTarjetaFloraChamonix() {
+function renderTarjetaFloraAlpi() {
   return crearTarjetaVocabularioFijo({
-    titulo: 'Flora de Chamonix / los Alpes',
+    titulo: 'Flora degli Alpi italiani',
     filas: [
-      { fr: 'la stella alpina', es: 'el edelweiss',   g: 'fem'  },
-      { fr: 'la genziana',      es: 'la genciana',    g: 'fem'  },
-      { fr: 'il rododendro',    es: 'el rododendro',  g: 'masc' },
-      { fr: "l'abete",          es: 'el abeto',       g: 'masc' },
-      { fr: 'il faggio',        es: 'el haya',        g: 'masc' },
-      { fr: 'il peccio',        es: 'la pícea',       g: 'masc' },
-      { fr: 'il mirtillo',      es: 'el arándano',    g: 'masc' },
-      { fr: 'il larice',        es: 'el alerce',      g: 'masc' }
+      { fr: 'la stella alpina (Edelweiss)',   es: 'la estrella alpina (Edelweiss)',   g: 'fem'  },
+      { fr: 'la genziana',                     es: 'la genciana',                     g: 'fem'  },
+      { fr: 'il rododendro',                   es: 'el rododendro',                   g: 'masc' },
+      { fr: 'l\'abete rosso (Picea)',          es: 'la pícea/abeto rojo',             g: 'masc' },
+      { fr: 'il faggio montano',               es: 'el haya de montaña',             g: 'masc' },
+      { fr: 'il larice',                       es: 'el alerce alpino',               g: 'masc' },
+      { fr: 'il mirtillo rosso',               es: 'el arándano rojo',               g: 'masc' },
+      { fr: 'il pino mugo (Pinus mugo)',       es: 'el pino mugo enano',             g: 'masc' }
     ]
   });
 }
 
-function renderTarjetaFloraFrancia() {
+function renderTarjetaUccelliAlpi() {
   return crearTarjetaVocabularioFijo({
-    titulo: 'Flora típica de Italia (en general)',
+    titulo: 'Uccelli Alpini',
     filas: [
-      { fr: 'la quercia',    es: 'el roble',              g: 'fem'  },
-      { fr: 'la lavanda',    es: 'la lavanda',            g: 'fem'  },
-      { fr: 'il girasole',   es: 'el girasol',            g: 'masc' },
-      { fr: 'la vite',       es: 'la vid',                g: 'fem'  },
-      { fr: 'il cipresso',   es: 'el ciprés',             g: 'masc' },
-      { fr: 'il papavero',   es: 'la amapola',            g: 'masc' }
+      { fr: 'il picchio nero',               es: 'el pico negro',                   g: 'masc' },
+      { fr: 'il falco pellegrino',           es: 'el halcón peregrino',             g: 'masc' },
+      { fr: 'il corvo imperiale',            es: 'el cuervo imperial',              g: 'masc' },
+      { fr: 'il codirosso',                  es: 'el petirrojo de montaña',         g: 'masc' },
+      { fr: 'il sordone',                    es: 'la curruca murmuradora alpina',   g: 'masc' },
+      { fr: 'l\'organetto (sordone nocciolaia)', es: 'la pájara de pinar',          g: 'masc' }
     ]
   });
 }
 
-function renderTarjetaFaunaFrancia() {
+function renderTarjetaInsettiAlpi() {
   return crearTarjetaVocabularioFijo({
-    titulo: 'Fauna típica de Italia (en general)',
+    titulo: 'Insetti e Piccoli Animali',
     filas: [
-      { fr: 'il lupo',       es: 'el lobo (símbolo nacional, la loba de Roma)', g: 'masc' },
-      { fr: 'la volpe',      es: 'el zorro',                    g: 'fem' },
-      { fr: 'il cinghiale',  es: 'el jabalí',                   g: 'masc' },
-      { fr: "l'orso bruno",  es: 'el oso pardo',                g: 'masc' },
-      { fr: 'la lepre',      es: 'la liebre',                   g: 'fem' },
-      { fr: 'la lontra',     es: 'la nutria',                   g: 'fem'  }
+      { fr: 'l\'ape alpina',                  es: 'la abeja alpina',                  g: 'fem' },
+      { fr: 'la farfalla Apollo',             es: 'la mariposa Apolo',               g: 'fem' },
+      { fr: 'lo scarabeo lucicorno',          es: 'el escarabajo de cuernos',         g: 'masc' },
+      { fr: 'la locusta della montagna',      es: 'la langosta de montaña',          g: 'fem' },
+      { fr: 'la salamandra alpina',           es: 'la salamandra alpina',            g: 'fem' },
+      { fr: 'la trota alpina',                es: 'la trucha alpina',                g: 'fem'  }
     ]
   });
 }
@@ -2831,119 +2861,127 @@ function renderTarjetaEquipoSenderismo() {
   });
 }
 
-// ── Cultura → Chamonix (B1) — 4 tarjetas ──────────────────────────────
+// ── Cultura → Alpi Italiani (B1) — 4 tarjetas ──────────────────────────────
 function renderTarjetaHistoriaAlpinismo() {
   return crearTarjetaVocabularioExtra({
-    titulo: 'Historia del alpinismo',
+    titulo: 'Storia dell\'alpinismo italiano',
     columnaExtra: 'Dato',
     filas: [
-      { fr: 'la prima ascensione',            es: 'la primera ascensión',        extra: '8 de agosto de 1786 — Jacques Balmat y el Dr. Michel Paccard llegaron a la cumbre del Mont Blanc', g: 'fem' },
-      { fr: "la culla dell'alpinismo",        es: 'la cuna del alpinismo',       extra: 'Chamonix es considerado el lugar de nacimiento del alpinismo moderno', g: 'fem' },
-      { fr: 'la prima ascensione femminile',  es: 'la primera ascensión femenina', extra: '1808 — Marie Paradis, mujer local de Chamonix', g: 'fem' },
-      { fr: "l'età d'oro dell'alpinismo",     es: 'la edad de oro del alpinismo', extra: '1855-1865, década más prolífica en primeras ascensiones de toda la historia' }
+      { fr: 'il CAI (Club Alpino Italiano)',   es: 'Club Alpino Italiano',         extra: 'Fondato 1863 — la maggiore organizzazione di alpinismo e montagna italiana', g: 'masc' },
+      { fr: 'la guida alpina',                 es: 'la guía de montaña',           extra: 'Professione nata sulle Alpi, formazione minimo 2-3 anni, certificazione internazionale IFMGA', g: 'fem' },
+      { fr: 'le Dolomiti (UNESCO)',            es: 'las Dolomitas (UNESCO)',       extra: 'Patrimonio de la Humanidad desde 2009 — centro histórico de alpinismo italiano', g: 'fem plural' },
+      { fr: 'la prima ascensione italiana',    es: 'la primera ascensión italiana', extra: 'Numerosas cimas italianas exploradas por alpinistas locales desde el s. XIX', g: 'fem' }
     ]
   });
 }
 
-function renderTarjetaElPuebloHoy() {
+function renderTarjetaAlpesHoy() {
   return crearTarjetaVocabularioExtra({
-    titulo: 'El pueblo hoy',
+    titulo: 'Gli Alpi italiani oggi',
     columnaExtra: 'Dato',
     filas: [
-      { fr: 'Chamonix-Mont-Blanc', es: 'Chamonix-Mont-Blanc', extra: 'el pueblo principal del valle' },
-      { fr: 'Argentière',          es: 'Argentière',          extra: 'pueblo del valle, punto de partida de rutas de alta montaña' },
-      { fr: 'Les Houches',         es: 'Les Houches',         extra: 'pueblo del valle, zona de esquí para principiantes', g: 'plural' },
-      { fr: 'Servoz',              es: 'Servoz',              extra: 'pueblo del valle, entrada sur' },
-      { fr: 'Vallorcine',          es: 'Vallorcine',          extra: 'pueblo del valle, cerca de la frontera con Suiza' }
+      { fr: 'l\'altitudine',            es: 'la altitud',           extra: 'Da 500 m (valli) a 4.061 m (Gran Paradiso), variabilità significativa di clima e vegetazione', g: 'fem' },
+      { fr: 'il rifugio alpino',        es: 'el refugio de montaña', extra: 'Strutture di alloggio storico — accoglienza e ospitalità in alta quota', g: 'masc' },
+      { fr: 'l\'economia locale',       es: 'la economía local',     extra: 'Turismo (sci, escursionismo), pastorizia, conservazione ambientale', g: 'fem' },
+      { fr: 'la fauna alpina',          es: 'la fauna alpina',       extra: 'Marmotta alpina, camoscio, aquila reale, falco pellegrino, trota alpina', g: 'fem' },
+      { fr: 'le lingue locali',         es: 'las lenguas locales',   extra: 'Italiano standard + dialetti ladini, walser, ladin alpino tradizionale', g: 'fem plural' }
     ]
   });
 }
 
-function renderTarjetaCompagnieDesGuides() {
+function renderTarjetaGuideAlpine() {
   return crearTarjetaVocabularioExtra({
-    titulo: 'La Compagnie des Guides',
+    titulo: 'Le Guide Alpine Italiane',
     columnaExtra: 'Dato',
     filas: [
-      { fr: 'la Compagnie des Guides', es: 'la Compañía de Guías', extra: 'fundada el 24 de julio de 1821 — la más antigua y más grande del mundo', g: 'fem' },
-      { fr: 'perché è nata',            es: 'por qué se creó',      extra: 'tras un accidente fatal en el Mont Blanc en 1820, para ayudar a las familias de los guías' },
-      { fr: 'il turno di rotazione',    es: 'el turno rotativo',    extra: 'sistema histórico que reparte el trabajo de forma equitativa entre todos los guías', g: 'masc' },
-      { fr: 'oggi',                     es: 'hoy',                  extra: 'más de 200 guías y acompañantes de montaña activos' }
+      { fr: 'la guida alpina',              es: 'la guía alpina',              extra: 'Professionista certificato IFMGA — formazione minimo 2-3 anni, esame severo', g: 'fem' },
+      { fr: 'il CAI (Club Alpino Italiano)',es: 'Club Alpino Italiano',        extra: 'Fondato 1863 — 380.000+ soci, centro culturale e tecnico dell\'alpinismo italiano', g: 'masc' },
+      { fr: 'la sicurezza in montagna',     es: 'la seguridad en montaña',     extra: 'Corda, moschettoni, imbrago — equipaggiamento certificato e controllato', g: 'fem' },
+      { fr: 'l\'esperienza richiesta',      es: 'la experiencia requerida',    extra: 'Minimo 10 anni in montagna + credenziali comprovate + aggiornamento annuale', g: 'fem' }
     ]
   });
 }
 
-function renderTarjetaEventosFestivales() {
+function renderTarjetaEventiFestival() {
   return crearTarjetaVocabularioExtra({
-    titulo: 'Eventos y festivales',
+    titulo: 'Festival ed Eventi Alpini',
     columnaExtra: 'Dato',
     filas: [
-      { fr: "l'UTMB",              es: 'el UTMB (Ultra-Trail du Mont-Blanc)', extra: 'última semana de agosto — carrera de 171 km y 10.000 m de desnivel alrededor del Mont Blanc' },
-      { fr: 'il Cosmojazz Festival', es: 'el Festival Cosmojazz',            extra: 'conciertos de jazz al aire libre, en la cima de las montañas y los bosques', g: 'masc' },
-      { fr: 'la Fête des Guides',   es: 'la Fiesta de los Guías',            extra: 'celebra el oficio y la historia de los guías de montaña de Chamonix', g: 'fem' }
+      { fr: 'Cortina World',              es: 'Cortina World',                extra: 'Febbraio-Marzo — campionati mondiali di sci alpino (Cortina d\'Ampezzo)', g: 'fem' },
+      { fr: 'Maratona dles Dolomites',    es: 'Maratona dles Dolomites',      extra: 'Luglio — gara cicloturistica più grande d\'Europa, 1.200 km, 18.000+ partecipanti', g: 'fem' },
+      { fr: 'Gran Paradiso Trek',         es: 'Gran Paradiso Trek',           extra: 'Agosto-Settembre — trekking d\'alta quota nel Parco Nazionale Gran Paradiso', g: 'masc' },
+      { fr: 'Festival Folklorico Alpino', es: 'Festival Folklórico Alpino',   extra: 'Vari mesi — musica tradizionale, danza, gastronomia alpina regionale', g: 'masc' }
     ]
   });
 }
 
 // ── Cultura → Actividades (B2) — 5 tarjetas ───────────────────────────
-function renderTarjetaChamonixMontBlanc() {
+function renderTarjetaSciAlpino() {
   return crearTarjetaVocabularioExtra({
-    titulo: 'Chamonix-Mont-Blanc',
+    titulo: 'Sci Alpino',
     columnaExtra: 'Dato práctico',
     filas: [
-      { fr: 'il centro del paese',   es: 'el centro del pueblo',   extra: 'el pueblo principal del valle — historia y alpinismo en la tarjeta de Chamonix', g: 'masc' },
-      { fr: 'il Museo Alpino',       es: 'el Museo Alpino',        extra: 'historia de las primeras ascensiones del Mont Blanc y del turismo de montaña', g: 'masc' },
-      { fr: 'il Museo dei Cristalli', es: 'el Museo de los Cristales', extra: 'minerales del macizo del Mont Blanc, encontrados por los cristaleros locales', g: 'masc' }
+      { fr: 'la pista da sci',           es: 'la pista de esquí',      extra: 'Discesa (pista roja/negra) — la forma più agonistica di sci alpino', g: 'fem' },
+      { fr: 'la funivia',                es: 'el teleférico',          extra: 'Risalita: 4 persone per cabina, viaggio da 5-15 minuti verso la cima', g: 'fem' },
+      { fr: 'lo sci da discesa',         es: 'el esquí de descenso',   extra: 'Sci lunghi (175-180 cm), stivaletto rigido, fissazione a perdere', g: 'masc' },
+      { fr: 'la velocità media',         es: 'la velocidad media',     extra: '40-60 km/h (pistas rosse), fino a 130 km/h su piste nere (competizioni)', g: 'fem' },
+      { fr: 'il corso di sci',           es: 'la clase de esquí',      extra: 'Lezioni di gruppo o private con maestri certificati, minimo 2 ore', g: 'masc' }
     ]
   });
 }
 
-function renderTarjetaVallorcine() {
+function renderTarjetaAlpinismo() {
   return crearTarjetaVocabularioExtra({
-    titulo: 'Vallorcine',
+    titulo: 'Alpinismo e Scalata',
     columnaExtra: 'Dato práctico',
     filas: [
-      { fr: 'il paese più piccolo',  es: 'el pueblo más pequeño', extra: 'unos 400 habitantes, cerca de la frontera con Suiza', g: 'masc' },
-      { fr: 'la Festa del Paese',    es: 'la Fiesta del Pueblo',  extra: 'fiesta local propia de Vallorcine, con carrera de montaña asociada', g: 'fem' },
-      { fr: 'le veglie di racconti', es: 'las veladas de cuentos', extra: 'tradición de contar historias junto al fuego', g: 'plural' },
-      { fr: "il lago d'Émosson",     es: "el lago d'Émosson",     extra: 'lago de montaña cercano, del lado suizo', g: 'masc' }
+      { fr: 'l\'alpinismo',              es: 'el alpinismo',           extra: 'Salita a cime di alta quota (2.500-4.000+ m) con tecnica di sicurezza', g: 'masc' },
+      { fr: 'l\'arrampicata su ghiaccio', es: 'la escalada en hielo',   extra: 'Tecnica specializzata con piccozze e ramponi — pericolo valanghe, ghiaccio', g: 'fem' },
+      { fr: 'la via ferrata',            es: 'la vía ferrata',         extra: 'Percorso di roccia con catene/ganci fissati — intermedia tra escursione e roccia pura', g: 'fem' },
+      { fr: 'il percorso su roccia',     es: 'la ruta en roca',        extra: 'Arrampicata pura, gradi I-VI (UIAA), con cuerda de seguridad', g: 'masc' },
+      { fr: 'il campo base',             es: 'el campamento base',     extra: 'Accampamento a media altitudine — riposo, acclimatazione, preparazione attrezzatura', g: 'masc' }
     ]
   });
 }
 
-function renderTarjetaServoz() {
+function renderTarjetaSciDiFondo() {
   return crearTarjetaVocabularioExtra({
-    titulo: 'Servoz',
+    titulo: 'Sci di Fondo',
     columnaExtra: 'Dato práctico',
     filas: [
-      { fr: 'il paese più autentico', es: 'el pueblo más auténtico', extra: 'el más rural del valle — granjas antiguas, hornos de pan, oratorios', g: 'masc' },
-      { fr: 'le gole della Diosaz',   es: 'las gargantas del Diosaz', extra: '5 cascadas, abiertas a visitantes desde 1875', g: 'plural' },
-      { fr: 'la chiesa di Saint-Loup', es: 'la iglesia Saint-Loup',   extra: 'estilo barroco, construida en 1537' },
-      { fr: 'la fiera delle pecore',  es: 'la Feria de las Ovejas',  extra: 'mediados de octubre — concurso de ovejas, sidra, tractores, fiesta rural', g: 'fem' }
+      { fr: 'lo sci da fondo',           es: 'el esquí de fondo',        extra: 'Sci leggeri (65-75 cm), stivale morbido — movimento su tracciato pianeggiante', g: 'masc' },
+      { fr: 'la traccia',                es: 'la pista marcada',         extra: 'Solco doppio sulla neve — una traccia per ciascun sciatore in tecnica classica', g: 'fem' },
+      { fr: 'la tecnica libera',         es: 'la técnica libre',         extra: 'Skate di fondo — movimento laterale, simile al pattinaggio, più veloce', g: 'fem' },
+      { fr: 'il pattugliamento',         es: 'la patrulla de fondo',     extra: 'Competizione di sci di fondo — distanze 5km (donne) a 50km (uomini)', g: 'masc' },
+      { fr: 'l\'altitudine della traccia', es: 'la altitud del circuito', extra: 'Generalmente 1.200-2.000 m — minore sforzo cardiaco vs. sci alpino', g: 'fem' }
     ]
   });
 }
 
-function renderTarjetaLesHouches() {
+function renderTarjetaTrekking() {
   return crearTarjetaVocabularioExtra({
-    titulo: 'Les Houches',
+    titulo: 'Trekking e Sentieri',
     columnaExtra: 'Dato práctico',
     filas: [
-      { fr: "la porta d'ingresso della valle", es: 'la entrada del valle',  extra: 'los primeros habitantes del valle llegaron por aquí, en la Edad de Bronce', g: 'fem' },
-      { fr: 'il tram del Monte Bianco',       es: 'el tranvía del Mont Blanc', extra: "uno de los últimos trenes de cremallera de Francia, sube hasta el Nid d'Aigle (2.372 m)", g: 'masc' },
-      { fr: 'il Cristo Re',                   es: 'el Cristo Rey',         extra: 'estatua de 25 m, construida en 1933, símbolo de paz, mirando hacia el valle', g: 'masc' },
-      { fr: 'la Verte des Houches',           es: 'la pista Verte des Houches', extra: "pista de descenso de la Copa del Mundo, a pesar de su nombre 'verde' es muy difícil", g: 'fem' }
+      { fr: 'il sentiero marcato',        es: 'el sendero marcado',        extra: 'Percorsi segnati con frecce colorate rosso/bianco — distanze varie (2-8 ore)', g: 'masc' },
+      { fr: 'la GTA (Gran Traverse Alpi)', es: 'la GTA (Gran Traverse Alpi)', extra: 'Trekking d\'alta quota de 65 giorni, 60+ rifugios, attraversa tutto l\'arco alpino', g: 'fem' },
+      { fr: 'il rifugio alpino',          es: 'el refugio de montaña',     extra: 'Tappa notturna — mezzana altitudine (1.800-2.500 m), cena e colazione incluse', g: 'masc' },
+      { fr: 'la difficoltà del percorso', es: 'la dificultad del sendero', extra: 'Gradi T (turistica), E (escursionistica), EE (escursionistica esperienza), EEA (esperti)', g: 'fem' },
+      { fr: 'l\'attrezzatura essenziale',  es: 'el equipo esencial',        extra: 'Scarponi da trekking, zaino (40-60L), giacca impermeabile, mappa topografica', g: 'fem' }
     ]
   });
 }
 
-function renderTarjetaArgentiere() {
+function renderTarjetaParapendio() {
   return crearTarjetaVocabularioExtra({
-    titulo: 'Argentière',
+    titulo: 'Parapendio Alpino',
     columnaExtra: 'Dato práctico',
     filas: [
-      { fr: 'i cercatori di cristalli', es: 'los cristaleros',       extra: 'Argentière es conocida por su tradición de buscadores de cristales de montaña', g: 'plural' },
-      { fr: 'la chiesa barocca',       es: 'la iglesia barroca',    extra: 'fachada barroca y campanario en forma de aguja, reconstruida en 1845' },
-      { fr: 'il mercato degli artigiani', es: 'el mercado de artesanos', extra: 'mercado de artesanos y productores locales', g: 'masc' }
+      { fr: 'il parapendio',                  es: 'el parapente',               extra: 'Vela (ala triangular 16-24 m²), peso 5-6 kg, decollo da creste ventose', g: 'masc' },
+      { fr: 'lo spazio di decollo',           es: 'la zona de despegue',        extra: 'Pendi ripidi 30-45°, erba corta — run di 15-30 m prima del volo', g: 'masc' },
+      { fr: 'il volo termico',                es: 'el vuelo térmico',           extra: 'Ascensione su correnti termiche — da 500 m a 3.500+ m in condizioni favole', g: 'masc' },
+      { fr: 'la distanza coperta',            es: 'la distancia cubierta',      extra: '30-100+ km possibili (con termica) — volate anche plurigiornaliere in estate', g: 'fem' },
+      { fr: 'l\'equipaggiamento di sicurezza', es: 'el equipo de seguridad',      extra: 'Casco, altimetro, GPS, paracadute di sicurezza (in alcuni paesi obbligatorio)', g: 'masc' }
     ]
   });
 }
@@ -2998,7 +3036,7 @@ function renderTarjetaNumerosOrdinales() {
 }
 
 // ── Personas → Artículos (F2) — 10 tarjetas ───────────────────────────
-function renderTarjetaArticulosDefinidos() {
+function renderTarjetaArticoliDefiniti() {
   return crearTarjetaTablaGenerica({
     titulo: 'Definidos — "el/la/los/las"',
     columnas: ['Caso', 'Artículo', 'Ejemplo'],
@@ -3014,7 +3052,7 @@ function renderTarjetaArticulosDefinidos() {
   });
 }
 
-function renderTarjetaArticulosPartitivos() {
+function renderTarjetaArticoliPartitivi() {
   return crearTarjetaTablaGenerica({
     titulo: 'Partitivos — cantidad no precisa (di + artículo)',
     columnas: ['Caso', 'Artículo', 'Ejemplo'],
@@ -3030,7 +3068,7 @@ function renderTarjetaArticulosPartitivos() {
   });
 }
 
-function renderTarjetaArticulosIndefinidos() {
+function renderTarjetaArticoliIndefiniti() {
   return crearTarjetaTablaGenerica({
     titulo: 'Indefinidos — "un/una" (no tienen plural propio)',
     columnas: ['Caso', 'Artículo', 'Ejemplo'],
@@ -3133,7 +3171,7 @@ function renderTarjetaFormasPosesivos() {
   });
 }
 
-function renderTarjetaCOD() {
+function renderTarjetaPronomiCOD() {
   return crearTarjetaTablaGenerica({
     titulo: 'COD — pronombre complemento oggetto diretto',
     columnas: ['Pronombre', 'Ejemplo', 'Traducción'],
@@ -3147,7 +3185,7 @@ function renderTarjetaCOD() {
   });
 }
 
-function renderTarjetaCOI() {
+function renderTarjetaPronomiCOI() {
   return crearTarjetaTablaGenerica({
     titulo: 'COI — pronombre complemento oggetto indiretto',
     columnas: ['Pronombre', 'Ejemplo', 'Traducción'],
@@ -3242,7 +3280,7 @@ function renderTarjetaPronombresPosesivos() {
   });
 }
 
-function renderTarjetaDoblePronombre() {
+function renderTarjetaDuePronomi() {
   return crearTarjetaVocabularioExtra({
     titulo: 'Combinación de dos pronombres (COI + COD)',
     columnaExtra: 'Ejemplo',
@@ -3328,39 +3366,33 @@ function renderTarjetaImperativoNegativo() {
 }
 
 // ── Modos y Frases → Subjuntivo (E2) — 3 tarjetas ──────────────────────
-function renderTarjetaSubjuntivoCuandoUsar() {
-  // crearTarjetaInformatica arma la tarjeta con clase "tarjeta-fija"
-  // por defecto (pensada para mesas fijas como País/Abecedario). Acá
-  // va suelta en una mesa libre, así que se cambia a "tarjeta" para
-  // que tenga position:absolute y se pueda arrastrar como cualquier
-  // otra — se mantiene "tarjeta-informatica" para heredar el padding
-  // del cuerpo.
+function renderTarjetaCongiuntivoQuandoUsare() {
   const div = crearTarjetaInformatica({
-    titulo: 'Congiuntivo — cuándo se usa',
+    titulo: 'Congiuntivo — quando si usa',
     bloques: [
-      { tipo: 'subtitulo', contenido: 'Deseo' },
-      { tipo: 'parrafo', contenido: '<strong>Voglio che</strong> + congiuntivo — quiero que' },
-      { tipo: 'subtitulo', contenido: 'Necesidad' },
-      { tipo: 'parrafo', contenido: '<strong>Bisogna che</strong> + congiuntivo — es necesario que / hay que' },
-      { tipo: 'subtitulo', contenido: 'Opinión (¡incluso en afirmativo!)' },
-      { tipo: 'parrafo', contenido: '<strong>Penso che / Credo che</strong> + congiuntivo — creo que. A diferencia del español (y del francés en afirmativo), el italiano usa subjuntivo también cuando la opinión es afirmativa: <em>Penso che sia una buona idea</em>, no <em>Penso che è</em>.' },
-      { tipo: 'subtitulo', contenido: 'Duda' },
-      { tipo: 'parrafo', contenido: '<strong>Non penso che</strong> + congiuntivo — no creo que' },
-      { tipo: 'subtitulo', contenido: 'Emoción' },
-      { tipo: 'parrafo', contenido: '<strong>Sono contento che</strong> + congiuntivo — estoy contento de que' },
-      { tipo: 'subtitulo', contenido: 'Posibilidad' },
-      { tipo: 'parrafo', contenido: '<strong>È possibile che</strong> + congiuntivo — es posible que' },
-      { tipo: 'subtitulo', contenido: 'Después de "para que"' },
-      { tipo: 'parrafo', contenido: '<strong>Affinché</strong> + congiuntivo — para que (objetivo)' }
+      { tipo: 'subtitulo', contenido: 'Desiderio / Volontà' },
+      { tipo: 'parrafo', contenido: '<strong>Voglio che</strong> + congiuntivo — quiero que | <strong>Desidero che</strong> — deseo que' },
+      { tipo: 'subtitulo', contenido: 'Necessità' },
+      { tipo: 'parrafo', contenido: '<strong>Bisogna che / È necessario che</strong> + congiuntivo — es necesario que' },
+      { tipo: 'subtitulo', contenido: 'Opinione / Credenza (¡incluso si es afirmativa!)' },
+      { tipo: 'parrafo', contenido: '<strong>Penso che / Credo che</strong> + congiuntivo — creo que. A differenza dello spagnolo e del francese affermativo, l\'italiano usa il congiuntivo anche in positivo: <em>Penso che sia una buona idea</em>. Questo è un aspetto chiave dove l\'italiano differisce!' },
+      { tipo: 'subtitulo', contenido: 'Dubbio / Negazione' },
+      { tipo: 'parrafo', contenido: '<strong>Dubito che / Non credo che</strong> + congiuntivo — dudo que / no creo que' },
+      { tipo: 'subtitulo', contenido: 'Emozione' },
+      { tipo: 'parrafo', contenido: '<strong>Sono contento che / Ho paura che</strong> + congiuntivo — estoy contento de que / tengo miedo de que' },
+      { tipo: 'subtitulo', contenido: 'Possibilità / Probabilità' },
+      { tipo: 'parrafo', contenido: '<strong>È possibile che / Forse che</strong> + congiuntivo — es posible que / quizás' },
+      { tipo: 'subtitulo', contenido: 'Finalità (para que)' },
+      { tipo: 'parrafo', contenido: '<strong>Affinché / In modo che / Perché</strong> + congiuntivo — para que (objetivo)' }
     ]
   });
   div.className = 'tarjeta tarjeta-informatica';
   return div;
 }
 
-function renderTarjetaSubjuntivoPresenteRegulares() {
+function renderTarjetaCongiuntivoPreseniteRegolari() {
   return crearTarjetaVocabularioExtra({
-    titulo: 'Congiuntivo presente — verbos regulares',
+    titulo: 'Congiuntivo presente — verbi regolari',
     columnaExtra: 'Ejemplo',
     filas: [
       { fr: 'che io/tu/lui/lei parli', es: 'que yo/tú/él/ella hable', extra: 'Bisogna che io parli più forte. — las 3 personas singulares se escriben igual en italiano' },
@@ -3371,9 +3403,9 @@ function renderTarjetaSubjuntivoPresenteRegulares() {
   });
 }
 
-function renderTarjetaSubjuntivoPresenteIrregulares() {
+function renderTarjetaCongiuntivoPreseniteIrregolari() {
   return crearTarjetaVocabularioExtra({
-    titulo: 'Congiuntivo presente — verbos irregulares clave',
+    titulo: 'Congiuntivo presente — verbi irregolari chiave',
     columnaExtra: 'Ejemplo',
     filas: [
       { fr: 'che io/tu/lui/lei sia',    es: 'que yo/tú/él/ella sea',   extra: "Bisogna che io sia puntuale." },
@@ -3468,16 +3500,17 @@ function renderTarjetaCondicionales() {
   });
 }
 
-function renderTarjetaQuejasDisculpas() {
+function renderTarjetaLamentelScuse() {
   return crearTarjetaVocabularioExtra({
-    titulo: 'Manejo de quejas y disculpas',
-    columnaExtra: 'Ejemplo',
+    titulo: 'Gestione di lamentele e scuse',
+    columnaExtra: 'Contesto Hospitality Alpino',
     filas: [
-      { fr: 'Mi dispiace che...',                  es: 'Lamento que...',            extra: 'Mi dispiace che la camera non sia pronta. (Lamento que la habitación no esté lista.)' },
-      { fr: 'Capisco la sua frustrazione.',        es: 'Entiendo su frustración.',  extra: 'frase de validación, antes de resolver' },
-      { fr: 'Risolviamo subito.',                  es: 'Vamos a resolver eso enseguida.', extra: 'frase de acción/compromiso' },
-      { fr: 'La prego di scusarmi.',                es: 'Le ruego me disculpe.',     extra: 'muy formal' },
-      { fr: 'Le mie scuse per questo disagio.',     es: 'Mis disculpas por este inconveniente.', extra: 'frase estándar de servicio' }
+      { fr: 'Mi dispiace che...',                      es: 'Lamento que...',                        extra: 'Mi dispiace che la camera non sia ancora pronta. (Contexto: habitación retrasada)' },
+      { fr: 'Capisco la sua frustrazione.',            es: 'Entiendo su frustración.',              extra: 'Validación empática — clave en recepción de rifugio' },
+      { fr: 'Risolviamo subito il problema.',          es: 'Vamos a resolver eso ahora.',           extra: 'Compromiso inmediato de acción' },
+      { fr: 'Le mie scuse per il disagio.',            es: 'Mis disculpas por el inconveniente.',   extra: 'Frase estándar profesional de servicio' },
+      { fr: 'Posso offrirle qualcosa per compensare?', es: '¿Puedo ofrecerle algo como compensación?', extra: 'Resolución concreta (café, upgrade, descuento)' },
+      { fr: 'Non succederà di nuovo.',                 es: 'Esto no volverá a suceder.',            extra: 'Garantía/aseguranza futura' }
     ]
   });
 }
@@ -3499,9 +3532,9 @@ function renderTarjetaConectoresCausaContraste() {
   });
 }
 
-function renderTarjetaMarcadoresConversacion() {
+function renderTarjetaMarcatoriConversazione() {
   return crearTarjetaVocabularioSimple({
-    titulo: 'Marcadores de conversación',
+    titulo: 'Marcatori di conversazione',
     filas: [
       { fr: 'allora',   es: 'entonces / bueno' },
       { fr: 'quindi',   es: 'entonces / así que' },
@@ -3704,24 +3737,24 @@ function actualizarSelectores() {
   const esPaisIt = estado.unidad === 'A' || (estado.unidad === 'B' && estado.tema === 'B3');
   document.body.classList.toggle('tema-pais-it', esPaisIt);
 
-  // Chamonix (B1) y Actividades (B2) describen un LUGAR (el valle de
-  // Chamonix), no el idioma — por eso van sueltos, cada uno con su
+  // Alpi Italiani (B1) y Actividades (B2) describen un LUGAR (los Alpes
+  // italianos), no el idioma — por eso van sueltos, cada uno con su
   // propia condición y su propia clase, aunque hoy compartan los
   // mismos valores de color que País. Si el día de mañana se adapta la
   // plantilla a otro idioma, estos dos NO deberían cambiar (el valle
   // sigue siendo el mismo), a diferencia de País/Abecedario.
-  const esChamonixFr = estado.unidad === 'B' && estado.tema === 'B1';
-  document.body.classList.toggle('tema-chamonix-fr', esChamonixFr);
+  const esChamonixIt = estado.unidad === 'B' && estado.tema === 'B1';
+  document.body.classList.toggle('tema-chamonix-it', esChamonixIt);
 
-  const esActividadesValleFr = estado.unidad === 'B' && estado.tema === 'B2';
-  document.body.classList.toggle('tema-actividadesvalle-fr', esActividadesValleFr);
+  const esActividadesValleIt = estado.unidad === 'B' && estado.tema === 'B2';
+  document.body.classList.toggle('tema-actividadesvalle-it', esActividadesValleIt);
 
   // El selector visual (borde) sí es una sola clase compartida entre
   // los 3, porque su apariencia depende de las variables --tema-cX que
   // cada body.tema-XXX-fr define por su cuenta (ver el CSS) — no hace
   // falta triplicar la regla del selector para mantener la
   // independencia de las 3 fuentes de color.
-  if (esPaisIt || esChamonixFr || esActividadesValleFr) {
+  if (esPaisIt || esChamonixIt || esActividadesValleIt) {
     [s1, s2, s3].forEach(s => {
       if (s.classList.contains('activo')) {
         s.classList.remove('activo');
@@ -3920,7 +3953,10 @@ function elegirUnidad(key, nombre, tipo) {
 
   document.body.classList.toggle('unidad-verbos', key === 'G');
 
-  if (estado.editor) apagarEditor();
+  // Solo apagar editor si es mesa fija
+  if (tipo === 'fija' && estado.editor) apagarEditor();
+  // Prender editor si es mesa libre
+  if (tipo === 'libre') estado.editor = true;
 
   // Llenar dropdown de temas
   const dropTema = document.getElementById('dropTema');
@@ -3973,6 +4009,8 @@ function elegirTema(key, nombre) {
 
   estado.tipoMesa = resolverTipoMesa();
   if (estado.tipoMesa === 'fija' && estado.editor) apagarEditor();
+  // Activar editor si es mesa libre
+  if (estado.tipoMesa === 'libre') estado.editor = true;
 
   document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('visible'));
   actualizarBotones();
@@ -3986,6 +4024,8 @@ function elegirSubtema(key, nombre) {
 
   estado.tipoMesa = resolverTipoMesa();
   if (estado.tipoMesa === 'fija' && estado.editor) apagarEditor();
+  // Activar editor si es mesa libre
+  if (estado.tipoMesa === 'libre') estado.editor = true;
 
   document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('visible'));
   actualizarBotones();
@@ -4003,6 +4043,12 @@ function actualizarBotones() {
       btn.classList.remove('activo');
     } else {
       btn.classList.remove('deshabilitado');
+      // En mesas libres, prender luz de los 3 botones si editor está activo
+      if (estado.editor) {
+        btn.classList.add('activo');
+      } else {
+        btn.classList.remove('activo');
+      }
     }
   });
 }
@@ -6305,6 +6351,13 @@ function activarArrastre(tarjeta, id) {
   const titulo = tarjeta.querySelector('.tarjeta-titulo');
   if (!titulo) return;
 
+  // Constantes de zoom
+  const SCALE_MIN = 0.6;   // Mínimo 60% del tamaño original
+  const SCALE_MAX = 1.0;   // Máximo 100% (tamaño original)
+  let currentScale = 1.0;
+  let initialDistance = 0;
+
+  // ── Arrastre ──────────────────────────────────────────
   titulo.addEventListener('pointerdown', ev => {
     if (!estado.editor) return;
     ev.preventDefault();
@@ -6336,6 +6389,45 @@ function activarArrastre(tarjeta, id) {
     document.addEventListener('pointermove', mover);
     document.addEventListener('pointerup', soltar);
   });
+
+  // ── Pinch-to-zoom ─────────────────────────────────────
+  tarjeta.addEventListener('touchstart', ev => {
+    if (!estado.editor || ev.touches.length !== 2) return;
+    ev.preventDefault();
+    
+    const touch1 = ev.touches[0];
+    const touch2 = ev.touches[1];
+    initialDistance = Math.hypot(
+      touch2.clientX - touch1.clientX,
+      touch2.clientY - touch1.clientY
+    );
+  }, false);
+
+  tarjeta.addEventListener('touchmove', ev => {
+    if (!estado.editor || ev.touches.length !== 2 || initialDistance === 0) return;
+    ev.preventDefault();
+    
+    const touch1 = ev.touches[0];
+    const touch2 = ev.touches[1];
+    const currentDistance = Math.hypot(
+      touch2.clientX - touch1.clientX,
+      touch2.clientY - touch1.clientY
+    );
+    
+    const scale = currentDistance / initialDistance;
+    let newScale = currentScale * scale;
+    newScale = Math.min(Math.max(newScale, SCALE_MIN), SCALE_MAX);
+    
+    tarjeta.style.transform = `scale(${newScale})`;
+    currentScale = newScale;
+    initialDistance = currentDistance;
+  }, false);
+
+  tarjeta.addEventListener('touchend', ev => {
+    if (ev.touches.length < 2) {
+      initialDistance = 0;
+    }
+  }, false);
 }
 
 // ── Inicialización al cargar ──────────────────────────────────────────
@@ -6379,7 +6471,7 @@ elegirUnidad(primeraKey, primeraUnidad.nombre, primeraUnidad.tipo);
   // por la paleta bandera en Cultura → Actividades/País.
   const GRISES = ['#b0b0ae','#989896','#c8c8c6','#a0a0a0','#d0d0ce','#888886'];
   const COLORES_VERBOS = ['#E8392B','#D88436','#DEC648','#3FB84A','#4278D8','#7242CC','#E85CA0'];
-  // Chamonix/Actividades del valle NO cambian con el idioma (son el
+  // Alpi Italiani/Actividades del valle NO cambian con el idioma (son el
   // lugar, no el país que se estudia) — quedan con la paleta "campo
   // francés" de siempre.
   const COLORES_VALLE_MARINO  = '#2C4A6E';
@@ -6470,18 +6562,18 @@ elegirUnidad(primeraKey, primeraUnidad.nombre, primeraUnidad.tipo);
     if (typeof estado === 'undefined') return false;
     return estado.unidad === 'A' || (estado.unidad === 'B' && estado.tema === 'B3');
   }
-  function esChamonixFr() {
+  function esChamonixIt() {
     return typeof estado !== 'undefined' && estado.unidad === 'B' && estado.tema === 'B1';
   }
-  function esActividadesValleFr() {
+  function esActividadesValleIt() {
     return typeof estado !== 'undefined' && estado.unidad === 'B' && estado.tema === 'B2';
   }
-  // Ayuda solo para el motor de partículas: Chamonix y Actividades del
+  // Ayuda solo para el motor de partículas: Alpi Italiani y Actividades del
   // valle comparten paleta (el valle, no cambia con el idioma) — País
   // ya tiene su propia paleta separada (la de Italia), por eso no
   // entra en este grupo.
-  function esCulturaValleFr() {
-    return esChamonixFr() || esActividadesValleFr();
+  function esCulturaValleIt() {
+    return esChamonixIt() || esActividadesValleIt();
   }
   function esTerreno() {
     return typeof estado !== 'undefined' && estado.unidad === 'C' && estado.tema === 'C1';
@@ -6560,7 +6652,7 @@ elegirUnidad(primeraKey, primeraUnidad.nombre, primeraUnidad.tipo);
   // usa una "X". El Tiempo usa un relojito de arena. Números (D1) se
   // queda con la paleta gris de siempre (no tiene tema visual propio)
   // pero cambia la forma a los 4 signos de operaciones: +, −, ×, ÷.
-  // Chamonix/Actividades/País usan el mix "campo francés": confeti,
+  // Alpi Italiani/Actividades/País usan el mix "campo montañoso": confeti,
   // hojita, granito y circulito, cada uno con su color fijo (ver
   // CULTURA_FR_TIPOS más arriba).
   function modoActual() {
@@ -6569,7 +6661,7 @@ elegirUnidad(primeraKey, primeraUnidad.nombre, primeraUnidad.tipo);
     if (esClima()) return 'clima';
     if (esActividades()) return 'chispitas';
     if (esPaisIt()) return 'cultura-italia';
-    if (esCulturaValleFr()) return 'cultura-valle';
+    if (esCulturaValleIt()) return 'cultura-valle';
     if (esVocabulario()) return 'ficha';
     if (esImperativo()) return 'exclamacion';
     if (esSubjuntivo()) return 'interrobang';
