@@ -1442,7 +1442,8 @@ const UNIDADES = {
         'E4a': { nombre: 'Particelle' },
         'E4b': { nombre: 'Conversazione' }
       } },
-      'E5': { nombre: 'Negazione',      subtemas: null }
+      'E5': { nombre: 'Negazione',      subtemas: null },
+      'E6': { nombre: 'Perífrasis Verbales', subtemas: null }
     }
   },
   'F': {
@@ -1602,11 +1603,18 @@ const CONTENIDO_TARJETAS = {
   ],
   'E-E4-E4b': [
     { id: 'lamentele-scuse',         tipo: 'columnas', titulo: 'Gestione di lamentele e scuse', render: renderTarjetaLamentelScuse },
-    { id: 'marcatori-conversazione', tipo: 'columnas', titulo: 'Marcatori di conversazione',   render: renderTarjetaMarcatoriConversazione }
+    { id: 'marcatori-conversazione', tipo: 'columnas', titulo: 'Marcatori di conversazione',   render: renderTarjetaMarcatoriConversazione },
+    { id: 'parole-particellari',     tipo: 'texto-largo', titulo: 'Parole Particellari — Matiz conversacional', render: renderTarjetaParoleParticellari }
   ],
   'E-E5': [
     { id: 'negacion-basica',      tipo: 'columnas', titulo: 'Negación básica', render: renderTarjetaNegacionBasica },
     { id: 'negacion-compuestos',  tipo: 'columnas', titulo: 'Negación con infinitivo y verbos compuestos', render: renderTarjetaNegacionCompuestos }
+  ],
+  'E-E6': [
+    { id: 'perifrasis-verbales',  tipo: 'texto-largo', titulo: 'Perífrasis Verbales — Habla real', render: renderTarjetaPerifrasisVerbales },
+    { id: 'discorso-indiretto',   tipo: 'texto-largo', titulo: 'Discorso Indiretto — Estilo indirecto', render: renderTarjetaDiscorsoIndiretto },
+    { id: 'si-impersonale',       tipo: 'texto-largo', titulo: 'Si impersonale — Construcción impersonal', render: renderTarjetaSiImpersonale },
+    { id: 'participio-assoluto',  tipo: 'texto-largo', titulo: 'Participio Assoluto — Construcción absoluta', render: renderTarjetaParticiploAssoluto }
   ],
   'F-F1': [
     { id: 'sujeto-tonico-reflexivo', tipo: 'columnas', titulo: 'Sujeto, tónico, reflexivo', render: renderTarjetaPersonasSujetoTonicoReflexivo },
@@ -1619,7 +1627,8 @@ const CONTENIDO_TARJETAS = {
     { id: 'articoli-indefiniti',  tipo: 'columnas',      titulo: 'Articoli Indefiniti',       render: renderTarjetaArticoliIndefiniti },
     { id: 'pronomi-cod',          tipo: 'columnas',      titulo: 'Pronomi Complemento Oggetto', render: renderTarjetaPronomiCOD },
     { id: 'pronomi-coi',          tipo: 'columnas',      titulo: 'Pronomi Complemento Indiretto', render: renderTarjetaPronomiCOI },
-    { id: 'due-pronomi',          tipo: 'columnas',      titulo: 'Combinazione di due pronomi', render: renderTarjetaDuePronomi }
+    { id: 'due-pronomi',          tipo: 'columnas',      titulo: 'Combinazione di due pronomi', render: renderTarjetaDuePronomi },
+    { id: 'pronomi-clitici',      tipo: 'texto-largo',   titulo: 'Pronomi Clitici — Posizione', render: renderTarjetaPronomiClitici }
   ],
   'F-F3': [
     { id: 'pronombres-y-en', tipo: 'columnas',      titulo: 'Pronombres "y" y "en"',  render: renderTarjetaPronombresYEn },
@@ -1628,7 +1637,8 @@ const CONTENIDO_TARJETAS = {
     { id: 'demostrativos-sg', tipo: 'columnas',     titulo: 'Demostrativos — singular', render: renderTarjetaDemostrativosSingular },
     { id: 'demostrativos-pl', tipo: 'columnas',     titulo: 'Demostrativos — plural', render: renderTarjetaDemostrativosPlural },
     { id: 'de-origenes',     tipo: 'columnas',      titulo: 'De / desde (orígenes)',  render: renderTarjetaArticulosDeOrigenes },
-    { id: 'a-destinos',      tipo: 'columnas',      titulo: 'À / hacia (destinos)',   render: renderTarjetaArticulosADestinos }
+    { id: 'a-destinos',      tipo: 'columnas',      titulo: 'À / hacia (destinos)',   render: renderTarjetaArticulosADestinos },
+    { id: 'pronombres-relativos', tipo: 'texto-largo', titulo: 'Pronombres Relativos (che, cui, quale)', render: renderTarjetaPronombresRelativos }
   ],
   'F-F4': [
     { id: 'adjetivos-concordancia', tipo: 'columnas', titulo: 'Adjetivos — concordancia', render: renderTarjetaAdjetivosConcordancia },
@@ -3097,6 +3107,19 @@ function renderTarjetaArticulosADestinos() {
   });
 }
 
+function renderTarjetaPronombresRelativos() {
+  return crearTarjetaTextoLargo({
+    titulo: 'Pronombres Relativos: che, cui, quale',
+    parrafos: [
+      '<strong>CHE:</strong> El más común. Sujeto u objeto directo (sin preposición). <span class="hablar" data-hablar="Il libro che leggo">Il libro che leggo</span> (el libro que leo), <span class="hablar" data-hablar="La persona che vedi">la persona che vedi</span> (la persona que ves), <span class="hablar" data-hablar="L\'hotel che prenotai">l\'hotel che prenotai</span> (el hotel que reservé). Invariable, funciona siempre igual.',
+      '<strong>CUI:</strong> Con preposición. <span class="hablar" data-hablar="La persona a cui parlo">La persona a cui parlo</span> (la persona a quien hablo), <span class="hablar" data-hablar="Il rifugio in cui dormiamo">il rifugio in cui dormiamo</span> (el refugio en el que dormimos), <span class="hablar" data-hablar="La montagna di cui parli">la montagna di cui parli</span> (la montaña de la que hablas). También posesión: <span class="hablar" data-hablar="La persona il cui nome dimentico">la persona il cui nome dimentico</span> (la persona cuyo nombre olvido).',
+      '<strong>QUALE:</strong> Formal/escrito, menos común en habla. Puede usar con o sin preposición. <span class="hablar" data-hablar="Il libro il quale leggo">Il libro il quale leggo</span> (igual a "che"), <span class="hablar" data-hablar="La persona alla quale parlo">la persona alla quale parlo</span> (igual a "cui"). Varía por género/número: quale/quali. Muy raro en conversación, más en lenguaje formal/literario.',
+      '<strong>Orden en la oración:</strong> <span class="hablar" data-hablar="Il libro che leggo è interessante">Il libro che leggo è interessante</span> (el libro que leo es interesante). <span class="hablar" data-hablar="La guida a cui chiedo aiuto è esperta">La guida a cui chiedo aiuto è esperta</span> (la guía a quien le pido ayuda es experta). El relativo va inmediatamente después del antecedente.',
+      '<strong>CHE vs CUI - Regla simple:</strong> Si hay preposición (a, di, in, con, etc.), usa CUI. Si no hay preposición, usa CHE. <span class="hablar" data-hablar="La casa che compro">La casa che compro</span> (sin prep), <span class="hablar" data-hablar="La casa in cui abito">la casa in cui abito</span> (con prep).'
+    ]
+  });
+}
+
 function renderTarjetaArticulosDeOrigenes() {
   return crearTarjetaTablaGenerica({
     titulo: 'Da (desde...) — preposición articulada de origen',
@@ -3289,6 +3312,20 @@ function renderTarjetaDuePronomi() {
       { fr: 'gli/le + lo/la/li/le/ne → glielo/gliela/glieli/gliele', es: 'se lo(s)/la(s) (a él/ella/ellos)', extra: 'Glielo porto. (Se lo traigo [a él/ella].) — se fusionan en una sola palabra' },
       { fr: 'orden: pronombre de persona antes que el de objeto', es: 'regla de orden', extra: 'Te lo porto subito. (Se lo traigo enseguida.)' },
       { fr: 'ejemplo de servicio',         es: 'frase típica de hotelería', extra: 'Glielo do tra un istante. (Se lo doy en un instante.)' }
+    ]
+  });
+}
+
+function renderTarjetaPronomiClitici() {
+  return crearTarjetaTextoLargo({
+    titulo: 'Pronomi Clitici — Posizione (habla real)',
+    parrafos: [
+      '<strong>Pronomi clitici:</strong> <span class="hablar" data-hablar="lo, la, li, le, mi, ti, ci, vi, si, ne">lo, la, li, le, mi, ti, ci, vi, si, ne</span> — pronombres que se adhieren al verbo, muy comunes en italiano hablado.',
+      '<strong>Posición CON verbo conjugado:</strong> El pronombre va <strong>ANTES</strong> del verbo. <span class="hablar" data-hablar="Lo vedo">Lo vedo</span> (lo veo), <span class="hablar" data-hablar="Mi piace">Mi piace</span> (me gusta), <span class="hablar" data-hablar="Vi parlo">Vi parlo</span> (os hablo). En negativo: <span class="hablar" data-hablar="Non lo vedo">Non lo vedo</span> (no lo veo).',
+      '<strong>Posición CON infinitivo:</strong> El pronombre va <strong>DESPUÉS</strong>, fusionado. <span class="hablar" data-hablar="Voglio vederlo">Voglio vederlo</span> (quiero verlo), <span class="hablar" data-hablar="Devo portarvi">Devo portarvi</span> (debo llevaros). Con <em>andare a + infinitivo:</em> <span class="hablar" data-hablar="Vado a prenderlo">Vado a prenderlo</span> (voy a traerlo).',
+      '<strong>Posición CON imperativo:</strong> Va <strong>DESPUÉS</strong>, fusionado. <span class="hablar" data-hablar="Portami un caffè">Portami un caffè</span> (tráeme un café), <span class="hablar" data-hablar="Fallo subito">Fallo subito</span> (hazlo enseguida). En negativo: <span class="hablar" data-hablar="Non lo fare">Non lo fare</span> (no lo hagas).',
+      '<strong>Posición CON gerundio:</strong> Va <strong>DESPUÉS</strong>, fusionado. <span class="hablar" data-hablar="Vedendolo">Vedendolo</span> (viéndolo), <span class="hablar" data-hablar="Parlandovi">Parlandovi</span> (hablándoos). Común en: <span class="hablar" data-hablar="Passando per Roma, l\'ho visto">Passando per Roma, l\'ho visto</span> (pasando por Roma, lo vi).',
+      '<strong>Combinaciones comunes en habla:</strong> <span class="hablar" data-hablar="Me lo">me lo</span> (me lo), <span class="hablar" data-hablar="Te la">te la</span> (te la), <span class="hablar" data-hablar="Ce lo">ce lo</span> (nos lo), <span class="hablar" data-hablar="Ve la">ve la</span> (os la), <span class="hablar" data-hablar="Glielo">glielo</span> (se lo a él/ella). Ejemplo: <span class="hablar" data-hablar="Te lo porto subito">Te lo porto subito</span> (te lo traigo enseguida).'
     ]
   });
 }
@@ -3547,6 +3584,20 @@ function renderTarjetaMarcatoriConversazione() {
   });
 }
 
+function renderTarjetaParoleParticellari() {
+  return crearTarjetaTextoLargo({
+    titulo: 'Parole Particellari — Matices conversacionales',
+    parrafos: [
+      '<strong>PERÒ (pero/sin embargo):</strong> Básico: <span class="hablar" data-hablar="Ti amo, però sei difficile">Ti amo, però sei difficile</span> (te amo, pero eres difícil). Coloquial: <span class="hablar" data-hablar="Però dai">Però dai</span> (vamos, pero) — añade énfasis o sorpresa. Con tono: <span class="hablar" data-hablar="Però!">Però!</span> expresa contrariedad.',
+      '<strong>ALLORA (entonces/bueno):</strong> Conclusión: <span class="hablar" data-hablar="Allora, ci vediamo domani?">Allora, ci vediamo domani?</span> (entonces, ¿nos vemos mañana?). Pensamiento: <span class="hablar" data-hablar="Allora... cosa dici?">Allora... cosa dici?</span> (bueno... ¿qué dices? — pausa reflexiva). Acción: <span class="hablar" data-hablar="Allora andiamo">Allora andiamo</span> (bueno, vámonos).',
+      '<strong>SÌ, MA (sí, pero):</strong> Concesión con negación suave: <span class="hablar" data-hablar="Sì, ma non è così semplice">Sì, ma non è così semplice</span> (sí, pero no es tan simple). Con frustración: <span class="hablar" data-hablar="Sì, sì, ma quando?">Sì, sì, ma quando?</span> (sí, sí, pero ¿cuándo?) — repetir "sì" agrega tono incrédulo.',
+      '<strong>GUARDA (mira/escucha):</strong> Llamar atención: <span class="hablar" data-hablar="Guarda, c\'è un problema">Guarda, c\'è un problema</span> (mira, hay un problema). Énfasis narrativo: <span class="hablar" data-hablar="Guarda che bella vista">Guarda che bella vista</span> (mira qué vista tan bonita). Advertencia: <span class="hablar" data-hablar="Guarda che arriva">Guarda che arriva</span> (cuidado, viene).',
+      '<strong>DAI (vamos/dale):</strong> Persuasión: <span class="hablar" data-hablar="Dai, vieni con noi">Dai, vieni con noi</span> (vamos, ven con nosotros). Incredulidad: <span class="hablar" data-hablar="Dai! Non è possibile">Dai! Non è possibile</span> (¡vamos! ¡no es posible!) — expresa sorpresa. Ruego: <span class="hablar" data-hablar="Dai, un caffè">Dai, un caffè</span> (dale, un café — pidiendo en tono familiar).',
+      '<strong>CHE (que/qué):</strong> Entonación es todo. Exclamación: <span class="hablar" data-hablar="Che bella giornata!">Che bella giornata!</span> (¡qué día tan bonito!). Pregunta de confirmación: <span class="hablar" data-hablar="Vieni, che sì?">Vieni, che sì?</span> (¿vienes, que sí?) — intonación ascendente. Comparación: <span class="hablar" data-hablar="È più freddo che l\'anno scorso">È più freddo che l\'anno scorso</span> (hace más frío que el año pasado).'
+    ]
+  });
+}
+
 function renderTarjetaDiscursoIndirecto() {
   return crearTarjetaVocabularioExtra({
     titulo: 'Discurso indirecto',
@@ -3584,6 +3635,59 @@ function renderTarjetaNegacionCompuestos() {
       { fr: 'non + infinitivo',       es: 'no + infinitivo',            extra: 'Si prega di non fumare. (Por favor no fumar.)' },
       { fr: 'non + auxiliar + participio', es: 'no + auxiliar + participio', extra: 'Non ho capito. (No entendí.)' },
       { fr: 'non + auxiliar + mai + participio', es: 'nunca + auxiliar + participio', extra: 'Non ho mai visitato Parigi. (Nunca visité París.)' }
+    ]
+  });
+}
+
+function renderTarjetaPerifrasisVerbales() {
+  return crearTarjetaTextoLargo({
+    titulo: 'Perífrasis Verbales — Habla real italiana',
+    parrafos: [
+      '<strong>Stare per + infinitivo:</strong> Acción inminente. <span class="hablar" data-hablar="Sto per partire">Sto per partire</span> (estoy a punto de irme). <span class="hablar" data-hablar="Stavamo per mangiare">Stavamo per mangiare</span> (estábamos a punto de comer). Es el equivalente italiano a "ir a + inf" pero SOLO para acciones inminentes, no planes futuros.',
+      '<strong>Andare + gerundio:</strong> Acción que progresa lentamente o empeora. <span class="hablar" data-hablar="Le cose vanno peggiorando">Le cose vanno peggiorando</span> (las cosas van empeorando). <span class="hablar" data-hablar="Il vento va aumentando">Il vento va aumentando</span> (el viento va aumentando). Muy común en descripción de cambios.',
+      '<strong>Continuare a / Seguire a + infinitivo:</strong> Continuidad de una acción. <span class="hablar" data-hablar="Continua a piovere">Continua a piovere</span> (sigue lloviendo). <span class="hablar" data-hablar="Continuerò a chiamarti">Continuerò a chiamarti</span> (seguiré llamándote). Casi igual, pero "seguire" es menos común.',
+      '<strong>Smettere di + infinitivo:</strong> Dejar de hacer algo. <span class="hablar" data-hablar="Ho smesso di fumare">Ho smesso di fumare</span> (dejé de fumar). <span class="hablar" data-hablar="Smetti di piangere">Smetti di piangere</span> (deja de llorar). Muy usado en conversación.',
+      '<strong>Cominciare a / Iniziare a + infinitivo:</strong> Empezar una acción. <span class="hablar" data-hablar="Ha iniziato a nevicare">Ha iniziato a nevicare</span> (empezó a nevar). <span class="hablar" data-hablar="Comincio a capire">Comincio a capire</span> (empiezo a entender). Equivalentes, "cominciare" más común en norte, "iniziare" en sur.',
+      '<strong>Dovere / Potere / Volere + infinitivo:</strong> Ya las tienes, pero recuerda que SON perífrasis: <span class="hablar" data-hablar="Devo andare">Devo andare</span> (debo irme), <span class="hablar" data-hablar="Non posso venire">Non posso venire</span> (no puedo venir), <span class="hablar" data-hablar="Voglio capire">Voglio capire</span> (quiero entender).'
+    ]
+  });
+}
+
+function renderTarjetaDiscorsoIndiretto() {
+  return crearTarjetaTextoLargo({
+    titulo: 'Discorso Indiretto — Estilo indirecto',
+    parrafos: [
+      '<strong>Estilo directo → Indirecto:</strong> <span class="hablar" data-hablar="Ha detto: \"Arrivo domani\"">Ha detto: "Arrivo domani"</span> (dijo: "Llego mañana") → <span class="hablar" data-hablar="Ha detto che arriva domani">Ha detto che arriva domani</span> (dijo que llega mañana). El presente "arrivo" se mantiene en indirecto si el contexto es presente; con pretérito, puede cambiar.',
+      '<strong>Cambios de tiempo común:</strong> Directo: <span class="hablar" data-hablar="\"Vado al rifugio\"">\"Vado al rifugio\"</span> (voy al refugio) → Indirecto: <span class="hablar" data-hablar="Ha detto che andava al rifugio">Ha detto che andava al rifugio</span> (dijo que iba) — cambio a imperfetto. Directo: <span class="hablar" data-hablar="\"Devo partire\"">\"Devo partire\"</span> (debo irme) → Indirecto: <span class="hablar" data-hablar="Ha detto che doveva partire">Ha detto che doveva partire</span>.',
+      '<strong>Pronombres:** Cambio según contexto. Directo (hablante): <span class="hablar" data-hablar="\"Io parto\"">\"Io parto\"</span> (yo me voy) → Indirecto (reportado): <span class="hablar" data-hablar="Ha detto che partiva">Ha detto che partiva</span> (dijo que se iba — "lui/lei" implícito). Si te incluye: <span class="hablar" data-hablar="\"Tu vieni con me\"">\"Tu vieni con me\"</span> → <span class="hablar" data-hablar="Mi ha detto che vengo con lui">Mi ha detto che vengo con lui</span> (me dijo que voy con él).',
+      '<strong>Preguntas indirectas:</strong> <span class="hablar" data-hablar="Mi ha chiesto: \"Quando arriva?\"">Mi ha chiesto: "Quando arriva?"</span> → <span class="hablar" data-hablar="Mi ha chiesto quando arriviamo">Mi ha chiesto quando arriviamo</span> (me preguntó cuándo llegamos). O: <span class="hablar" data-hablar="Mi ha chiesto se vengo">Mi ha chiesto se vengo</span> (me preguntó si vengo — con "se" para sí/no).',
+      '<strong>Órdenes indirectas:</strong> <span class="hablar" data-hablar="Ha detto: \"Vieni qui!\"">Ha detto: "Vieni qui!"</span> → <span class="hablar" data-hablar="Mi ha detto di venire lì">Mi ha detto di venire lì</span> (me dijo que viniera allí — "di + infinito"). Negativo: <span class="hablar" data-hablar="Ha detto di non fumare">Ha detto di non fumare</span> (dijo que no fumara).'
+    ]
+  });
+}
+
+function renderTarjetaSiImpersonale() {
+  return crearTarjetaTextoLargo({
+    titulo: 'Si impersonale — Construcción impersonal',
+    parrafos: [
+      '<strong>Qué es:</strong> "Si" + verbo en tercera persona para expresar acciones genéricas o indefinidas, sin sujeto específico. NO es reflexivo (que sería "mi lavo"), sino impersonal. <span class="hablar" data-hablar="In Italia si parla italiano">In Italia si parla italiano</span> (en Italia se habla italiano), <span class="hablar" data-hablar="Si dice che...">Si dice che...</span> (se dice que...).',
+      '<strong>Conjugación:</strong> Singular: <span class="hablar" data-hablar="Si mangia bene al rifugio">Si mangia bene al rifugio</span> (se come bien en el refugio). Plural: <span class="hablar" data-hablar="Si mangiano pasta fresca">Si mangiano pasta fresca</span> (se comen pastas frescas). Recuerda: plural si el sustantivo es plural.',
+      '<strong>Con auxiliar "essere":</strong> Siempre plural. <span class="hablar" data-hablar="Si è contenti">Si è contenti</span> (se está contento — plural, aunque "uno" es singular). <span class="hablar" data-hablar="Si sono stanchi">Si sono stanchi</span> (se están cansados). El adjetivo/participio va en plural.',
+      '<strong>Pasado:</strong> <span class="hablar" data-hablar="Si è mangiato bene">Si è mangiato bene</span> (se comió bien). <span class="hablar" data-hablar="Si è partiti presto">Si è partiti presto</span> (se salió temprano — plural).',
+      '<strong>Diferencia con pasiva:</strong> Pasiva: <span class="hablar" data-hablar="Il libro è letto">Il libro è letto</span> (el libro es leído). Impersonal: <span class="hablar" data-hablar="Si legge il libro">Si legge il libro</span> (se lee el libro). El impersonal es más general, más usado en habla.'
+    ]
+  });
+}
+
+function renderTarjetaParticiploAssoluto() {
+  return crearTarjetaTextoLargo({
+    titulo: 'Participio Assoluto — Construcción absoluta con participio',
+    parrafos: [
+      '<strong>Qué es:</strong> Participio pasado usado como construcción independiente (sin auxiliar) para expresar una acción anterior o simultánea a la acción principal. Muy elegante, común en lenguaje formal y alpino/narrativo. <span class="hablar" data-hablar="Arrivato al rifugio, ho mangiato">Arrivato al rifugio, ho mangiato</span> (llegado al refugio, comí).',
+      '<strong>Estructura:</strong> Participio + resto de la oración. El participio varía por género/número del sujeto (implícito). <span class="hablar" data-hablar="Arrivata la guida, siamo partiti">Arrivata la guida, siamo partiti</span> (llegada la guía, partimos — "guida" es femenino, luego "arrivata"). <span class="hablar" data-hablar="Arrivati i turisti, abbiamo iniziato">Arrivati i turisti, abbiamo iniziato</span> (llegados los turistas, comenzamos — plural).',
+      '<strong>Tiempo verbal:</strong> Casi siempre participio pasado (azione anteriore). <span class="hablar" data-hablar="Finito il lavoro, siamo tornati a casa">Finito il lavoro, siamo tornati a casa</span> (terminado el trabajo, volvimos a casa). Raro con presente: <span class="hablar" data-hablar="Partendo per Roma, ho visto...">Partendo per Roma, ho visto...</span> (partiendo para Roma, vi... — gerundio, no participio).',
+      '<strong>Ejemplos alpinos/cotidianos:</strong> <span class="hablar" data-hablar="Prese le racchette, siamo saliti in montagna">Prese le racchette, siamo saliti in montagna</span> (tomadas las raquetas, subimos a la montaña). <span class="hablar" data-hablar="Passato il rifugio, il sentiero diventa più difficile">Passato il rifugio, il sentiero diventa più difficile</span> (pasado el refugio, el sendero se vuelve más difícil).',
+      '<strong>Nota de formalidad:</strong> Es elegante, menos coloquial. En habla muy casual, típicamente reemplazado por oración subordinada: "Quando sono arrivato al rifugio, ho mangiato" (cuando llegué...) vs "Arrivato al rifugio, ho mangiato." Pero es muy común en descripciones narrativas y en el sur/en montaña.'
     ]
   });
 }
