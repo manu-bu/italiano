@@ -1226,8 +1226,9 @@ body.unidad-personas .tarjeta-titulo {
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.10);
   min-width: 200px;
+  max-height: 500px;
+  overflow-y: auto;
   z-index: 500;
-  overflow: hidden;
   display: none;
 }
 
@@ -1466,79 +1467,60 @@ const UNIDADES = {
         'avere':  { nombre_esp: 'Tener',     nombre: 'Avere',  verbo: 'Avere', participio: 'avuto' }
       } },
       'G2': { nombre: 'Irregolari',  subtemas: {
+        'cadere':    { nombre_esp: 'Caer',        nombre: 'Cadere',        verbo: 'Cadere',    participio: 'caduto' },
+        'conoscere': { nombre_esp: 'Conocer',     nombre: 'Conoscere',     verbo: 'Conoscere', participio: 'conosciuto' },
+        'condurre':  { nombre_esp: 'Conducir',    nombre: 'Condurre',      verbo: 'Condurre',  participio: 'condotto' },
+        'dovere':    { nombre_esp: 'Deber',        nombre: 'Dovere',        verbo: 'Dovere',    participio: 'dovuto' },
+        'dire':      { nombre_esp: 'Decir',        nombre: 'Dire',          verbo: 'Dire',      participio: 'detto' },
+        'fare':      { nombre_esp: 'Hacer',       nombre: 'Fare',         verbo: 'Fare',      participio: 'fatto' },
+        'mettere':   { nombre_esp: 'Poner/Meter', nombre: 'Mettere',      verbo: 'Mettere',   participio: 'messo' },
+        'potere':    { nombre_esp: 'Poder',       nombre: 'Potere',       verbo: 'Potere',    participio: 'potuto' },
+        'prendere':  { nombre_esp: 'Agarrar',     nombre: 'Prendere',     verbo: 'Prendere',  participio: 'preso' },
+        'produrre':  { nombre_esp: 'Producir',    nombre: 'Produrre',      verbo: 'Produrre',  participio: 'prodotto' },
+        'sapere':    { nombre_esp: 'Saber',       nombre: 'Sapere',        verbo: 'Sapere',    participio: 'saputo' },
+        'tenere':    { nombre_esp: 'Tener',       nombre: 'Tenere',        verbo: 'Tenere',    participio: 'tenuto' },
+        'tradurre':  { nombre_esp: 'Traducir',    nombre: 'Tradurre',      verbo: 'Tradurre',  participio: 'tradotto' },
+        'uscire':    { nombre_esp: 'Salir',       nombre: 'Uscire',       verbo: 'Uscire',    participio: 'uscito' },
+        'valere':    { nombre_esp: 'Valer',       nombre: 'Valere',        verbo: 'Valere',    participio: 'valso' },
+        'vedere':    { nombre_esp: 'Ver',         nombre: 'Vedere',        verbo: 'Vedere',    participio: 'visto' },
         'venire':    { nombre_esp: 'Venir',       nombre: 'Venire',       verbo: 'Venire',    participio: 'venuto' },
         'vivere':    { nombre_esp: 'Vivir',       nombre: 'Vivere',       verbo: 'Vivere',    participio: 'vissuto' },
         'volere':    { nombre_esp: 'Querer',      nombre: 'Volere',       verbo: 'Volere',    participio: 'voluto' },
-        'uscire':    { nombre_esp: 'Salir',       nombre: 'Uscire',       verbo: 'Uscire',    participio: 'uscito' },
-        'prendere':  { nombre_esp: 'Agarrar',     nombre: 'Prendere',     verbo: 'Prendere',  participio: 'preso' },
-        'mettere':   { nombre_esp: 'Poner/Meter', nombre: 'Mettere',      verbo: 'Mettere',   participio: 'messo' },
-        'potere':    { nombre_esp: 'Poder',       nombre: 'Potere',       verbo: 'Potere',    participio: 'potuto' },
-        'fare':      { nombre_esp: 'Hacer',       nombre: 'Fare',         verbo: 'Fare',      participio: 'fatto' },
-        'dire':      { nombre_esp: 'Decir',        nombre: 'Dire',          verbo: 'Dire',      participio: 'detto' },
-        'dovere':    { nombre_esp: 'Deber',        nombre: 'Dovere',        verbo: 'Dovere',    participio: 'dovuto' },
-        'conoscere': { nombre_esp: 'Conocer',     nombre: 'Conoscere',     verbo: 'Conoscere', participio: 'conosciuto' },
-        'vedere':    { nombre_esp: 'Ver',         nombre: 'Vedere',        verbo: 'Vedere',    participio: 'visto' },
-        'tenere':    { nombre_esp: 'Tener',       nombre: 'Tenere',        verbo: 'Tenere',    participio: 'tenuto' },
-        'sapere':    { nombre_esp: 'Saber',       nombre: 'Sapere',        verbo: 'Sapere',    participio: 'saputo' },
-        'portare':   { nombre_esp: 'Llevar',      nombre: 'Portare',       verbo: 'Portare',   participio: 'portato' },
-        'cadere':    { nombre_esp: 'Caer',        nombre: 'Cadere',        verbo: 'Cadere',    participio: 'caduto' },
-        'valere':    { nombre_esp: 'Valer',       nombre: 'Valere',        verbo: 'Valere',    participio: 'valso' },
-        'produrre':  { nombre_esp: 'Producir',    nombre: 'Produrre',      verbo: 'Produrre',  participio: 'prodotto' },
-        'tradurre':  { nombre_esp: 'Traducir',    nombre: 'Tradurre',      verbo: 'Tradurre',  participio: 'tradotto' },
-        'condurre':  { nombre_esp: 'Conducir',    nombre: 'Condurre',      verbo: 'Condurre',  participio: 'condotto' }
+        'portare':   { nombre_esp: 'Llevar',      nombre: 'Portare',       verbo: 'Portare',   participio: 'portato' }
       } },
       'G3': { nombre: 'Regolari',    subtemas: {
         'amare':    { nombre_esp: 'Amar',     nombre: 'Amare',    verbo: 'Amare',    participio: 'amato' },
-        'portare':  { nombre_esp: 'Traer',    nombre: 'Portare',  verbo: 'Portare',  participio: 'portato' },
+        'aprire':   { nombre_esp: 'Abrir',       nombre: 'Aprire',    verbo: 'Aprire',    participio: 'aperto' },
         'arrivare': { nombre_esp: 'Llegar',   nombre: 'Arrivare', verbo: 'Arrivare', participio: 'arrivato' },
-        'dare':     { nombre_esp: 'Dar',      nombre: 'Dare',     verbo: 'Dare',     participio: 'dato' },
         'abitare':  { nombre_esp: 'Habitar',  nombre: 'Abitare',  verbo: 'Abitare',  participio: 'abitato' },
-        'parlare':  { nombre_esp: 'Hablar',   nombre: 'Parlare',  verbo: 'Parlare',  participio: 'parlato' },
-        'riparare': { nombre_esp: 'Reparar',  nombre: 'Riparare', verbo: 'Riparare', participio: 'riparato' },
-        'pensare':  { nombre_esp: 'Pensar',   nombre: 'Pensare',  verbo: 'Pensare',  participio: 'pensato' },
-        'lavorare': { nombre_esp: 'Trabajar', nombre: 'Lavorare', verbo: 'Lavorare', participio: 'lavorato' },
-        'entrare':  { nombre_esp: 'Entrar',   nombre: 'Entrare',  verbo: 'Entrare',  participio: 'entrato' },
-        'comprare': { nombre_esp: 'Comprar',  nombre: 'Comprare', verbo: 'Comprare', participio: 'comprato' },
-        'aspettare': { nombre_esp: 'Esperar', nombre: 'Aspettare', verbo: 'Aspettare', participio: 'aspettato' },
-        'cercare': { nombre_esp: 'Buscar',    nombre: 'Cercare',  verbo: 'Cercare',  participio: 'cercato' },
-        'trovare': { nombre_esp: 'Encontrar', nombre: 'Trovare',  verbo: 'Trovare',  participio: 'trovato' },
-        'cominciare': { nombre_esp: 'Empezar', nombre: 'Cominciare', verbo: 'Cominciare', participio: 'cominciato' },
-        'finire':  { nombre_esp: 'Terminar',  nombre: 'Finire',   verbo: 'Finire',   participio: 'finito' },
-        'cambiare': { nombre_esp: 'Cambiar',  nombre: 'Cambiare', verbo: 'Cambiare', participio: 'cambiato' },
-        'creare':  { nombre_esp: 'Crear',     nombre: 'Creare',   verbo: 'Creare',   participio: 'creato' },
-        'lasciare': { nombre_esp: 'Dejar',    nombre: 'Lasciare', verbo: 'Lasciare', participio: 'lasciato' },
-        'domandare': { nombre_esp: 'Preguntar', nombre: 'Domandare', verbo: 'Domandare', participio: 'domandato' },
-        'rispondere': { nombre_esp: 'Responder', nombre: 'Rispondere', verbo: 'Rispondere', participio: 'risposto' },
-        'guardare': { nombre_esp: 'Mirar',    nombre: 'Guardare', verbo: 'Guardare', participio: 'guardato' },
         'ascoltare': { nombre_esp: 'Escuchar', nombre: 'Ascoltare', verbo: 'Ascoltare', participio: 'ascoltato' },
+        'aspettare': { nombre_esp: 'Esperar', nombre: 'Aspettare', verbo: 'Aspettare', participio: 'aspettato' },
+        'cambiare': { nombre_esp: 'Cambiar',  nombre: 'Cambiare', verbo: 'Cambiare', participio: 'cambiato' },
+        'cercare': { nombre_esp: 'Buscar',    nombre: 'Cercare',  verbo: 'Cercare',  participio: 'cercato' },
+        'chiedere': { nombre_esp: 'Pedir',    nombre: 'Chiedere', verbo: 'Chiedere', participio: 'chiesto' },
+        'cominciare': { nombre_esp: 'Empezar', nombre: 'Cominciare', verbo: 'Cominciare', participio: 'cominciato' },
+        'comprare': { nombre_esp: 'Comprar',  nombre: 'Comprare', verbo: 'Comprare', participio: 'comprato' },
+        'creare':  { nombre_esp: 'Crear',     nombre: 'Creare',   verbo: 'Creare',   participio: 'creato' },
+        'dare':     { nombre_esp: 'Dar',      nombre: 'Dare',     verbo: 'Dare',     participio: 'dato' },
+        'domandare': { nombre_esp: 'Preguntar', nombre: 'Domandare', verbo: 'Domandare', participio: 'domandato' },
+        'dormire':  { nombre_esp: 'Dormir',      nombre: 'Dormire',   verbo: 'Dormire',   participio: 'dormito' },
+        'entrare':  { nombre_esp: 'Entrar',   nombre: 'Entrare',  verbo: 'Entrare',  participio: 'entrato' },
+        'finire':  { nombre_esp: 'Terminar',  nombre: 'Finire',   verbo: 'Finire',   participio: 'finito' },
+        'guardare': { nombre_esp: 'Mirar',    nombre: 'Guardare', verbo: 'Guardare', participio: 'guardato' },
+        'lavorare': { nombre_esp: 'Trabajar', nombre: 'Lavorare', verbo: 'Lavorare', participio: 'lavorato' },
+        'lasciare': { nombre_esp: 'Dejar',    nombre: 'Lasciare', verbo: 'Lasciare', participio: 'lasciato' },
+        'leggere': { nombre_esp: 'Leer',      nombre: 'Leggere',  verbo: 'Leggere',  participio: 'letto' },
+        'mangiare': { nombre_esp: 'Comer',    nombre: 'Mangiare', verbo: 'Mangiare', participio: 'mangiato' },
+        'parlare':  { nombre_esp: 'Hablar',   nombre: 'Parlare',  verbo: 'Parlare',  participio: 'parlato' },
+        'pensare':  { nombre_esp: 'Pensar',   nombre: 'Pensare',  verbo: 'Pensare',  participio: 'pensato' },
+        'portare':  { nombre_esp: 'Traer',    nombre: 'Portare',  verbo: 'Portare',  participio: 'portato' },
+        'riparare': { nombre_esp: 'Reparar',  nombre: 'Riparare', verbo: 'Riparare', participio: 'riparato' },
+        'rispondere': { nombre_esp: 'Responder', nombre: 'Rispondere', verbo: 'Rispondere', participio: 'risposto' },
+        'scrivere': { nombre_esp: 'Escribir', nombre: 'Scrivere', verbo: 'Scrivere', participio: 'scritto' },
         'seguire': { nombre_esp: 'Seguir',    nombre: 'Seguire',  verbo: 'Seguire',  participio: 'seguito' },
         'toccare': { nombre_esp: 'Tocar',     nombre: 'Toccare',  verbo: 'Toccare',  participio: 'toccato' },
-        'chiedere': { nombre_esp: 'Pedir',    nombre: 'Chiedere', verbo: 'Chiedere', participio: 'chiesto' },
-        'leggere': { nombre_esp: 'Leer',      nombre: 'Leggere',  verbo: 'Leggere',  participio: 'letto' },
-        'scrivere': { nombre_esp: 'Escribir', nombre: 'Scrivere', verbo: 'Scrivere', participio: 'scritto' },
-        'mangiare': { nombre_esp: 'Comer',    nombre: 'Mangiare', verbo: 'Mangiare', participio: 'mangiato' },
-        'bere':    { nombre_esp: 'Beber',     nombre: 'Bere',     verbo: 'Bere',     participio: 'bevuto' },
-        'credere': { nombre_esp: 'Creer',     nombre: 'Credere',  verbo: 'Credere',  participio: 'creduto' },
-        'temere':  { nombre_esp: 'Temer',     nombre: 'Temere',   verbo: 'Temere',   participio: 'temuto' }
-      } },
-      'G3b': { nombre: 'Regolari -ERE/-IRE', subtemas: {
-        'vendere':  { nombre_esp: 'Vender',      nombre: 'Vendere',   verbo: 'Vendere',   participio: 'venduto' },
-        'apprendere': { nombre_esp: 'Aprender',  nombre: 'Apprendere', verbo: 'Apprendere', participio: 'appreso' },
-        'correre':  { nombre_esp: 'Correr',      nombre: 'Correre',   verbo: 'Correre',   participio: 'corso' },
-        'perdere':  { nombre_esp: 'Perder',      nombre: 'Perdere',   verbo: 'Perdere',   participio: 'perso' },
-        'proteggere': { nombre_esp: 'Proteger',  nombre: 'Proteggere', verbo: 'Proteggere', participio: 'protetto' },
-        'risolVere': { nombre_esp: 'Resolver',   nombre: 'Risolvere', verbo: 'Risolvere', participio: 'risolto' },
-        'difendere': { nombre_esp: 'Defender',   nombre: 'Difendere', verbo: 'Difendere', participio: 'difeso' },
-        'dormire':  { nombre_esp: 'Dormir',      nombre: 'Dormire',   verbo: 'Dormire',   participio: 'dormito' },
-        'partire':  { nombre_esp: 'Partir',      nombre: 'Partire',   verbo: 'Partire',   participio: 'partito' },
-        'aprire':   { nombre_esp: 'Abrir',       nombre: 'Aprire',    verbo: 'Aprire',    participio: 'aperto' },
-        'servire':  { nombre_esp: 'Servir',      nombre: 'Servire',   verbo: 'Servire',   participio: 'servito' },
-        'sentire':  { nombre_esp: 'Sentir',      nombre: 'Sentire',   verbo: 'Sentire',   participio: 'sentito' },
-        'morire':   { nombre_esp: 'Morir',       nombre: 'Morire',    verbo: 'Morire',    participio: 'morto' },
-        'subire':   { nombre_esp: 'Sufrir',      nombre: 'Subire',    verbo: 'Subire',    participio: 'subito' },
-        'ricevere': { nombre_esp: 'Recibir',     nombre: 'Ricevere',  verbo: 'Ricevere',  participio: 'ricevuto' },
-        'costruire': { nombre_esp: 'Construir',  nombre: 'Costruire', verbo: 'Costruire', participio: 'costruito' },
-        'discutere': { nombre_esp: 'Discutir',   nombre: 'Discutere', verbo: 'Discutere', participio: 'discusso' }
+        'trovare': { nombre_esp: 'Encontrar', nombre: 'Trovare',  verbo: 'Trovare',  participio: 'trovato' },
+        'vendere':  { nombre_esp: 'Vender',      nombre: 'Vendere',   verbo: 'Vendere',   participio: 'venduto' }
       } },
       'G4': { nombre: 'Riflessivi',   subtemas: {
         'alzarsi':    { nombre_esp: 'Levantarse',  nombre: 'Alzarsi',    verbo: 'Alzarsi',    participio: 'alzato' },
@@ -6646,6 +6628,1842 @@ const VERBOS_DATA = {
           { p: 'noi', f: 'troveremmo' },
           { p: 'voi', f: 'trovereste' },
           { p: 'loro', f: 'troverebbero' }
+        ], nota: null }
+    ]
+  },
+  'vendere': {
+    tiempos: [
+      { subtitulo: 'yo había venduto', filas: [
+          { p: 'io', f: 'avevo venduto' },
+          { p: 'tu', f: 'avevi venduto' },
+          { p: 'lui, lei', f: 'aveva venduto' },
+          { p: 'noi', f: 'avevamo venduto' },
+          { p: 'voi', f: 'avevate venduto' },
+          { p: 'loro', f: 'avevano venduto' }
+        ], nota: null },
+      { subtitulo: 'yo he venduto', filas: [
+          { p: 'io', f: 'ho venduto' },
+          { p: 'tu', f: 'hai venduto' },
+          { p: 'lui, lei', f: 'ha venduto' },
+          { p: 'noi', f: 'abbiamo venduto' },
+          { p: 'voi', f: 'avete venduto' },
+          { p: 'loro', f: 'hanno venduto' }
+        ], nota: null },
+      { subtitulo: 'yo vendía', filas: [
+          { p: 'io', f: 'vendevo' },
+          { p: 'tu', f: 'vendevi' },
+          { p: 'lui, lei', f: 'vendeva' },
+          { p: 'noi', f: 'vendevamo' },
+          { p: 'voi', f: 'vendevate' },
+          { p: 'loro', f: 'vendevano' }
+        ], nota: null },
+      { subtitulo: 'yo habría venduto', filas: [
+          { p: 'io', f: 'avrei venduto' },
+          { p: 'tu', f: 'avresti venduto' },
+          { p: 'lui, lei', f: 'avrebbe venduto' },
+          { p: 'noi', f: 'avremmo venduto' },
+          { p: 'voi', f: 'avreste venduto' },
+          { p: 'loro', f: 'avrebbero venduto' }
+        ], nota: null },
+      { subtitulo: 'yo vendo', filas: [
+          { p: 'io', f: 'vendo' },
+          { p: 'tu', f: 'vendi' },
+          { p: 'lui, lei', f: 'vende' },
+          { p: 'noi', f: 'vendiamo' },
+          { p: 'voi', f: 'vendete' },
+          { p: 'loro', f: 'vendono' }
+        ], nota: null },
+      { subtitulo: 'estoy por vendere', filas: [
+          { p: 'io', f: 'sto per vendere' },
+          { p: 'tu', f: 'stai per vendere' },
+          { p: 'lui, lei', f: 'sta per vendere' },
+          { p: 'noi', f: 'stiamo per vendere' },
+          { p: 'voi', f: 'state per vendere' },
+          { p: 'loro', f: 'stanno per vendere' }
+        ], nota: null },
+      { subtitulo: 'yo venderé', filas: [
+          { p: 'io', f: 'venderò' },
+          { p: 'tu', f: 'venderai' },
+          { p: 'lui, lei', f: 'venderà' },
+          { p: 'noi', f: 'venderemo' },
+          { p: 'voi', f: 'venderete' },
+          { p: 'loro', f: 'venderanno' }
+        ], nota: null },
+      { subtitulo: 'yo vendería', filas: [
+          { p: 'io', f: 'venderei' },
+          { p: 'tu', f: 'venderesti' },
+          { p: 'lui, lei', f: 'venderebbe' },
+          { p: 'noi', f: 'venderemmo' },
+          { p: 'voi', f: 'vendereste' },
+          { p: 'loro', f: 'venderebbero' }
+        ], nota: null }
+    ]
+  },
+  'dormire': {
+    tiempos: [
+      { subtitulo: 'yo había dormito', filas: [
+          { p: 'io', f: 'avevo dormito' },
+          { p: 'tu', f: 'avevi dormito' },
+          { p: 'lui, lei', f: 'aveva dormito' },
+          { p: 'noi', f: 'avevamo dormito' },
+          { p: 'voi', f: 'avevate dormito' },
+          { p: 'loro', f: 'avevano dormito' }
+        ], nota: null },
+      { subtitulo: 'yo he dormito', filas: [
+          { p: 'io', f: 'ho dormito' },
+          { p: 'tu', f: 'hai dormito' },
+          { p: 'lui, lei', f: 'ha dormito' },
+          { p: 'noi', f: 'abbiamo dormito' },
+          { p: 'voi', f: 'avete dormito' },
+          { p: 'loro', f: 'hanno dormito' }
+        ], nota: null },
+      { subtitulo: 'yo dormía', filas: [
+          { p: 'io', f: 'dormivo' },
+          { p: 'tu', f: 'dormivi' },
+          { p: 'lui, lei', f: 'dormiva' },
+          { p: 'noi', f: 'dormivamo' },
+          { p: 'voi', f: 'dormivate' },
+          { p: 'loro', f: 'dormivano' }
+        ], nota: null },
+      { subtitulo: 'yo habría dormito', filas: [
+          { p: 'io', f: 'avrei dormito' },
+          { p: 'tu', f: 'avresti dormito' },
+          { p: 'lui, lei', f: 'avrebbe dormito' },
+          { p: 'noi', f: 'avremmo dormito' },
+          { p: 'voi', f: 'avreste dormito' },
+          { p: 'loro', f: 'avrebbero dormito' }
+        ], nota: null },
+      { subtitulo: 'yo duermo', filas: [
+          { p: 'io', f: 'dormo' },
+          { p: 'tu', f: 'dormi' },
+          { p: 'lui, lei', f: 'dorme' },
+          { p: 'noi', f: 'dormiamo' },
+          { p: 'voi', f: 'dormite' },
+          { p: 'loro', f: 'dormono' }
+        ], nota: null },
+      { subtitulo: 'estoy por dormire', filas: [
+          { p: 'io', f: 'sto per dormire' },
+          { p: 'tu', f: 'stai per dormire' },
+          { p: 'lui, lei', f: 'sta per dormire' },
+          { p: 'noi', f: 'stiamo per dormire' },
+          { p: 'voi', f: 'state per dormire' },
+          { p: 'loro', f: 'stanno per dormire' }
+        ], nota: null },
+      { subtitulo: 'yo dormiré', filas: [
+          { p: 'io', f: 'dormirò' },
+          { p: 'tu', f: 'dormirai' },
+          { p: 'lui, lei', f: 'dormirà' },
+          { p: 'noi', f: 'dormiremo' },
+          { p: 'voi', f: 'dormirete' },
+          { p: 'loro', f: 'dormiranno' }
+        ], nota: null },
+      { subtitulo: 'yo dormiría', filas: [
+          { p: 'io', f: 'dormirei' },
+          { p: 'tu', f: 'dormiresti' },
+          { p: 'lui, lei', f: 'dormirebbe' },
+          { p: 'noi', f: 'dormiremmo' },
+          { p: 'voi', f: 'dormireste' },
+          { p: 'loro', f: 'dormirebbero' }
+        ], nota: null }
+    ]
+  },
+  'aprire': {
+    tiempos: [
+      { subtitulo: 'yo había aperto', filas: [
+          { p: 'io', f: 'avevo aperto' },
+          { p: 'tu', f: 'avevi aperto' },
+          { p: 'lui, lei', f: 'aveva aperto' },
+          { p: 'noi', f: 'avevamo aperto' },
+          { p: 'voi', f: 'avevate aperto' },
+          { p: 'loro', f: 'avevano aperto' }
+        ], nota: null },
+      { subtitulo: 'yo he aperto', filas: [
+          { p: 'io', f: 'ho aperto' },
+          { p: 'tu', f: 'hai aperto' },
+          { p: 'lui, lei', f: 'ha aperto' },
+          { p: 'noi', f: 'abbiamo aperto' },
+          { p: 'voi', f: 'avete aperto' },
+          { p: 'loro', f: 'hanno aperto' }
+        ], nota: null },
+      { subtitulo: 'yo abría', filas: [
+          { p: 'io', f: 'aprivo' },
+          { p: 'tu', f: 'aprivi' },
+          { p: 'lui, lei', f: 'apriva' },
+          { p: 'noi', f: 'aprivamo' },
+          { p: 'voi', f: 'aprivate' },
+          { p: 'loro', f: 'aprivano' }
+        ], nota: null },
+      { subtitulo: 'yo habría aperto', filas: [
+          { p: 'io', f: 'avrei aperto' },
+          { p: 'tu', f: 'avresti aperto' },
+          { p: 'lui, lei', f: 'avrebbe aperto' },
+          { p: 'noi', f: 'avremmo aperto' },
+          { p: 'voi', f: 'avreste aperto' },
+          { p: 'loro', f: 'avrebbero aperto' }
+        ], nota: null },
+      { subtitulo: 'yo abro', filas: [
+          { p: 'io', f: 'apro' },
+          { p: 'tu', f: 'apri' },
+          { p: 'lui, lei', f: 'apre' },
+          { p: 'noi', f: 'apriamo' },
+          { p: 'voi', f: 'aprite' },
+          { p: 'loro', f: 'aprono' }
+        ], nota: null },
+      { subtitulo: 'estoy por aprire', filas: [
+          { p: 'io', f: 'sto per aprire' },
+          { p: 'tu', f: 'stai per aprire' },
+          { p: 'lui, lei', f: 'sta per aprire' },
+          { p: 'noi', f: 'stiamo per aprire' },
+          { p: 'voi', f: 'state per aprire' },
+          { p: 'loro', f: 'stanno per aprire' }
+        ], nota: null },
+      { subtitulo: 'yo abriré', filas: [
+          { p: 'io', f: 'aprirò' },
+          { p: 'tu', f: 'aprirai' },
+          { p: 'lui, lei', f: 'aprirà' },
+          { p: 'noi', f: 'apriremo' },
+          { p: 'voi', f: 'aprirete' },
+          { p: 'loro', f: 'apriranno' }
+        ], nota: null },
+      { subtitulo: 'yo abriría', filas: [
+          { p: 'io', f: 'aprirei' },
+          { p: 'tu', f: 'apriresti' },
+          { p: 'lui, lei', f: 'aprirebbe' },
+          { p: 'noi', f: 'apriremmo' },
+          { p: 'voi', f: 'aprireste' },
+          { p: 'loro', f: 'aprirebbero' }
+        ], nota: null }
+    ]
+  },
+  'mangiare': {
+    tiempos: [
+      { subtitulo: 'yo había mangiato', filas: [
+          { p: 'io', f: 'avevo mangiato' },
+          { p: 'tu', f: 'avevi mangiato' },
+          { p: 'lui, lei', f: 'aveva mangiato' },
+          { p: 'noi', f: 'avevamo mangiato' },
+          { p: 'voi', f: 'avevate mangiato' },
+          { p: 'loro', f: 'avevano mangiato' }
+        ], nota: null },
+      { subtitulo: 'yo he mangiato', filas: [
+          { p: 'io', f: 'ho mangiato' },
+          { p: 'tu', f: 'hai mangiato' },
+          { p: 'lui, lei', f: 'ha mangiato' },
+          { p: 'noi', f: 'abbiamo mangiato' },
+          { p: 'voi', f: 'avete mangiato' },
+          { p: 'loro', f: 'hanno mangiato' }
+        ], nota: null },
+      { subtitulo: 'yo comía', filas: [
+          { p: 'io', f: 'mangiavo' },
+          { p: 'tu', f: 'mangiavi' },
+          { p: 'lui, lei', f: 'mangiava' },
+          { p: 'noi', f: 'mangiavamo' },
+          { p: 'voi', f: 'mangiavate' },
+          { p: 'loro', f: 'mangiavano' }
+        ], nota: null },
+      { subtitulo: 'yo habría comido', filas: [
+          { p: 'io', f: 'avrei mangiato' },
+          { p: 'tu', f: 'avresti mangiato' },
+          { p: 'lui, lei', f: 'avrebbe mangiato' },
+          { p: 'noi', f: 'avremmo mangiato' },
+          { p: 'voi', f: 'avreste mangiato' },
+          { p: 'loro', f: 'avrebbero mangiato' }
+        ], nota: null },
+      { subtitulo: 'yo como', filas: [
+          { p: 'io', f: 'mangio' },
+          { p: 'tu', f: 'mangi' },
+          { p: 'lui, lei', f: 'mangia' },
+          { p: 'noi', f: 'mangiamo' },
+          { p: 'voi', f: 'mangiate' },
+          { p: 'loro', f: 'mangiano' }
+        ], nota: null },
+      { subtitulo: 'estoy por mangiare', filas: [
+          { p: 'io', f: 'sto per mangiare' },
+          { p: 'tu', f: 'stai per mangiare' },
+          { p: 'lui, lei', f: 'sta per mangiare' },
+          { p: 'noi', f: 'stiamo per mangiare' },
+          { p: 'voi', f: 'state per mangiare' },
+          { p: 'loro', f: 'stanno per mangiare' }
+        ], nota: null },
+      { subtitulo: 'yo comeré', filas: [
+          { p: 'io', f: 'mangerò' },
+          { p: 'tu', f: 'mangerai' },
+          { p: 'lui, lei', f: 'mangerà' },
+          { p: 'noi', f: 'mangeremo' },
+          { p: 'voi', f: 'mangerete' },
+          { p: 'loro', f: 'mangeranno' }
+        ], nota: null },
+      { subtitulo: 'yo comería', filas: [
+          { p: 'io', f: 'mangerei' },
+          { p: 'tu', f: 'mangeresti' },
+          { p: 'lui, lei', f: 'mangerebbe' },
+          { p: 'noi', f: 'mangeremmo' },
+          { p: 'voi', f: 'mangereste' },
+          { p: 'loro', f: 'mangerebbero' }
+        ], nota: null }
+    ]
+  },
+  'cadere': {
+    tiempos: [
+      { subtitulo: 'yo había caduto', filas: [
+          { p: 'io', f: 'ero caduto' },
+          { p: 'tu', f: 'eri caduto' },
+          { p: 'lui, lei', f: 'era caduto' },
+          { p: 'noi', f: 'eravamo caduti' },
+          { p: 'voi', f: 'eravate caduti' },
+          { p: 'loro', f: 'erano caduti' }
+        ], nota: 'Cadere usa essere (movimiento)' },
+      { subtitulo: 'yo he caduto', filas: [
+          { p: 'io', f: 'sono caduto' },
+          { p: 'tu', f: 'sei caduto' },
+          { p: 'lui, lei', f: 'è caduto' },
+          { p: 'noi', f: 'siamo caduti' },
+          { p: 'voi', f: 'siete caduti' },
+          { p: 'loro', f: 'sono caduti' }
+        ], nota: null },
+      { subtitulo: 'yo caía', filas: [
+          { p: 'io', f: 'cadevo' },
+          { p: 'tu', f: 'cadevi' },
+          { p: 'lui, lei', f: 'cadeva' },
+          { p: 'noi', f: 'cadevamo' },
+          { p: 'voi', f: 'cadevate' },
+          { p: 'loro', f: 'cadevano' }
+        ], nota: null },
+      { subtitulo: 'yo habría caído', filas: [
+          { p: 'io', f: 'sarei caduto' },
+          { p: 'tu', f: 'saresti caduto' },
+          { p: 'lui, lei', f: 'sarebbe caduto' },
+          { p: 'noi', f: 'saremmo caduti' },
+          { p: 'voi', f: 'sareste caduti' },
+          { p: 'loro', f: 'sarebbero caduti' }
+        ], nota: null },
+      { subtitulo: 'yo caigo', filas: [
+          { p: 'io', f: 'cado' },
+          { p: 'tu', f: 'cadi' },
+          { p: 'lui, lei', f: 'cade' },
+          { p: 'noi', f: 'cadiamo' },
+          { p: 'voi', f: 'cadete' },
+          { p: 'loro', f: 'cadono' }
+        ], nota: null },
+      { subtitulo: 'estoy por cadere', filas: [
+          { p: 'io', f: 'sto per cadere' },
+          { p: 'tu', f: 'stai per cadere' },
+          { p: 'lui, lei', f: 'sta per cadere' },
+          { p: 'noi', f: 'stiamo per cadere' },
+          { p: 'voi', f: 'state per cadere' },
+          { p: 'loro', f: 'stanno per cadere' }
+        ], nota: null },
+      { subtitulo: 'yo caeré', filas: [
+          { p: 'io', f: 'cadrò' },
+          { p: 'tu', f: 'cadrai' },
+          { p: 'lui, lei', f: 'cadrà' },
+          { p: 'noi', f: 'cadremo' },
+          { p: 'voi', f: 'cadrete' },
+          { p: 'loro', f: 'cadranno' }
+        ], nota: null },
+      { subtitulo: 'yo caería', filas: [
+          { p: 'io', f: 'cadrei' },
+          { p: 'tu', f: 'cadresti' },
+          { p: 'lui, lei', f: 'cadrebbe' },
+          { p: 'noi', f: 'cadremmo' },
+          { p: 'voi', f: 'cadreste' },
+          { p: 'loro', f: 'cadrebbero' }
+        ], nota: null }
+    ]
+  },
+  'sapere': {
+    tiempos: [
+      { subtitulo: 'yo había sabido', filas: [
+          { p: 'io', f: 'avevo saputo' },
+          { p: 'tu', f: 'avevi saputo' },
+          { p: 'lui, lei', f: 'aveva saputo' },
+          { p: 'noi', f: 'avevamo saputo' },
+          { p: 'voi', f: 'avevate saputo' },
+          { p: 'loro', f: 'avevano saputo' }
+        ], nota: null },
+      { subtitulo: 'yo he sabido', filas: [
+          { p: 'io', f: 'ho saputo' },
+          { p: 'tu', f: 'hai saputo' },
+          { p: 'lui, lei', f: 'ha saputo' },
+          { p: 'noi', f: 'abbiamo saputo' },
+          { p: 'voi', f: 'avete saputo' },
+          { p: 'loro', f: 'hanno saputo' }
+        ], nota: null },
+      { subtitulo: 'yo sabía', filas: [
+          { p: 'io', f: 'sapevo' },
+          { p: 'tu', f: 'sapevi' },
+          { p: 'lui, lei', f: 'sapeva' },
+          { p: 'noi', f: 'sapevamo' },
+          { p: 'voi', f: 'sapevate' },
+          { p: 'loro', f: 'sapevano' }
+        ], nota: null },
+      { subtitulo: 'yo habría sabido', filas: [
+          { p: 'io', f: 'avrei saputo' },
+          { p: 'tu', f: 'avresti saputo' },
+          { p: 'lui, lei', f: 'avrebbe saputo' },
+          { p: 'noi', f: 'avremmo saputo' },
+          { p: 'voi', f: 'avreste saputo' },
+          { p: 'loro', f: 'avrebbero saputo' }
+        ], nota: null },
+      { subtitulo: 'yo sé', filas: [
+          { p: 'io', f: 'so' },
+          { p: 'tu', f: 'sai' },
+          { p: 'lui, lei', f: 'sa' },
+          { p: 'noi', f: 'sappiamo' },
+          { p: 'voi', f: 'sapete' },
+          { p: 'loro', f: 'sanno' }
+        ], nota: null },
+      { subtitulo: 'estoy por sapere', filas: [
+          { p: 'io', f: 'sto per sapere' },
+          { p: 'tu', f: 'stai per sapere' },
+          { p: 'lui, lei', f: 'sta per sapere' },
+          { p: 'noi', f: 'stiamo per sapere' },
+          { p: 'voi', f: 'state per sapere' },
+          { p: 'loro', f: 'stanno per sapere' }
+        ], nota: null },
+      { subtitulo: 'yo sabré', filas: [
+          { p: 'io', f: 'saprò' },
+          { p: 'tu', f: 'saprai' },
+          { p: 'lui, lei', f: 'saprà' },
+          { p: 'noi', f: 'sapremo' },
+          { p: 'voi', f: 'saprete' },
+          { p: 'loro', f: 'sapranno' }
+        ], nota: null },
+      { subtitulo: 'yo sabría', filas: [
+          { p: 'io', f: 'saprei' },
+          { p: 'tu', f: 'sapresti' },
+          { p: 'lui, lei', f: 'saprebbe' },
+          { p: 'noi', f: 'sapremmo' },
+          { p: 'voi', f: 'sapreste' },
+          { p: 'loro', f: 'saprebbero' }
+        ], nota: null }
+    ]
+  },
+  'tenere': {
+    tiempos: [
+      { subtitulo: 'yo había tenido', filas: [
+          { p: 'io', f: 'avevo tenuto' },
+          { p: 'tu', f: 'avevi tenuto' },
+          { p: 'lui, lei', f: 'aveva tenuto' },
+          { p: 'noi', f: 'avevamo tenuto' },
+          { p: 'voi', f: 'avevate tenuto' },
+          { p: 'loro', f: 'avevano tenuto' }
+        ], nota: null },
+      { subtitulo: 'yo he tenido', filas: [
+          { p: 'io', f: 'ho tenuto' },
+          { p: 'tu', f: 'hai tenuto' },
+          { p: 'lui, lei', f: 'ha tenuto' },
+          { p: 'noi', f: 'abbiamo tenuto' },
+          { p: 'voi', f: 'avete tenuto' },
+          { p: 'loro', f: 'hanno tenuto' }
+        ], nota: null },
+      { subtitulo: 'yo tenía', filas: [
+          { p: 'io', f: 'tenevo' },
+          { p: 'tu', f: 'tenevi' },
+          { p: 'lui, lei', f: 'teneva' },
+          { p: 'noi', f: 'tenevamo' },
+          { p: 'voi', f: 'tenevate' },
+          { p: 'loro', f: 'tenevano' }
+        ], nota: null },
+      { subtitulo: 'yo habría tenido', filas: [
+          { p: 'io', f: 'avrei tenuto' },
+          { p: 'tu', f: 'avresti tenuto' },
+          { p: 'lui, lei', f: 'avrebbe tenuto' },
+          { p: 'noi', f: 'avremmo tenuto' },
+          { p: 'voi', f: 'avreste tenuto' },
+          { p: 'loro', f: 'avrebbero tenuto' }
+        ], nota: null },
+      { subtitulo: 'yo tengo', filas: [
+          { p: 'io', f: 'tengo' },
+          { p: 'tu', f: 'tieni' },
+          { p: 'lui, lei', f: 'tiene' },
+          { p: 'noi', f: 'teniamo' },
+          { p: 'voi', f: 'tenete' },
+          { p: 'loro', f: 'tengono' }
+        ], nota: null },
+      { subtitulo: 'estoy por tenere', filas: [
+          { p: 'io', f: 'sto per tenere' },
+          { p: 'tu', f: 'stai per tenere' },
+          { p: 'lui, lei', f: 'sta per tenere' },
+          { p: 'noi', f: 'stiamo per tenere' },
+          { p: 'voi', f: 'state per tenere' },
+          { p: 'loro', f: 'stanno per tenere' }
+        ], nota: null },
+      { subtitulo: 'yo tendré', filas: [
+          { p: 'io', f: 'terrò' },
+          { p: 'tu', f: 'terrai' },
+          { p: 'lui, lei', f: 'terrà' },
+          { p: 'noi', f: 'terremo' },
+          { p: 'voi', f: 'terrete' },
+          { p: 'loro', f: 'terranno' }
+        ], nota: null },
+      { subtitulo: 'yo tendría', filas: [
+          { p: 'io', f: 'terrei' },
+          { p: 'tu', f: 'terresti' },
+          { p: 'lui, lei', f: 'terrebbe' },
+          { p: 'noi', f: 'terremmo' },
+          { p: 'voi', f: 'terreste' },
+          { p: 'loro', f: 'terrebbero' }
+        ], nota: null }
+    ]
+  },
+  'vedere': {
+    tiempos: [
+      { subtitulo: 'yo había visto', filas: [
+          { p: 'io', f: 'avevo visto' },
+          { p: 'tu', f: 'avevi visto' },
+          { p: 'lui, lei', f: 'aveva visto' },
+          { p: 'noi', f: 'avevamo visto' },
+          { p: 'voi', f: 'avevate visto' },
+          { p: 'loro', f: 'avevano visto' }
+        ], nota: null },
+      { subtitulo: 'yo he visto', filas: [
+          { p: 'io', f: 'ho visto' },
+          { p: 'tu', f: 'hai visto' },
+          { p: 'lui, lei', f: 'ha visto' },
+          { p: 'noi', f: 'abbiamo visto' },
+          { p: 'voi', f: 'avete visto' },
+          { p: 'loro', f: 'hanno visto' }
+        ], nota: null },
+      { subtitulo: 'yo veía', filas: [
+          { p: 'io', f: 'vedevo' },
+          { p: 'tu', f: 'vedevi' },
+          { p: 'lui, lei', f: 'vedeva' },
+          { p: 'noi', f: 'vedevamo' },
+          { p: 'voi', f: 'vedevate' },
+          { p: 'loro', f: 'vedevano' }
+        ], nota: null },
+      { subtitulo: 'yo habría visto', filas: [
+          { p: 'io', f: 'avrei visto' },
+          { p: 'tu', f: 'avresti visto' },
+          { p: 'lui, lei', f: 'avrebbe visto' },
+          { p: 'noi', f: 'avremmo visto' },
+          { p: 'voi', f: 'avreste visto' },
+          { p: 'loro', f: 'avrebbero visto' }
+        ], nota: null },
+      { subtitulo: 'yo veo', filas: [
+          { p: 'io', f: 'vedo' },
+          { p: 'tu', f: 'vedi' },
+          { p: 'lui, lei', f: 'vede' },
+          { p: 'noi', f: 'vediamo' },
+          { p: 'voi', f: 'vedete' },
+          { p: 'loro', f: 'vedono' }
+        ], nota: null },
+      { subtitulo: 'estoy por vedere', filas: [
+          { p: 'io', f: 'sto per vedere' },
+          { p: 'tu', f: 'stai per vedere' },
+          { p: 'lui, lei', f: 'sta per vedere' },
+          { p: 'noi', f: 'stiamo per vedere' },
+          { p: 'voi', f: 'state per vedere' },
+          { p: 'loro', f: 'stanno per vedere' }
+        ], nota: null },
+      { subtitulo: 'yo veré', filas: [
+          { p: 'io', f: 'vedrò' },
+          { p: 'tu', f: 'vedrai' },
+          { p: 'lui, lei', f: 'vedrà' },
+          { p: 'noi', f: 'vedremo' },
+          { p: 'voi', f: 'vedrete' },
+          { p: 'loro', f: 'vedranno' }
+        ], nota: null },
+      { subtitulo: 'yo vería', filas: [
+          { p: 'io', f: 'vedrei' },
+          { p: 'tu', f: 'vedresti' },
+          { p: 'lui, lei', f: 'vedrebbe' },
+          { p: 'noi', f: 'vedremmo' },
+          { p: 'voi', f: 'vedreste' },
+          { p: 'loro', f: 'vedrebbero' }
+        ], nota: null }
+    ]
+  },
+  'condurre': {
+    tiempos: [
+      { subtitulo: 'yo había conducido', filas: [
+          { p: 'io', f: 'avevo condotto' },
+          { p: 'tu', f: 'avevi condotto' },
+          { p: 'lui, lei', f: 'aveva condotto' },
+          { p: 'noi', f: 'avevamo condotto' },
+          { p: 'voi', f: 'avevate condotto' },
+          { p: 'loro', f: 'avevano condotto' }
+        ], nota: null },
+      { subtitulo: 'yo he conducido', filas: [
+          { p: 'io', f: 'ho condotto' },
+          { p: 'tu', f: 'hai condotto' },
+          { p: 'lui, lei', f: 'ha condotto' },
+          { p: 'noi', f: 'abbiamo condotto' },
+          { p: 'voi', f: 'avete condotto' },
+          { p: 'loro', f: 'hanno condotto' }
+        ], nota: null },
+      { subtitulo: 'yo conducía', filas: [
+          { p: 'io', f: 'conducevo' },
+          { p: 'tu', f: 'conducevi' },
+          { p: 'lui, lei', f: 'conduceva' },
+          { p: 'noi', f: 'conducevamo' },
+          { p: 'voi', f: 'conducevate' },
+          { p: 'loro', f: 'conducevano' }
+        ], nota: null },
+      { subtitulo: 'yo habría conducido', filas: [
+          { p: 'io', f: 'avrei condotto' },
+          { p: 'tu', f: 'avresti condotto' },
+          { p: 'lui, lei', f: 'avrebbe condotto' },
+          { p: 'noi', f: 'avremmo condotto' },
+          { p: 'voi', f: 'avreste condotto' },
+          { p: 'loro', f: 'avrebbero condotto' }
+        ], nota: null },
+      { subtitulo: 'yo conduzco', filas: [
+          { p: 'io', f: 'conduco' },
+          { p: 'tu', f: 'conduci' },
+          { p: 'lui, lei', f: 'conduce' },
+          { p: 'noi', f: 'conduciamo' },
+          { p: 'voi', f: 'conducete' },
+          { p: 'loro', f: 'conducono' }
+        ], nota: null },
+      { subtitulo: 'estoy por condurre', filas: [
+          { p: 'io', f: 'sto per condurre' },
+          { p: 'tu', f: 'stai per condurre' },
+          { p: 'lui, lei', f: 'sta per condurre' },
+          { p: 'noi', f: 'stiamo per condurre' },
+          { p: 'voi', f: 'state per condurre' },
+          { p: 'loro', f: 'stanno per condurre' }
+        ], nota: null },
+      { subtitulo: 'yo conduciré', filas: [
+          { p: 'io', f: 'condurrò' },
+          { p: 'tu', f: 'condurrai' },
+          { p: 'lui, lei', f: 'condurrà' },
+          { p: 'noi', f: 'condurremo' },
+          { p: 'voi', f: 'condurrete' },
+          { p: 'loro', f: 'conduranno' }
+        ], nota: null },
+      { subtitulo: 'yo conduciría', filas: [
+          { p: 'io', f: 'condurei' },
+          { p: 'tu', f: 'conduresti' },
+          { p: 'lui, lei', f: 'condurebbe' },
+          { p: 'noi', f: 'conduremmo' },
+          { p: 'voi', f: 'condureste' },
+          { p: 'loro', f: 'conduerebbero' }
+        ], nota: null }
+    ]
+  },
+  'produrre': {
+    tiempos: [
+      { subtitulo: 'yo había producido', filas: [
+          { p: 'io', f: 'avevo prodotto' },
+          { p: 'tu', f: 'avevi prodotto' },
+          { p: 'lui, lei', f: 'aveva prodotto' },
+          { p: 'noi', f: 'avevamo prodotto' },
+          { p: 'voi', f: 'avevate prodotto' },
+          { p: 'loro', f: 'avevano prodotto' }
+        ], nota: null },
+      { subtitulo: 'yo he producido', filas: [
+          { p: 'io', f: 'ho prodotto' },
+          { p: 'tu', f: 'hai prodotto' },
+          { p: 'lui, lei', f: 'ha prodotto' },
+          { p: 'noi', f: 'abbiamo prodotto' },
+          { p: 'voi', f: 'avete prodotto' },
+          { p: 'loro', f: 'hanno prodotto' }
+        ], nota: null },
+      { subtitulo: 'yo producía', filas: [
+          { p: 'io', f: 'producevo' },
+          { p: 'tu', f: 'producevi' },
+          { p: 'lui, lei', f: 'produceva' },
+          { p: 'noi', f: 'producevamo' },
+          { p: 'voi', f: 'producevate' },
+          { p: 'loro', f: 'producevano' }
+        ], nota: null },
+      { subtitulo: 'yo habría producido', filas: [
+          { p: 'io', f: 'avrei prodotto' },
+          { p: 'tu', f: 'avresti prodotto' },
+          { p: 'lui, lei', f: 'avrebbe prodotto' },
+          { p: 'noi', f: 'avremmo prodotto' },
+          { p: 'voi', f: 'avreste prodotto' },
+          { p: 'loro', f: 'avrebbero prodotto' }
+        ], nota: null },
+      { subtitulo: 'yo produzco', filas: [
+          { p: 'io', f: 'produco' },
+          { p: 'tu', f: 'produci' },
+          { p: 'lui, lei', f: 'produce' },
+          { p: 'noi', f: 'produciamo' },
+          { p: 'voi', f: 'producete' },
+          { p: 'loro', f: 'producono' }
+        ], nota: null },
+      { subtitulo: 'estoy por produrre', filas: [
+          { p: 'io', f: 'sto per produrre' },
+          { p: 'tu', f: 'stai per produrre' },
+          { p: 'lui, lei', f: 'sta per produrre' },
+          { p: 'noi', f: 'stiamo per produrre' },
+          { p: 'voi', f: 'state per produrre' },
+          { p: 'loro', f: 'stanno per produrre' }
+        ], nota: null },
+      { subtitulo: 'yo produciré', filas: [
+          { p: 'io', f: 'produrrò' },
+          { p: 'tu', f: 'produrrai' },
+          { p: 'lui, lei', f: 'produrrà' },
+          { p: 'noi', f: 'produrremo' },
+          { p: 'voi', f: 'produrrete' },
+          { p: 'loro', f: 'produranno' }
+        ], nota: null },
+      { subtitulo: 'yo produciría', filas: [
+          { p: 'io', f: 'produrei' },
+          { p: 'tu', f: 'produresti' },
+          { p: 'lui, lei', f: 'produrebbe' },
+          { p: 'noi', f: 'produremmo' },
+          { p: 'voi', f: 'produreste' },
+          { p: 'loro', f: 'produerebbero' }
+        ], nota: null }
+    ]
+  },
+  'tradurre': {
+    tiempos: [
+      { subtitulo: 'yo había traducido', filas: [
+          { p: 'io', f: 'avevo tradotto' },
+          { p: 'tu', f: 'avevi tradotto' },
+          { p: 'lui, lei', f: 'aveva tradotto' },
+          { p: 'noi', f: 'avevamo tradotto' },
+          { p: 'voi', f: 'avevate tradotto' },
+          { p: 'loro', f: 'avevano tradotto' }
+        ], nota: null },
+      { subtitulo: 'yo he traducido', filas: [
+          { p: 'io', f: 'ho tradotto' },
+          { p: 'tu', f: 'hai tradotto' },
+          { p: 'lui, lei', f: 'ha tradotto' },
+          { p: 'noi', f: 'abbiamo tradotto' },
+          { p: 'voi', f: 'avete tradotto' },
+          { p: 'loro', f: 'hanno tradotto' }
+        ], nota: null },
+      { subtitulo: 'yo traducía', filas: [
+          { p: 'io', f: 'traducevo' },
+          { p: 'tu', f: 'traducevi' },
+          { p: 'lui, lei', f: 'traduceva' },
+          { p: 'noi', f: 'traducevamo' },
+          { p: 'voi', f: 'traducevate' },
+          { p: 'loro', f: 'traducevano' }
+        ], nota: null },
+      { subtitulo: 'yo habría traducido', filas: [
+          { p: 'io', f: 'avrei tradotto' },
+          { p: 'tu', f: 'avresti tradotto' },
+          { p: 'lui, lei', f: 'avrebbe tradotto' },
+          { p: 'noi', f: 'avremmo tradotto' },
+          { p: 'voi', f: 'avreste tradotto' },
+          { p: 'loro', f: 'avrebbero tradotto' }
+        ], nota: null },
+      { subtitulo: 'yo traduzco', filas: [
+          { p: 'io', f: 'traduco' },
+          { p: 'tu', f: 'traduci' },
+          { p: 'lui, lei', f: 'traduce' },
+          { p: 'noi', f: 'traduciamo' },
+          { p: 'voi', f: 'traducete' },
+          { p: 'loro', f: 'traducono' }
+        ], nota: null },
+      { subtitulo: 'estoy por tradurre', filas: [
+          { p: 'io', f: 'sto per tradurre' },
+          { p: 'tu', f: 'stai per tradurre' },
+          { p: 'lui, lei', f: 'sta per tradurre' },
+          { p: 'noi', f: 'stiamo per tradurre' },
+          { p: 'voi', f: 'state per tradurre' },
+          { p: 'loro', f: 'stanno per tradurre' }
+        ], nota: null },
+      { subtitulo: 'yo traduciré', filas: [
+          { p: 'io', f: 'tradurrò' },
+          { p: 'tu', f: 'tradurrai' },
+          { p: 'lui, lei', f: 'tradurrà' },
+          { p: 'noi', f: 'tradurremo' },
+          { p: 'voi', f: 'tradurrete' },
+          { p: 'loro', f: 'traduranno' }
+        ], nota: null },
+      { subtitulo: 'yo traduciría', filas: [
+          { p: 'io', f: 'tradurei' },
+          { p: 'tu', f: 'traduresti' },
+          { p: 'lui, lei', f: 'tradurebbe' },
+          { p: 'noi', f: 'traduremmo' },
+          { p: 'voi', f: 'tradureste' },
+          { p: 'loro', f: 'tradurebbero' }
+        ], nota: null }
+    ]
+  },
+  'valere': {
+    tiempos: [
+      { subtitulo: 'yo había valido', filas: [
+          { p: 'io', f: 'ero valso' },
+          { p: 'tu', f: 'eri valso' },
+          { p: 'lui, lei', f: 'era valso' },
+          { p: 'noi', f: 'eravamo valsi' },
+          { p: 'voi', f: 'eravate valsi' },
+          { p: 'loro', f: 'erano valsi' }
+        ], nota: 'Valere usa essere' },
+      { subtitulo: 'yo he valido', filas: [
+          { p: 'io', f: 'sono valso' },
+          { p: 'tu', f: 'sei valso' },
+          { p: 'lui, lei', f: 'è valso' },
+          { p: 'noi', f: 'siamo valsi' },
+          { p: 'voi', f: 'siete valsi' },
+          { p: 'loro', f: 'sono valsi' }
+        ], nota: null },
+      { subtitulo: 'yo valía', filas: [
+          { p: 'io', f: 'valevo' },
+          { p: 'tu', f: 'valevi' },
+          { p: 'lui, lei', f: 'valeva' },
+          { p: 'noi', f: 'valevamo' },
+          { p: 'voi', f: 'valevate' },
+          { p: 'loro', f: 'valevano' }
+        ], nota: null },
+      { subtitulo: 'yo habría valido', filas: [
+          { p: 'io', f: 'sarei valso' },
+          { p: 'tu', f: 'saresti valso' },
+          { p: 'lui, lei', f: 'sarebbe valso' },
+          { p: 'noi', f: 'saremmo valsi' },
+          { p: 'voi', f: 'sareste valsi' },
+          { p: 'loro', f: 'sarebbero valsi' }
+        ], nota: null },
+      { subtitulo: 'yo valgo', filas: [
+          { p: 'io', f: 'valgo' },
+          { p: 'tu', f: 'vali' },
+          { p: 'lui, lei', f: 'vale' },
+          { p: 'noi', f: 'valiamo' },
+          { p: 'voi', f: 'valete' },
+          { p: 'loro', f: 'valgono' }
+        ], nota: null },
+      { subtitulo: 'estoy por valere', filas: [
+          { p: 'io', f: 'sto per valere' },
+          { p: 'tu', f: 'stai per valere' },
+          { p: 'lui, lei', f: 'sta per valere' },
+          { p: 'noi', f: 'stiamo per valere' },
+          { p: 'voi', f: 'state per valere' },
+          { p: 'loro', f: 'stanno per valere' }
+        ], nota: null },
+      { subtitulo: 'yo valdré', filas: [
+          { p: 'io', f: 'varrò' },
+          { p: 'tu', f: 'varrai' },
+          { p: 'lui, lei', f: 'varrà' },
+          { p: 'noi', f: 'varremo' },
+          { p: 'voi', f: 'varrete' },
+          { p: 'loro', f: 'varranno' }
+        ], nota: null },
+      { subtitulo: 'yo valdría', filas: [
+          { p: 'io', f: 'varrei' },
+          { p: 'tu', f: 'varresti' },
+          { p: 'lui, lei', f: 'varrebbe' },
+          { p: 'noi', f: 'varremmo' },
+          { p: 'voi', f: 'varreste' },
+          { p: 'loro', f: 'varrebbero' }
+        ], nota: null }
+    ]
+  },
+  'ascoltare': {
+    tiempos: [
+      { subtitulo: 'yo había escuchado', filas: [
+          { p: 'io', f: 'avevo ascoltato' },
+          { p: 'tu', f: 'avevi ascoltato' },
+          { p: 'lui, lei', f: 'aveva ascoltato' },
+          { p: 'noi', f: 'avevamo ascoltato' },
+          { p: 'voi', f: 'avevate ascoltato' },
+          { p: 'loro', f: 'avevano ascoltato' }
+        ], nota: null },
+      { subtitulo: 'yo he escuchado', filas: [
+          { p: 'io', f: 'ho ascoltato' },
+          { p: 'tu', f: 'hai ascoltato' },
+          { p: 'lui, lei', f: 'ha ascoltato' },
+          { p: 'noi', f: 'abbiamo ascoltato' },
+          { p: 'voi', f: 'avete ascoltato' },
+          { p: 'loro', f: 'hanno ascoltato' }
+        ], nota: null },
+      { subtitulo: 'yo escuchaba', filas: [
+          { p: 'io', f: 'ascoltavo' },
+          { p: 'tu', f: 'ascoltavi' },
+          { p: 'lui, lei', f: 'ascoltava' },
+          { p: 'noi', f: 'ascoltavamo' },
+          { p: 'voi', f: 'ascoltavate' },
+          { p: 'loro', f: 'ascoltavano' }
+        ], nota: null },
+      { subtitulo: 'yo habría escuchado', filas: [
+          { p: 'io', f: 'avrei ascoltato' },
+          { p: 'tu', f: 'avresti ascoltato' },
+          { p: 'lui, lei', f: 'avrebbe ascoltato' },
+          { p: 'noi', f: 'avremmo ascoltato' },
+          { p: 'voi', f: 'avreste ascoltato' },
+          { p: 'loro', f: 'avrebbero ascoltato' }
+        ], nota: null },
+      { subtitulo: 'yo escucho', filas: [
+          { p: 'io', f: 'ascolto' },
+          { p: 'tu', f: 'ascolti' },
+          { p: 'lui, lei', f: 'ascolta' },
+          { p: 'noi', f: 'ascoltiamo' },
+          { p: 'voi', f: 'ascoltate' },
+          { p: 'loro', f: 'ascoltano' }
+        ], nota: null },
+      { subtitulo: 'estoy por ascoltare', filas: [
+          { p: 'io', f: 'sto per ascoltare' },
+          { p: 'tu', f: 'stai per ascoltare' },
+          { p: 'lui, lei', f: 'sta per ascoltare' },
+          { p: 'noi', f: 'stiamo per ascoltare' },
+          { p: 'voi', f: 'state per ascoltare' },
+          { p: 'loro', f: 'stanno per ascoltare' }
+        ], nota: null },
+      { subtitulo: 'yo escucharé', filas: [
+          { p: 'io', f: 'ascolterò' },
+          { p: 'tu', f: 'ascolterai' },
+          { p: 'lui, lei', f: 'ascolterà' },
+          { p: 'noi', f: 'ascolteremo' },
+          { p: 'voi', f: 'ascolterete' },
+          { p: 'loro', f: 'ascolteranno' }
+        ], nota: null },
+      { subtitulo: 'yo escucharía', filas: [
+          { p: 'io', f: 'ascolterei' },
+          { p: 'tu', f: 'ascolteresti' },
+          { p: 'lui, lei', f: 'ascolterebbe' },
+          { p: 'noi', f: 'ascolteremmo' },
+          { p: 'voi', f: 'ascoltereste' },
+          { p: 'loro', f: 'ascolterebbero' }
+        ], nota: null }
+    ]
+  },
+  'cambiare': {
+    tiempos: [
+      { subtitulo: 'yo había cambiado', filas: [
+          { p: 'io', f: 'avevo cambiato' },
+          { p: 'tu', f: 'avevi cambiato' },
+          { p: 'lui, lei', f: 'aveva cambiato' },
+          { p: 'noi', f: 'avevamo cambiato' },
+          { p: 'voi', f: 'avevate cambiato' },
+          { p: 'loro', f: 'avevano cambiato' }
+        ], nota: null },
+      { subtitulo: 'yo he cambiado', filas: [
+          { p: 'io', f: 'ho cambiato' },
+          { p: 'tu', f: 'hai cambiato' },
+          { p: 'lui, lei', f: 'ha cambiato' },
+          { p: 'noi', f: 'abbiamo cambiato' },
+          { p: 'voi', f: 'avete cambiato' },
+          { p: 'loro', f: 'hanno cambiato' }
+        ], nota: null },
+      { subtitulo: 'yo cambiaba', filas: [
+          { p: 'io', f: 'cambiavo' },
+          { p: 'tu', f: 'cambiavi' },
+          { p: 'lui, lei', f: 'cambiava' },
+          { p: 'noi', f: 'cambiavamo' },
+          { p: 'voi', f: 'cambiavate' },
+          { p: 'loro', f: 'cambiavano' }
+        ], nota: null },
+      { subtitulo: 'yo habría cambiado', filas: [
+          { p: 'io', f: 'avrei cambiato' },
+          { p: 'tu', f: 'avresti cambiato' },
+          { p: 'lui, lei', f: 'avrebbe cambiato' },
+          { p: 'noi', f: 'avremmo cambiato' },
+          { p: 'voi', f: 'avreste cambiato' },
+          { p: 'loro', f: 'avrebbero cambiato' }
+        ], nota: null },
+      { subtitulo: 'yo cambio', filas: [
+          { p: 'io', f: 'cambio' },
+          { p: 'tu', f: 'cambi' },
+          { p: 'lui, lei', f: 'cambia' },
+          { p: 'noi', f: 'cambiamo' },
+          { p: 'voi', f: 'cambiate' },
+          { p: 'loro', f: 'cambiano' }
+        ], nota: null },
+      { subtitulo: 'estoy por cambiare', filas: [
+          { p: 'io', f: 'sto per cambiare' },
+          { p: 'tu', f: 'stai per cambiare' },
+          { p: 'lui, lei', f: 'sta per cambiare' },
+          { p: 'noi', f: 'stiamo per cambiare' },
+          { p: 'voi', f: 'state per cambiare' },
+          { p: 'loro', f: 'stanno per cambiare' }
+        ], nota: null },
+      { subtitulo: 'yo cambiaré', filas: [
+          { p: 'io', f: 'cambierò' },
+          { p: 'tu', f: 'cambierai' },
+          { p: 'lui, lei', f: 'cambierà' },
+          { p: 'noi', f: 'cambieremo' },
+          { p: 'voi', f: 'cambierete' },
+          { p: 'loro', f: 'cambieranno' }
+        ], nota: null },
+      { subtitulo: 'yo cambiaría', filas: [
+          { p: 'io', f: 'cambierei' },
+          { p: 'tu', f: 'cambieresti' },
+          { p: 'lui, lei', f: 'cambierebbe' },
+          { p: 'noi', f: 'cambieremmo' },
+          { p: 'voi', f: 'cambiereste' },
+          { p: 'loro', f: 'cambierebbero' }
+        ], nota: null }
+    ]
+  },
+  'chiedere': {
+    tiempos: [
+      { subtitulo: 'yo había pedido', filas: [
+          { p: 'io', f: 'avevo chiesto' },
+          { p: 'tu', f: 'avevi chiesto' },
+          { p: 'lui, lei', f: 'aveva chiesto' },
+          { p: 'noi', f: 'avevamo chiesto' },
+          { p: 'voi', f: 'avevate chiesto' },
+          { p: 'loro', f: 'avevano chiesto' }
+        ], nota: null },
+      { subtitulo: 'yo he pedido', filas: [
+          { p: 'io', f: 'ho chiesto' },
+          { p: 'tu', f: 'hai chiesto' },
+          { p: 'lui, lei', f: 'ha chiesto' },
+          { p: 'noi', f: 'abbiamo chiesto' },
+          { p: 'voi', f: 'avete chiesto' },
+          { p: 'loro', f: 'hanno chiesto' }
+        ], nota: null },
+      { subtitulo: 'yo pedía', filas: [
+          { p: 'io', f: 'chiedevo' },
+          { p: 'tu', f: 'chiedevi' },
+          { p: 'lui, lei', f: 'chiedeva' },
+          { p: 'noi', f: 'chiedevamo' },
+          { p: 'voi', f: 'chiedevate' },
+          { p: 'loro', f: 'chiedevano' }
+        ], nota: null },
+      { subtitulo: 'yo habría pedido', filas: [
+          { p: 'io', f: 'avrei chiesto' },
+          { p: 'tu', f: 'avresti chiesto' },
+          { p: 'lui, lei', f: 'avrebbe chiesto' },
+          { p: 'noi', f: 'avremmo chiesto' },
+          { p: 'voi', f: 'avreste chiesto' },
+          { p: 'loro', f: 'avrebbero chiesto' }
+        ], nota: null },
+      { subtitulo: 'yo pido', filas: [
+          { p: 'io', f: 'chiedo' },
+          { p: 'tu', f: 'chiedi' },
+          { p: 'lui, lei', f: 'chiede' },
+          { p: 'noi', f: 'chiedemmo' },
+          { p: 'voi', f: 'chiedete' },
+          { p: 'loro', f: 'chiedono' }
+        ], nota: null },
+      { subtitulo: 'estoy por chiedere', filas: [
+          { p: 'io', f: 'sto per chiedere' },
+          { p: 'tu', f: 'stai per chiedere' },
+          { p: 'lui, lei', f: 'sta per chiedere' },
+          { p: 'noi', f: 'stiamo per chiedere' },
+          { p: 'voi', f: 'state per chiedere' },
+          { p: 'loro', f: 'stanno per chiedere' }
+        ], nota: null },
+      { subtitulo: 'yo pediré', filas: [
+          { p: 'io', f: 'chiederò' },
+          { p: 'tu', f: 'chiederai' },
+          { p: 'lui, lei', f: 'chiederà' },
+          { p: 'noi', f: 'chiederemo' },
+          { p: 'voi', f: 'chiederete' },
+          { p: 'loro', f: 'chiederanno' }
+        ], nota: null },
+      { subtitulo: 'yo pediría', filas: [
+          { p: 'io', f: 'chiederei' },
+          { p: 'tu', f: 'chiederesti' },
+          { p: 'lui, lei', f: 'chiederrebbe' },
+          { p: 'noi', f: 'chiederemmo' },
+          { p: 'voi', f: 'chiedereste' },
+          { p: 'loro', f: 'chiederebero' }
+        ], nota: null }
+    ]
+  },
+  'cominciare': {
+    tiempos: [
+      { subtitulo: 'yo había empezado', filas: [
+          { p: 'io', f: 'avevo cominciato' },
+          { p: 'tu', f: 'avevi cominciato' },
+          { p: 'lui, lei', f: 'aveva cominciato' },
+          { p: 'noi', f: 'avevamo cominciato' },
+          { p: 'voi', f: 'avevate cominciato' },
+          { p: 'loro', f: 'avevano cominciato' }
+        ], nota: null },
+      { subtitulo: 'yo he empezado', filas: [
+          { p: 'io', f: 'ho cominciato' },
+          { p: 'tu', f: 'hai cominciato' },
+          { p: 'lui, lei', f: 'ha cominciato' },
+          { p: 'noi', f: 'abbiamo cominciato' },
+          { p: 'voi', f: 'avete cominciato' },
+          { p: 'loro', f: 'hanno cominciato' }
+        ], nota: null },
+      { subtitulo: 'yo empezaba', filas: [
+          { p: 'io', f: 'cominciavo' },
+          { p: 'tu', f: 'cominciavi' },
+          { p: 'lui, lei', f: 'cominciava' },
+          { p: 'noi', f: 'cominciavamo' },
+          { p: 'voi', f: 'cominciavate' },
+          { p: 'loro', f: 'cominciavano' }
+        ], nota: null },
+      { subtitulo: 'yo habría empezado', filas: [
+          { p: 'io', f: 'avrei cominciato' },
+          { p: 'tu', f: 'avresti cominciato' },
+          { p: 'lui, lei', f: 'avrebbe cominciato' },
+          { p: 'noi', f: 'avremmo cominciato' },
+          { p: 'voi', f: 'avreste cominciato' },
+          { p: 'loro', f: 'avrebbero cominciato' }
+        ], nota: null },
+      { subtitulo: 'yo empiezo', filas: [
+          { p: 'io', f: 'comincio' },
+          { p: 'tu', f: 'cominci' },
+          { p: 'lui, lei', f: 'comincia' },
+          { p: 'noi', f: 'cominciamo' },
+          { p: 'voi', f: 'cominciate' },
+          { p: 'loro', f: 'cominciano' }
+        ], nota: null },
+      { subtitulo: 'estoy por cominciare', filas: [
+          { p: 'io', f: 'sto per cominciare' },
+          { p: 'tu', f: 'stai per cominciare' },
+          { p: 'lui, lei', f: 'sta per cominciare' },
+          { p: 'noi', f: 'stiamo per cominciare' },
+          { p: 'voi', f: 'state per cominciare' },
+          { p: 'loro', f: 'stanno per cominciare' }
+        ], nota: null },
+      { subtitulo: 'yo empezaré', filas: [
+          { p: 'io', f: 'comincerò' },
+          { p: 'tu', f: 'cominerai' },
+          { p: 'lui, lei', f: 'comincerà' },
+          { p: 'noi', f: 'cominceremo' },
+          { p: 'voi', f: 'comencerete' },
+          { p: 'loro', f: 'comincernno' }
+        ], nota: null },
+      { subtitulo: 'yo empezaría', filas: [
+          { p: 'io', f: 'comincerei' },
+          { p: 'tu', f: 'cominceresti' },
+          { p: 'lui, lei', f: 'comincrebbe' },
+          { p: 'noi', f: 'comincermmo' },
+          { p: 'voi', f: 'comincereste' },
+          { p: 'loro', f: 'comincerebbero' }
+        ], nota: null }
+    ]
+  },
+  'comprare': {
+    tiempos: [
+      { subtitulo: 'yo había comprado', filas: [
+          { p: 'io', f: 'avevo comprato' },
+          { p: 'tu', f: 'avevi comprato' },
+          { p: 'lui, lei', f: 'aveva comprato' },
+          { p: 'noi', f: 'avevamo comprato' },
+          { p: 'voi', f: 'avevate comprato' },
+          { p: 'loro', f: 'avevano comprato' }
+        ], nota: null },
+      { subtitulo: 'yo he comprado', filas: [
+          { p: 'io', f: 'ho comprato' },
+          { p: 'tu', f: 'hai comprato' },
+          { p: 'lui, lei', f: 'ha comprato' },
+          { p: 'noi', f: 'abbiamo comprato' },
+          { p: 'voi', f: 'avete comprato' },
+          { p: 'loro', f: 'hanno comprato' }
+        ], nota: null },
+      { subtitulo: 'yo compraba', filas: [
+          { p: 'io', f: 'compravo' },
+          { p: 'tu', f: 'compravi' },
+          { p: 'lui, lei', f: 'comprava' },
+          { p: 'noi', f: 'compravamo' },
+          { p: 'voi', f: 'compravate' },
+          { p: 'loro', f: 'compravano' }
+        ], nota: null },
+      { subtitulo: 'yo habría comprado', filas: [
+          { p: 'io', f: 'avrei comprato' },
+          { p: 'tu', f: 'avresti comprato' },
+          { p: 'lui, lei', f: 'avrebbe comprato' },
+          { p: 'noi', f: 'avremmo comprato' },
+          { p: 'voi', f: 'avreste comprato' },
+          { p: 'loro', f: 'avrebbero comprato' }
+        ], nota: null },
+      { subtitulo: 'yo compro', filas: [
+          { p: 'io', f: 'compro' },
+          { p: 'tu', f: 'compri' },
+          { p: 'lui, lei', f: 'compra' },
+          { p: 'noi', f: 'compriamo' },
+          { p: 'voi', f: 'comprate' },
+          { p: 'loro', f: 'comprano' }
+        ], nota: null },
+      { subtitulo: 'estoy por comprare', filas: [
+          { p: 'io', f: 'sto per comprare' },
+          { p: 'tu', f: 'stai per comprare' },
+          { p: 'lui, lei', f: 'sta per comprare' },
+          { p: 'noi', f: 'stiamo per comprare' },
+          { p: 'voi', f: 'state per comprare' },
+          { p: 'loro', f: 'stanno per comprare' }
+        ], nota: null },
+      { subtitulo: 'yo compraré', filas: [
+          { p: 'io', f: 'comprerò' },
+          { p: 'tu', f: 'comprerai' },
+          { p: 'lui, lei', f: 'comprerà' },
+          { p: 'noi', f: 'compreremo' },
+          { p: 'voi', f: 'comprerete' },
+          { p: 'loro', f: 'compreranno' }
+        ], nota: null },
+      { subtitulo: 'yo compraría', filas: [
+          { p: 'io', f: 'comprerei' },
+          { p: 'tu', f: 'compreresti' },
+          { p: 'lui, lei', f: 'comprerebbe' },
+          { p: 'noi', f: 'compreremmo' },
+          { p: 'voi', f: 'comprereste' },
+          { p: 'loro', f: 'comprerebbero' }
+        ], nota: null }
+    ]
+  },
+  'creare': {
+    tiempos: [
+      { subtitulo: 'yo había creado', filas: [
+          { p: 'io', f: 'avevo creato' },
+          { p: 'tu', f: 'avevi creato' },
+          { p: 'lui, lei', f: 'aveva creato' },
+          { p: 'noi', f: 'avevamo creato' },
+          { p: 'voi', f: 'avevate creato' },
+          { p: 'loro', f: 'avevano creato' }
+        ], nota: null },
+      { subtitulo: 'yo he creado', filas: [
+          { p: 'io', f: 'ho creato' },
+          { p: 'tu', f: 'hai creato' },
+          { p: 'lui, lei', f: 'ha creato' },
+          { p: 'noi', f: 'abbiamo creato' },
+          { p: 'voi', f: 'avete creato' },
+          { p: 'loro', f: 'hanno creato' }
+        ], nota: null },
+      { subtitulo: 'yo creaba', filas: [
+          { p: 'io', f: 'creavo' },
+          { p: 'tu', f: 'creavi' },
+          { p: 'lui, lei', f: 'creava' },
+          { p: 'noi', f: 'creavamo' },
+          { p: 'voi', f: 'creavate' },
+          { p: 'loro', f: 'creavano' }
+        ], nota: null },
+      { subtitulo: 'yo habría creado', filas: [
+          { p: 'io', f: 'avrei creato' },
+          { p: 'tu', f: 'avresti creato' },
+          { p: 'lui, lei', f: 'avrebbe creato' },
+          { p: 'noi', f: 'avremmo creato' },
+          { p: 'voi', f: 'avreste creato' },
+          { p: 'loro', f: 'avrebbero creato' }
+        ], nota: null },
+      { subtitulo: 'yo creo', filas: [
+          { p: 'io', f: 'creo' },
+          { p: 'tu', f: 'crei' },
+          { p: 'lui, lei', f: 'crea' },
+          { p: 'noi', f: 'creiamo' },
+          { p: 'voi', f: 'create' },
+          { p: 'loro', f: 'creano' }
+        ], nota: null },
+      { subtitulo: 'estoy por creare', filas: [
+          { p: 'io', f: 'sto per creare' },
+          { p: 'tu', f: 'stai per creare' },
+          { p: 'lui, lei', f: 'sta per creare' },
+          { p: 'noi', f: 'stiamo per creare' },
+          { p: 'voi', f: 'state per creare' },
+          { p: 'loro', f: 'stanno per creare' }
+        ], nota: null },
+      { subtitulo: 'yo crearé', filas: [
+          { p: 'io', f: 'creerò' },
+          { p: 'tu', f: 'creerai' },
+          { p: 'lui, lei', f: 'creerà' },
+          { p: 'noi', f: 'creeremo' },
+          { p: 'voi', f: 'crerete' },
+          { p: 'loro', f: 'creeranno' }
+        ], nota: null },
+      { subtitulo: 'yo crearía', filas: [
+          { p: 'io', f: 'creerei' },
+          { p: 'tu', f: 'creresti' },
+          { p: 'lui, lei', f: 'creerebbe' },
+          { p: 'noi', f: 'creremmo' },
+          { p: 'voi', f: 'crereste' },
+          { p: 'loro', f: 'creerebbero' }
+        ], nota: null }
+    ]
+  },
+  'domandare': {
+    tiempos: [
+      { subtitulo: 'yo había preguntado', filas: [
+          { p: 'io', f: 'avevo domandato' },
+          { p: 'tu', f: 'avevi domandato' },
+          { p: 'lui, lei', f: 'aveva domandato' },
+          { p: 'noi', f: 'avevamo domandato' },
+          { p: 'voi', f: 'avevate domandato' },
+          { p: 'loro', f: 'avevano domandato' }
+        ], nota: null },
+      { subtitulo: 'yo he preguntado', filas: [
+          { p: 'io', f: 'ho domandato' },
+          { p: 'tu', f: 'hai domandato' },
+          { p: 'lui, lei', f: 'ha domandato' },
+          { p: 'noi', f: 'abbiamo domandato' },
+          { p: 'voi', f: 'avete domandato' },
+          { p: 'loro', f: 'hanno domandato' }
+        ], nota: null },
+      { subtitulo: 'yo preguntaba', filas: [
+          { p: 'io', f: 'domandavo' },
+          { p: 'tu', f: 'domandavi' },
+          { p: 'lui, lei', f: 'domandava' },
+          { p: 'noi', f: 'domandavamo' },
+          { p: 'voi', f: 'domandavate' },
+          { p: 'loro', f: 'domandavano' }
+        ], nota: null },
+      { subtitulo: 'yo habría preguntado', filas: [
+          { p: 'io', f: 'avrei domandato' },
+          { p: 'tu', f: 'avresti domandato' },
+          { p: 'lui, lei', f: 'avrebbe domandato' },
+          { p: 'noi', f: 'avremmo domandato' },
+          { p: 'voi', f: 'avreste domandato' },
+          { p: 'loro', f: 'avrebbero domandato' }
+        ], nota: null },
+      { subtitulo: 'yo pregunto', filas: [
+          { p: 'io', f: 'domando' },
+          { p: 'tu', f: 'domandi' },
+          { p: 'lui, lei', f: 'domanda' },
+          { p: 'noi', f: 'domandiamo' },
+          { p: 'voi', f: 'domandate' },
+          { p: 'loro', f: 'domandano' }
+        ], nota: null },
+      { subtitulo: 'estoy por domandare', filas: [
+          { p: 'io', f: 'sto per domandare' },
+          { p: 'tu', f: 'stai per domandare' },
+          { p: 'lui, lei', f: 'sta per domandare' },
+          { p: 'noi', f: 'stiamo per domandare' },
+          { p: 'voi', f: 'state per domandare' },
+          { p: 'loro', f: 'stanno per domandare' }
+        ], nota: null },
+      { subtitulo: 'yo preguntaré', filas: [
+          { p: 'io', f: 'domanderò' },
+          { p: 'tu', f: 'domanderai' },
+          { p: 'lui, lei', f: 'domanderà' },
+          { p: 'noi', f: 'domanderemo' },
+          { p: 'voi', f: 'domanderete' },
+          { p: 'loro', f: 'domanderanno' }
+        ], nota: null },
+      { subtitulo: 'yo preguntaría', filas: [
+          { p: 'io', f: 'domanderei' },
+          { p: 'tu', f: 'domanderesti' },
+          { p: 'lui, lei', f: 'domanderebbe' },
+          { p: 'noi', f: 'domanderemmo' },
+          { p: 'voi', f: 'domandereste' },
+          { p: 'loro', f: 'domanderebbero' }
+        ], nota: null }
+    ]
+  },
+  'finire': {
+    tiempos: [
+      { subtitulo: 'yo había terminado', filas: [
+          { p: 'io', f: 'avevo finito' },
+          { p: 'tu', f: 'avevi finito' },
+          { p: 'lui, lei', f: 'aveva finito' },
+          { p: 'noi', f: 'avevamo finito' },
+          { p: 'voi', f: 'avevate finito' },
+          { p: 'loro', f: 'avevano finito' }
+        ], nota: null },
+      { subtitulo: 'yo he terminado', filas: [
+          { p: 'io', f: 'ho finito' },
+          { p: 'tu', f: 'hai finito' },
+          { p: 'lui, lei', f: 'ha finito' },
+          { p: 'noi', f: 'abbiamo finito' },
+          { p: 'voi', f: 'avete finito' },
+          { p: 'loro', f: 'hanno finito' }
+        ], nota: null },
+      { subtitulo: 'yo terminaba', filas: [
+          { p: 'io', f: 'finivo' },
+          { p: 'tu', f: 'finivi' },
+          { p: 'lui, lei', f: 'finiva' },
+          { p: 'noi', f: 'finivamo' },
+          { p: 'voi', f: 'finivate' },
+          { p: 'loro', f: 'finivano' }
+        ], nota: null },
+      { subtitulo: 'yo habría terminado', filas: [
+          { p: 'io', f: 'avrei finito' },
+          { p: 'tu', f: 'avresti finito' },
+          { p: 'lui, lei', f: 'avrebbe finito' },
+          { p: 'noi', f: 'avremmo finito' },
+          { p: 'voi', f: 'avreste finito' },
+          { p: 'loro', f: 'avrebbero finito' }
+        ], nota: null },
+      { subtitulo: 'yo termino', filas: [
+          { p: 'io', f: 'finisco' },
+          { p: 'tu', f: 'finisci' },
+          { p: 'lui, lei', f: 'finisce' },
+          { p: 'noi', f: 'finiamo' },
+          { p: 'voi', f: 'finite' },
+          { p: 'loro', f: 'finiscono' }
+        ], nota: null },
+      { subtitulo: 'estoy por finire', filas: [
+          { p: 'io', f: 'sto per finire' },
+          { p: 'tu', f: 'stai per finire' },
+          { p: 'lui, lei', f: 'sta per finire' },
+          { p: 'noi', f: 'stiamo per finire' },
+          { p: 'voi', f: 'state per finire' },
+          { p: 'loro', f: 'stanno per finire' }
+        ], nota: null },
+      { subtitulo: 'yo terminaré', filas: [
+          { p: 'io', f: 'finirò' },
+          { p: 'tu', f: 'finirai' },
+          { p: 'lui, lei', f: 'finirà' },
+          { p: 'noi', f: 'finiremo' },
+          { p: 'voi', f: 'finirete' },
+          { p: 'loro', f: 'finiranno' }
+        ], nota: null },
+      { subtitulo: 'yo terminaría', filas: [
+          { p: 'io', f: 'finirei' },
+          { p: 'tu', f: 'finiresti' },
+          { p: 'lui, lei', f: 'finirebbe' },
+          { p: 'noi', f: 'finiremmo' },
+          { p: 'voi', f: 'finireste' },
+          { p: 'loro', f: 'finirebbero' }
+        ], nota: null }
+    ]
+  },
+  'guardare': {
+    tiempos: [
+      { subtitulo: 'yo había mirado', filas: [
+          { p: 'io', f: 'avevo guardato' },
+          { p: 'tu', f: 'avevi guardato' },
+          { p: 'lui, lei', f: 'aveva guardato' },
+          { p: 'noi', f: 'avevamo guardato' },
+          { p: 'voi', f: 'avevate guardato' },
+          { p: 'loro', f: 'avevano guardato' }
+        ], nota: null },
+      { subtitulo: 'yo he mirado', filas: [
+          { p: 'io', f: 'ho guardato' },
+          { p: 'tu', f: 'hai guardato' },
+          { p: 'lui, lei', f: 'ha guardato' },
+          { p: 'noi', f: 'abbiamo guardato' },
+          { p: 'voi', f: 'avete guardato' },
+          { p: 'loro', f: 'hanno guardato' }
+        ], nota: null },
+      { subtitulo: 'yo miraba', filas: [
+          { p: 'io', f: 'guardavo' },
+          { p: 'tu', f: 'guardavi' },
+          { p: 'lui, lei', f: 'guardava' },
+          { p: 'noi', f: 'guardavamo' },
+          { p: 'voi', f: 'guardavate' },
+          { p: 'loro', f: 'guardavano' }
+        ], nota: null },
+      { subtitulo: 'yo habría mirado', filas: [
+          { p: 'io', f: 'avrei guardato' },
+          { p: 'tu', f: 'avresti guardato' },
+          { p: 'lui, lei', f: 'avrebbe guardato' },
+          { p: 'noi', f: 'avremmo guardato' },
+          { p: 'voi', f: 'avreste guardato' },
+          { p: 'loro', f: 'avrebbero guardato' }
+        ], nota: null },
+      { subtitulo: 'yo miro', filas: [
+          { p: 'io', f: 'guardo' },
+          { p: 'tu', f: 'guardi' },
+          { p: 'lui, lei', f: 'guarda' },
+          { p: 'noi', f: 'guardiamo' },
+          { p: 'voi', f: 'guardate' },
+          { p: 'loro', f: 'guardano' }
+        ], nota: null },
+      { subtitulo: 'estoy por guardare', filas: [
+          { p: 'io', f: 'sto per guardare' },
+          { p: 'tu', f: 'stai per guardare' },
+          { p: 'lui, lei', f: 'sta per guardare' },
+          { p: 'noi', f: 'stiamo per guardare' },
+          { p: 'voi', f: 'state per guardare' },
+          { p: 'loro', f: 'stanno per guardare' }
+        ], nota: null },
+      { subtitulo: 'yo miraré', filas: [
+          { p: 'io', f: 'guarderò' },
+          { p: 'tu', f: 'guarderai' },
+          { p: 'lui, lei', f: 'guarderà' },
+          { p: 'noi', f: 'guarderemo' },
+          { p: 'voi', f: 'guarderete' },
+          { p: 'loro', f: 'guarderanno' }
+        ], nota: null },
+      { subtitulo: 'yo miraría', filas: [
+          { p: 'io', f: 'guarderei' },
+          { p: 'tu', f: 'guarderesti' },
+          { p: 'lui, lei', f: 'guarderebbe' },
+          { p: 'noi', f: 'guarderemmo' },
+          { p: 'voi', f: 'guardereste' },
+          { p: 'loro', f: 'guarderebbero' }
+        ], nota: null }
+    ]
+  },
+  'lasciare': {
+    tiempos: [
+      { subtitulo: 'yo había dejado', filas: [
+          { p: 'io', f: 'avevo lasciato' },
+          { p: 'tu', f: 'avevi lasciato' },
+          { p: 'lui, lei', f: 'aveva lasciato' },
+          { p: 'noi', f: 'avevamo lasciato' },
+          { p: 'voi', f: 'avevate lasciato' },
+          { p: 'loro', f: 'avevano lasciato' }
+        ], nota: null },
+      { subtitulo: 'yo he dejado', filas: [
+          { p: 'io', f: 'ho lasciato' },
+          { p: 'tu', f: 'hai lasciato' },
+          { p: 'lui, lei', f: 'ha lasciato' },
+          { p: 'noi', f: 'abbiamo lasciato' },
+          { p: 'voi', f: 'avete lasciato' },
+          { p: 'loro', f: 'hanno lasciato' }
+        ], nota: null },
+      { subtitulo: 'yo dejaba', filas: [
+          { p: 'io', f: 'lasciavo' },
+          { p: 'tu', f: 'lasciavi' },
+          { p: 'lui, lei', f: 'lasciava' },
+          { p: 'noi', f: 'lasciavamo' },
+          { p: 'voi', f: 'lasciavate' },
+          { p: 'loro', f: 'lasciavano' }
+        ], nota: null },
+      { subtitulo: 'yo habría dejado', filas: [
+          { p: 'io', f: 'avrei lasciato' },
+          { p: 'tu', f: 'avresti lasciato' },
+          { p: 'lui, lei', f: 'avrebbe lasciato' },
+          { p: 'noi', f: 'avremmo lasciato' },
+          { p: 'voi', f: 'avreste lasciato' },
+          { p: 'loro', f: 'avrebbero lasciato' }
+        ], nota: null },
+      { subtitulo: 'yo dejo', filas: [
+          { p: 'io', f: 'lascio' },
+          { p: 'tu', f: 'lasci' },
+          { p: 'lui, lei', f: 'lascia' },
+          { p: 'noi', f: 'lasciamo' },
+          { p: 'voi', f: 'lasciate' },
+          { p: 'loro', f: 'lasciano' }
+        ], nota: null },
+      { subtitulo: 'estoy por lasciare', filas: [
+          { p: 'io', f: 'sto per lasciare' },
+          { p: 'tu', f: 'stai per lasciare' },
+          { p: 'lui, lei', f: 'sta per lasciare' },
+          { p: 'noi', f: 'stiamo per lasciare' },
+          { p: 'voi', f: 'state per lasciare' },
+          { p: 'loro', f: 'stanno per lasciare' }
+        ], nota: null },
+      { subtitulo: 'yo dejaré', filas: [
+          { p: 'io', f: 'lascerò' },
+          { p: 'tu', f: 'lascerai' },
+          { p: 'lui, lei', f: 'lascerà' },
+          { p: 'noi', f: 'lasceremo' },
+          { p: 'voi', f: 'lascerete' },
+          { p: 'loro', f: 'lasceranno' }
+        ], nota: null },
+      { subtitulo: 'yo dejaría', filas: [
+          { p: 'io', f: 'lascerei' },
+          { p: 'tu', f: 'lasceresti' },
+          { p: 'lui, lei', f: 'lascerebbe' },
+          { p: 'noi', f: 'lasceremmo' },
+          { p: 'voi', f: 'lascereste' },
+          { p: 'loro', f: 'lascerebbero' }
+        ], nota: null }
+    ]
+  },
+  'leggere': {
+    tiempos: [
+      { subtitulo: 'yo había leído', filas: [
+          { p: 'io', f: 'avevo letto' },
+          { p: 'tu', f: 'avevi letto' },
+          { p: 'lui, lei', f: 'aveva letto' },
+          { p: 'noi', f: 'avevamo letto' },
+          { p: 'voi', f: 'avevate letto' },
+          { p: 'loro', f: 'avevano letto' }
+        ], nota: null },
+      { subtitulo: 'yo he leído', filas: [
+          { p: 'io', f: 'ho letto' },
+          { p: 'tu', f: 'hai letto' },
+          { p: 'lui, lei', f: 'ha letto' },
+          { p: 'noi', f: 'abbiamo letto' },
+          { p: 'voi', f: 'avete letto' },
+          { p: 'loro', f: 'hanno letto' }
+        ], nota: null },
+      { subtitulo: 'yo leía', filas: [
+          { p: 'io', f: 'leggevo' },
+          { p: 'tu', f: 'leggevi' },
+          { p: 'lui, lei', f: 'leggeva' },
+          { p: 'noi', f: 'leggevamo' },
+          { p: 'voi', f: 'leggevate' },
+          { p: 'loro', f: 'leggevano' }
+        ], nota: null },
+      { subtitulo: 'yo habría leído', filas: [
+          { p: 'io', f: 'avrei letto' },
+          { p: 'tu', f: 'avresti letto' },
+          { p: 'lui, lei', f: 'avrebbe letto' },
+          { p: 'noi', f: 'avremmo letto' },
+          { p: 'voi', f: 'avreste letto' },
+          { p: 'loro', f: 'avrebbero letto' }
+        ], nota: null },
+      { subtitulo: 'yo leo', filas: [
+          { p: 'io', f: 'leggo' },
+          { p: 'tu', f: 'leggi' },
+          { p: 'lui, lei', f: 'legge' },
+          { p: 'noi', f: 'leggiamo' },
+          { p: 'voi', f: 'leggete' },
+          { p: 'loro', f: 'leggono' }
+        ], nota: null },
+      { subtitulo: 'estoy por leggere', filas: [
+          { p: 'io', f: 'sto per leggere' },
+          { p: 'tu', f: 'stai per leggere' },
+          { p: 'lui, lei', f: 'sta per leggere' },
+          { p: 'noi', f: 'stiamo per leggere' },
+          { p: 'voi', f: 'state per leggere' },
+          { p: 'loro', f: 'stanno per leggere' }
+        ], nota: null },
+      { subtitulo: 'yo leeré', filas: [
+          { p: 'io', f: 'leggerò' },
+          { p: 'tu', f: 'leggerai' },
+          { p: 'lui, lei', f: 'leggerà' },
+          { p: 'noi', f: 'leggeremo' },
+          { p: 'voi', f: 'leggerete' },
+          { p: 'loro', f: 'leggeranno' }
+        ], nota: null },
+      { subtitulo: 'yo leería', filas: [
+          { p: 'io', f: 'leggerei' },
+          { p: 'tu', f: 'leggeresti' },
+          { p: 'lui, lei', f: 'leggerebbe' },
+          { p: 'noi', f: 'leggeremmo' },
+          { p: 'voi', f: 'leggereste' },
+          { p: 'loro', f: 'leggerebbero' }
+        ], nota: null }
+    ]
+  },
+  'rispondere': {
+    tiempos: [
+      { subtitulo: 'yo había respondido', filas: [
+          { p: 'io', f: 'avevo risposto' },
+          { p: 'tu', f: 'avevi risposto' },
+          { p: 'lui, lei', f: 'aveva risposto' },
+          { p: 'noi', f: 'avevamo risposto' },
+          { p: 'voi', f: 'avevate risposto' },
+          { p: 'loro', f: 'avevano risposto' }
+        ], nota: null },
+      { subtitulo: 'yo he respondido', filas: [
+          { p: 'io', f: 'ho risposto' },
+          { p: 'tu', f: 'hai risposto' },
+          { p: 'lui, lei', f: 'ha risposto' },
+          { p: 'noi', f: 'abbiamo risposto' },
+          { p: 'voi', f: 'avete risposto' },
+          { p: 'loro', f: 'hanno risposto' }
+        ], nota: null },
+      { subtitulo: 'yo respondía', filas: [
+          { p: 'io', f: 'rispondevo' },
+          { p: 'tu', f: 'rispondevi' },
+          { p: 'lui, lei', f: 'rispondeva' },
+          { p: 'noi', f: 'rispondevamo' },
+          { p: 'voi', f: 'rispondevate' },
+          { p: 'loro', f: 'rispondevano' }
+        ], nota: null },
+      { subtitulo: 'yo habría respondido', filas: [
+          { p: 'io', f: 'avrei risposto' },
+          { p: 'tu', f: 'avresti risposto' },
+          { p: 'lui, lei', f: 'avrebbe risposto' },
+          { p: 'noi', f: 'avremmo risposto' },
+          { p: 'voi', f: 'avreste risposto' },
+          { p: 'loro', f: 'avrebbero risposto' }
+        ], nota: null },
+      { subtitulo: 'yo respondo', filas: [
+          { p: 'io', f: 'rispondo' },
+          { p: 'tu', f: 'rispondi' },
+          { p: 'lui, lei', f: 'risponde' },
+          { p: 'noi', f: 'rispondiamo' },
+          { p: 'voi', f: 'rispondete' },
+          { p: 'loro', f: 'rispondono' }
+        ], nota: null },
+      { subtitulo: 'estoy por rispondere', filas: [
+          { p: 'io', f: 'sto per rispondere' },
+          { p: 'tu', f: 'stai per rispondere' },
+          { p: 'lui, lei', f: 'sta per rispondere' },
+          { p: 'noi', f: 'stiamo per rispondere' },
+          { p: 'voi', f: 'state per rispondere' },
+          { p: 'loro', f: 'stanno per rispondere' }
+        ], nota: null },
+      { subtitulo: 'yo responderé', filas: [
+          { p: 'io', f: 'risponderò' },
+          { p: 'tu', f: 'risponderai' },
+          { p: 'lui, lei', f: 'risponderà' },
+          { p: 'noi', f: 'risponderemo' },
+          { p: 'voi', f: 'risponderete' },
+          { p: 'loro', f: 'risponderanno' }
+        ], nota: null },
+      { subtitulo: 'yo respondería', filas: [
+          { p: 'io', f: 'risponderei' },
+          { p: 'tu', f: 'risponderesti' },
+          { p: 'lui, lei', f: 'risponderebbe' },
+          { p: 'noi', f: 'rispondeemmo' },
+          { p: 'voi', f: 'rispondereste' },
+          { p: 'loro', f: 'risponderebbero' }
+        ], nota: null }
+    ]
+  },
+  'scrivere': {
+    tiempos: [
+      { subtitulo: 'yo había escrito', filas: [
+          { p: 'io', f: 'avevo scritto' },
+          { p: 'tu', f: 'avevi scritto' },
+          { p: 'lui, lei', f: 'aveva scritto' },
+          { p: 'noi', f: 'avevamo scritto' },
+          { p: 'voi', f: 'avevate scritto' },
+          { p: 'loro', f: 'avevano scritto' }
+        ], nota: null },
+      { subtitulo: 'yo he escrito', filas: [
+          { p: 'io', f: 'ho scritto' },
+          { p: 'tu', f: 'hai scritto' },
+          { p: 'lui, lei', f: 'ha scritto' },
+          { p: 'noi', f: 'abbiamo scritto' },
+          { p: 'voi', f: 'avete scritto' },
+          { p: 'loro', f: 'hanno scritto' }
+        ], nota: null },
+      { subtitulo: 'yo escribía', filas: [
+          { p: 'io', f: 'scrivevo' },
+          { p: 'tu', f: 'scrivevi' },
+          { p: 'lui, lei', f: 'scriveva' },
+          { p: 'noi', f: 'scrivevamo' },
+          { p: 'voi', f: 'scrivevate' },
+          { p: 'loro', f: 'scrivevano' }
+        ], nota: null },
+      { subtitulo: 'yo habría escrito', filas: [
+          { p: 'io', f: 'avrei scritto' },
+          { p: 'tu', f: 'avresti scritto' },
+          { p: 'lui, lei', f: 'avrebbe scritto' },
+          { p: 'noi', f: 'avremmo scritto' },
+          { p: 'voi', f: 'avreste scritto' },
+          { p: 'loro', f: 'avrebbero scritto' }
+        ], nota: null },
+      { subtitulo: 'yo escribo', filas: [
+          { p: 'io', f: 'scrivo' },
+          { p: 'tu', f: 'scrivi' },
+          { p: 'lui, lei', f: 'scrive' },
+          { p: 'noi', f: 'scriviamo' },
+          { p: 'voi', f: 'scrivete' },
+          { p: 'loro', f: 'scrivono' }
+        ], nota: null },
+      { subtitulo: 'estoy por scrivere', filas: [
+          { p: 'io', f: 'sto per scrivere' },
+          { p: 'tu', f: 'stai per scrivere' },
+          { p: 'lui, lei', f: 'sta per scrivere' },
+          { p: 'noi', f: 'stiamo per scrivere' },
+          { p: 'voi', f: 'state per scrivere' },
+          { p: 'loro', f: 'stanno per scrivere' }
+        ], nota: null },
+      { subtitulo: 'yo escribiré', filas: [
+          { p: 'io', f: 'scriverò' },
+          { p: 'tu', f: 'scriverai' },
+          { p: 'lui, lei', f: 'scriverà' },
+          { p: 'noi', f: 'scriveremo' },
+          { p: 'voi', f: 'scriverete' },
+          { p: 'loro', f: 'scriveranno' }
+        ], nota: null },
+      { subtitulo: 'yo escribiría', filas: [
+          { p: 'io', f: 'scriverei' },
+          { p: 'tu', f: 'scriveresti' },
+          { p: 'lui, lei', f: 'scriverebbe' },
+          { p: 'noi', f: 'scriveremmo' },
+          { p: 'voi', f: 'scrivereste' },
+          { p: 'loro', f: 'scriverebbero' }
+        ], nota: null }
+    ]
+  },
+  'seguire': {
+    tiempos: [
+      { subtitulo: 'yo había seguido', filas: [
+          { p: 'io', f: 'avevo seguito' },
+          { p: 'tu', f: 'avevi seguito' },
+          { p: 'lui, lei', f: 'aveva seguito' },
+          { p: 'noi', f: 'avevamo seguito' },
+          { p: 'voi', f: 'avevate seguito' },
+          { p: 'loro', f: 'avevano seguito' }
+        ], nota: null },
+      { subtitulo: 'yo he seguido', filas: [
+          { p: 'io', f: 'ho seguito' },
+          { p: 'tu', f: 'hai seguito' },
+          { p: 'lui, lei', f: 'ha seguito' },
+          { p: 'noi', f: 'abbiamo seguito' },
+          { p: 'voi', f: 'avete seguito' },
+          { p: 'loro', f: 'hanno seguito' }
+        ], nota: null },
+      { subtitulo: 'yo seguía', filas: [
+          { p: 'io', f: 'seguivo' },
+          { p: 'tu', f: 'seguivi' },
+          { p: 'lui, lei', f: 'seguiva' },
+          { p: 'noi', f: 'seguivamo' },
+          { p: 'voi', f: 'seguivate' },
+          { p: 'loro', f: 'seguivano' }
+        ], nota: null },
+      { subtitulo: 'yo habría seguido', filas: [
+          { p: 'io', f: 'avrei seguito' },
+          { p: 'tu', f: 'avresti seguito' },
+          { p: 'lui, lei', f: 'avrebbe seguito' },
+          { p: 'noi', f: 'avremmo seguito' },
+          { p: 'voi', f: 'avreste seguito' },
+          { p: 'loro', f: 'avrebbero seguito' }
+        ], nota: null },
+      { subtitulo: 'yo sigo', filas: [
+          { p: 'io', f: 'seguo' },
+          { p: 'tu', f: 'segui' },
+          { p: 'lui, lei', f: 'segue' },
+          { p: 'noi', f: 'seguiamo' },
+          { p: 'voi', f: 'seguite' },
+          { p: 'loro', f: 'seguono' }
+        ], nota: null },
+      { subtitulo: 'estoy por seguire', filas: [
+          { p: 'io', f: 'sto per seguire' },
+          { p: 'tu', f: 'stai per seguire' },
+          { p: 'lui, lei', f: 'sta per seguire' },
+          { p: 'noi', f: 'stiamo per seguire' },
+          { p: 'voi', f: 'state per seguire' },
+          { p: 'loro', f: 'stanno per seguire' }
+        ], nota: null },
+      { subtitulo: 'yo seguiré', filas: [
+          { p: 'io', f: 'seguirò' },
+          { p: 'tu', f: 'seguirai' },
+          { p: 'lui, lei', f: 'seguirà' },
+          { p: 'noi', f: 'seguiremo' },
+          { p: 'voi', f: 'seguirete' },
+          { p: 'loro', f: 'seguiranno' }
+        ], nota: null },
+      { subtitulo: 'yo seguiría', filas: [
+          { p: 'io', f: 'seguirei' },
+          { p: 'tu', f: 'seguiresti' },
+          { p: 'lui, lei', f: 'seguirebbe' },
+          { p: 'noi', f: 'seguiremmo' },
+          { p: 'voi', f: 'seguireste' },
+          { p: 'loro', f: 'seguirebbero' }
+        ], nota: null }
+    ]
+  },
+  'toccare': {
+    tiempos: [
+      { subtitulo: 'yo había tocado', filas: [
+          { p: 'io', f: 'avevo toccato' },
+          { p: 'tu', f: 'avevi toccato' },
+          { p: 'lui, lei', f: 'aveva toccato' },
+          { p: 'noi', f: 'avevamo toccato' },
+          { p: 'voi', f: 'avevate toccato' },
+          { p: 'loro', f: 'avevano toccato' }
+        ], nota: null },
+      { subtitulo: 'yo he tocado', filas: [
+          { p: 'io', f: 'ho toccato' },
+          { p: 'tu', f: 'hai toccato' },
+          { p: 'lui, lei', f: 'ha toccato' },
+          { p: 'noi', f: 'abbiamo toccato' },
+          { p: 'voi', f: 'avete toccato' },
+          { p: 'loro', f: 'hanno toccato' }
+        ], nota: null },
+      { subtitulo: 'yo tocaba', filas: [
+          { p: 'io', f: 'toccavo' },
+          { p: 'tu', f: 'toccavi' },
+          { p: 'lui, lei', f: 'toccava' },
+          { p: 'noi', f: 'toccavamo' },
+          { p: 'voi', f: 'toccavate' },
+          { p: 'loro', f: 'toccavano' }
+        ], nota: null },
+      { subtitulo: 'yo habría tocado', filas: [
+          { p: 'io', f: 'avrei toccato' },
+          { p: 'tu', f: 'avresti toccato' },
+          { p: 'lui, lei', f: 'avrebbe toccato' },
+          { p: 'noi', f: 'avremmo toccato' },
+          { p: 'voi', f: 'avreste toccato' },
+          { p: 'loro', f: 'avrebbero toccato' }
+        ], nota: null },
+      { subtitulo: 'yo toco', filas: [
+          { p: 'io', f: 'tocco' },
+          { p: 'tu', f: 'tocchi' },
+          { p: 'lui, lei', f: 'tocca' },
+          { p: 'noi', f: 'tocchiamo' },
+          { p: 'voi', f: 'toccate' },
+          { p: 'loro', f: 'toccano' }
+        ], nota: null },
+      { subtitulo: 'estoy por toccare', filas: [
+          { p: 'io', f: 'sto per toccare' },
+          { p: 'tu', f: 'stai per toccare' },
+          { p: 'lui, lei', f: 'sta per toccare' },
+          { p: 'noi', f: 'stiamo per toccare' },
+          { p: 'voi', f: 'state per toccare' },
+          { p: 'loro', f: 'stanno per toccare' }
+        ], nota: null },
+      { subtitulo: 'yo tocaré', filas: [
+          { p: 'io', f: 'toccherò' },
+          { p: 'tu', f: 'toccherai' },
+          { p: 'lui, lei', f: 'toccherà' },
+          { p: 'noi', f: 'toccheremo' },
+          { p: 'voi', f: 'toccherete' },
+          { p: 'loro', f: 'toccheranno' }
+        ], nota: null },
+      { subtitulo: 'yo tocaría', filas: [
+          { p: 'io', f: 'toccherai' },
+          { p: 'tu', f: 'toccheresti' },
+          { p: 'lui, lei', f: 'toccherebbe' },
+          { p: 'noi', f: 'toccheremmo' },
+          { p: 'voi', f: 'tocchereste' },
+          { p: 'loro', f: 'toccerebbero' }
         ], nota: null }
     ]
   }
