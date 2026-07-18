@@ -1428,8 +1428,9 @@ const UNIDADES = {
     nombre: 'Numeri e Tempo',
     tipo: 'libre',
     temas: {
-      'D1': { nombre: 'Numeri',     subtemas: null },
-      'D2': { nombre: 'Tempo/Ora',  subtemas: null }
+      'D1': { nombre: 'Numeri',        subtemas: null },
+      'D2': { nombre: 'Tempo/Ora',     subtemas: null },
+      'D3': { nombre: 'Giorni e Mesi', subtemas: null }
     }
   },
   'E': {
@@ -1455,6 +1456,17 @@ const UNIDADES = {
       'F2': { nombre: 'Articoli',       subtemas: null },
       'F3': { nombre: 'Preposizioni',   subtemas: null },
       'F4': { nombre: 'Aggettivi',      subtemas: null }
+    }
+  },
+  'I': {
+    nombre: 'Sistema Nominal (Genere e Articoli)',
+    tipo: 'libre',
+    temas: {
+      'I1': { nombre: 'Genere (M/F)',          subtemas: null },
+      'I2': { nombre: 'Articoli Definiti',    subtemas: null },
+      'I3': { nombre: 'Articoli Indefiniti',  subtemas: null },
+      'I4': { nombre: 'Concordanza',          subtemas: null },
+      'I5': { nombre: 'Plurali Irregolari',   subtemas: null }
     }
   },
   'G': {
@@ -1546,6 +1558,67 @@ const UNIDADES = {
       } }
     }
   },
+  'J': {
+    nombre: 'Preposizioni',
+    tipo: 'libre',
+    temas: {
+      'J1': { nombre: 'Preposizioni di Luogo',   subtemas: null },
+      'J2': { nombre: 'Preposizioni di Tempo',   subtemas: null },
+      'J3': { nombre: 'Preposizioni di Modo',    subtemas: null },
+      'J4': { nombre: 'Preposizioni di Causa',   subtemas: null },
+      'J5': { nombre: 'Preposizioni Articolate', subtemas: null }
+    }
+  },
+  'K': {
+    nombre: 'Comparativi e Superlativi',
+    tipo: 'libre',
+    temas: {
+      'K1': { nombre: 'Comparativo di Uguaglianza', subtemas: null },
+      'K2': { nombre: 'Comparativo di Maggioranza', subtemas: null },
+      'K3': { nombre: 'Comparativo di Minoranza',   subtemas: null },
+      'K4': { nombre: 'Superlativo Relativo',       subtemas: null },
+      'K5': { nombre: 'Superlativo Assoluto',       subtemas: null }
+    }
+  },
+  'L': {
+    nombre: 'Pronomi Relativi',
+    tipo: 'libre',
+    temas: {
+      'L1': { nombre: 'Pronomi Soggetto (che, il quale)', subtemas: null },
+      'L2': { nombre: 'Pronomi Oggetto (che, il quale)',   subtemas: null },
+      'L3': { nombre: 'Pronomi Possessivi Relativi (cui)',  subtemas: null },
+      'L4': { nombre: 'Pronomi Locativi (dove, quando)',    subtemas: null }
+    }
+  },
+  'M': {
+    nombre: 'Andare vs Venire',
+    tipo: 'libre',
+    temas: {
+      'M1': { nombre: 'Andare — Ir, Partir, Desplazarse', subtemas: null },
+      'M2': { nombre: 'Venire — Venir, Llegar, Aparecer',  subtemas: null },
+      'M3': { nombre: 'Andare vs Venire — Comparación',    subtemas: null }
+    }
+  },
+  'N': {
+    nombre: 'Passato Prossimo vs Imperfetto',
+    tipo: 'libre',
+    temas: {
+      'N1': { nombre: 'Passato Prossimo — Hechos completados', subtemas: null },
+      'N2': { nombre: 'Imperfetto — Acciones habituales/durativas', subtemas: null },
+      'N3': { nombre: 'Comparación: Cuándo cada uno', subtemas: null }
+    }
+  },
+  'O': {
+    nombre: 'Subjuntivo — Triggers',
+    tipo: 'libre',
+    temas: {
+      'O1': { nombre: 'Subjuntivo con Verbos de Emoción',     subtemas: null },
+      'O2': { nombre: 'Subjuntivo con Duda/Negación',         subtemas: null },
+      'O3': { nombre: 'Subjuntivo en Oraciones Temporales',   subtemas: null },
+      'O4': { nombre: 'Subjuntivo en Oraciones Condicionales', subtemas: null },
+      'O5': { nombre: 'Subjuntivo en Oraciones Finales',      subtemas: null }
+    }
+  },
   'H': {
     nombre: 'Vocabolario',
     tipo: 'libre',
@@ -1580,14 +1653,16 @@ const CONTENIDO_TARJETAS = {
   ],
   'D-D2': [
     { id: 'relojes',           tipo: 'relojes',  titulo: 'Orologi',                                render: renderTarjetaRelojesEjemplo },
-    { id: 'mesi-anno',         tipo: 'columnas', titulo: 'Mesi dell\'anno',                        render: renderTarjetaMesiDelAnno },
     { id: 'prima-dopo',        tipo: 'columnas', titulo: 'Prima / Dopo',                           render: renderTarjetaPrimadopo },
     { id: 'preposizione-a',    tipo: 'columnas', titulo: '"A che ora": la preposizione "a"',      render: renderTarjetaPreposizoneA },
     { id: 'sistema-informale', tipo: 'columnas', titulo: 'Sistema informale (12 ore)',            render: renderTarjetaSistemaInformale },
-    { id: 'giorni-settimana',  tipo: 'columnas', titulo: 'Giorni della settimana',                render: renderTarjetaGiorniSettimana },
-    { id: 'momenti-imprecisi', tipo: 'columnas', titulo: 'Momenti imprecisi',                     render: renderTarjetaMomentiImprecisi },
-    { id: 'giorni-concreti',   tipo: 'columnas', titulo: 'Giorni concreti rispetto a oggi',       render: renderTarjetaGiorniConcreti },
     { id: 'mezzogiorno-mezzanotte', tipo: 'columnas', titulo: 'Mezzogiorno e Mezzanotte',         render: renderTarjetaMezzogiornoMezzanotte }
+  ],
+  'D-D3': [
+    { id: 'giorni-settimana',  tipo: 'columnas', titulo: 'Giorni della settimana',                render: renderTarjetaGiorniSettimana },
+    { id: 'mesi-anno',         tipo: 'columnas', titulo: 'Mesi dell\'anno',                        render: renderTarjetaMesiDelAnno },
+    { id: 'momenti-imprecisi', tipo: 'columnas', titulo: 'Momenti imprecisi',                     render: renderTarjetaMomentiImprecisi },
+    { id: 'giorni-concreti',   tipo: 'columnas', titulo: 'Giorni concreti rispetto a oggi',       render: renderTarjetaGiorniConcreti }
   ],
   'B-B1': [
     { id: 'historia-alpinismo',   tipo: 'columnas', titulo: 'Storia dell\'alpinismo italiano',    render: renderTarjetaHistoriaAlpinismo },
@@ -1664,6 +1739,96 @@ const CONTENIDO_TARJETAS = {
     { id: 'participio-assoluto',  tipo: 'texto-largo', titulo: 'Participio Assoluto — Construcción absoluta', render: renderTarjetaParticiploAssoluto },
     { id: 'pronomi-ne-ci',        tipo: 'texto-largo', titulo: 'Pronomi "ne" e "ci" — Pronombres adverbiales', render: renderTarjetaPronomiNeCi },
     { id: 'fare-lasciare-inf',    tipo: 'texto-largo', titulo: 'Fare + Infinito / Lasciare + Infinito', render: renderTarjetaFareLasciareInf }
+  ],
+  'I-I1': [
+    { id: 'genere-maschile-femminile', tipo: 'columnas', titulo: 'Genere: Maschile e Femminile', render: renderTarjetaGenere }
+  ],
+  'I-I2': [
+    { id: 'articoli-definiti-sistema', tipo: 'columnas', titulo: 'Articoli Definiti (il, la, i, le, lo, gli)', render: renderTarjetaArticoliDefinitiSistema }
+  ],
+  'I-I3': [
+    { id: 'articoli-indefiniti-sistema', tipo: 'columnas', titulo: 'Articoli Indefiniti (un, una, uno)', render: renderTarjetaArticoliIndefiniti }
+  ],
+  'I-I4': [
+    { id: 'concordanza-genere-numero', tipo: 'columnas', titulo: 'Concordanza: Genere e Numero', render: renderTarjetaConcordanza }
+  ],
+  'I-I5': [
+    { id: 'plurali-irregolari', tipo: 'columnas', titulo: 'Plurali Irregolari', render: renderTarjetaPluralIrregolari }
+  ],
+  'J-J1': [
+    { id: 'preposizioni-luogo', tipo: 'columnas', titulo: 'Preposizioni di Luogo', render: renderTarjetaPreposizioniLuogo }
+  ],
+  'J-J2': [
+    { id: 'preposizioni-tempo', tipo: 'columnas', titulo: 'Preposizioni di Tempo', render: renderTarjetaPreposizioniTempo }
+  ],
+  'J-J3': [
+    { id: 'preposizioni-modo', tipo: 'columnas', titulo: 'Preposizioni di Modo', render: renderTarjetaPreposizioniModo }
+  ],
+  'J-J4': [
+    { id: 'preposizioni-causa', tipo: 'columnas', titulo: 'Preposizioni di Causa', render: renderTarjetaPreposizioniCausa }
+  ],
+  'J-J5': [
+    { id: 'preposizioni-articolate', tipo: 'columnas', titulo: 'Preposizioni Articolate (al, del, nel, ecc.)', render: renderTarjetaPreposizioniArticolate }
+  ],
+  'K-K1': [
+    { id: 'comparativo-uguaglianza', tipo: 'columnas', titulo: 'Comparativo di Uguaglianza (come, tanto...quanto)', render: renderTarjetaComparativoUguaglianza }
+  ],
+  'K-K2': [
+    { id: 'comparativo-maggioranza', tipo: 'columnas', titulo: 'Comparativo di Maggioranza (più...di)', render: renderTarjetaComparativoMaggioranza }
+  ],
+  'K-K3': [
+    { id: 'comparativo-minoranza', tipo: 'columnas', titulo: 'Comparativo di Minoranza (meno...di)', render: renderTarjetaComparativoMinoranza }
+  ],
+  'K-K4': [
+    { id: 'superlativo-relativo', tipo: 'columnas', titulo: 'Superlativo Relativo (il più/meno)', render: renderTarjetaSuperlativoRelativo }
+  ],
+  'K-K5': [
+    { id: 'superlativo-assoluto', tipo: 'columnas', titulo: 'Superlativo Assoluto (-issimo)', render: renderTarjetaSuperlativoAssoluto }
+  ],
+  'L-L1': [
+    { id: 'pronomi-soggetto-relativo', tipo: 'columnas', titulo: 'Pronomi Soggetto (che, il quale)', render: renderTarjetaPronomiSoggettoRelativo }
+  ],
+  'L-L2': [
+    { id: 'pronomi-oggetto-relativo', tipo: 'columnas', titulo: 'Pronomi Oggetto (che, il quale)', render: renderTarjetaPronomiOggettoRelativo }
+  ],
+  'L-L3': [
+    { id: 'pronomi-cui-relativo', tipo: 'columnas', titulo: 'Pronomi "cui" (il cui, di cui)', render: renderTarjetaPronomiCuiRelativo }
+  ],
+  'L-L4': [
+    { id: 'pronomi-locativi-relativo', tipo: 'columnas', titulo: 'Pronomi Locativi (dove, quando)', render: renderTarjetaPronomiLocativiRelativo }
+  ],
+  'M-M1': [
+    { id: 'andare-verbo', tipo: 'columnas', titulo: 'Andare — Usos y significados', render: renderTarjetaAndareVerbo }
+  ],
+  'M-M2': [
+    { id: 'venire-verbo', tipo: 'columnas', titulo: 'Venire — Usos y significados', render: renderTarjetaVenireVerbo }
+  ],
+  'M-M3': [
+    { id: 'andare-venire-comparacion', tipo: 'columnas', titulo: 'Andare vs Venire — Cuándo cada uno', render: renderTarjetaAndareVenireComparacion }
+  ],
+  'N-N1': [
+    { id: 'passato-prossimo-uso', tipo: 'columnas', titulo: 'Passato Prossimo — Hechos completados', render: renderTarjetaPassatoProssimoUso }
+  ],
+  'N-N2': [
+    { id: 'imperfetto-uso', tipo: 'columnas', titulo: 'Imperfetto — Acciones habituales', render: renderTarjetaImperfettoUso }
+  ],
+  'N-N3': [
+    { id: 'passato-prossimo-imperfetto-comparacion', tipo: 'columnas', titulo: 'Passato Prossimo vs Imperfetto', render: renderTarjetaPassatoImperfettoComparacion }
+  ],
+  'O-O1': [
+    { id: 'subjuntivo-emocion', tipo: 'columnas', titulo: 'Subjuntivo — Verbos de Emoción', render: renderTarjetaSubjuntivoEmocion }
+  ],
+  'O-O2': [
+    { id: 'subjuntivo-duda', tipo: 'columnas', titulo: 'Subjuntivo — Duda/Negación', render: renderTarjetaSubjuntivoDuda }
+  ],
+  'O-O3': [
+    { id: 'subjuntivo-temporal', tipo: 'columnas', titulo: 'Subjuntivo — Oraciones Temporales', render: renderTarjetaSubjuntivoTemporal }
+  ],
+  'O-O4': [
+    { id: 'subjuntivo-condicional', tipo: 'columnas', titulo: 'Subjuntivo — Oraciones Condicionales', render: renderTarjetaSubjuntivoCondicional }
+  ],
+  'O-O5': [
+    { id: 'subjuntivo-final', tipo: 'columnas', titulo: 'Subjuntivo — Oraciones Finales', render: renderTarjetaSubjuntivoFinal }
   ],
   'F-F1': [
     { id: 'sujeto-tonico-reflexivo', tipo: 'columnas', titulo: 'Sujeto, tónico, reflexivo', render: renderTarjetaPersonasSujetoTonicoReflexivo },
@@ -3763,6 +3928,424 @@ function renderTarjetaFareLasciareInf() {
       '<strong>Variaciones de FARE:</strong> <span class="hablar" data-hablar="Faccio mangiare i bambini">Faccio mangiare i bambini</span> (hago comer a los niños — alguien más come). <span class="hablar" data-hablar="Mi faccio tagliare i capelli">Mi faccio tagliare i capelli</span> (me hago cortar el cabello — yo recibo la acción).',
       '<strong>LASCIARE + INFINITO:</strong> Expresar que se PERMITE que alguien haga algo (permisivo). <span class="hablar" data-hablar="Ti lascio andare">Ti lascio andare</span> (te dejo ir). <span class="hablar" data-hablar="Lasciami in pace">Lasciami in pace</span> (déjame en paz). <span class="hablar" data-hablar="Non mi lasci lavorare">Non mi lasci lavorare</span> (no me dejas trabajar).',
       '<strong>Diferencia FARE vs LASCIARE:</strong> FARE = obligar/hacer que. LASCIARE = permitir/dejar que. <span class="hablar" data-hablar="Mi fai uscire">Mi fai uscire</span> (me haces salir — obligado). <span class="hablar" data-hablar="Mi lasci uscire">Mi lasci uscire</span> (me dejas salir — permitido). En conversación alpina/cotidiana: <span class="hablar" data-hablar="Lascia, ci penso io">Lascia, ci penso io</span> (déjalo, yo me encargo).'
+    ]
+  });
+}
+
+// ── Sistema Nominal (I): Genere e Articoli ──────────────────────────────
+
+function renderTarjetaGenere() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Genere: Maschile e Femminile',
+    columnas: ['Terminación', 'Genere', 'Esempio', 'Regola'],
+    filas: [
+      [{ texto: '-o', hablar: true }, 'Maschile', { texto: 'ragazzo, libro, caldo', hablar: true }, 'Típicamente masculino'],
+      [{ texto: '-a', hablar: true }, 'Femminile', { texto: 'ragazza, casa, bella', hablar: true }, 'Típicamente femenino'],
+      [{ texto: '-e', hablar: true }, 'M/F', { texto: 'padre (M), madre (F), grande (ambos)', hablar: true }, 'Depende del sustantivo específico'],
+      [{ texto: 'Consonante', hablar: true }, 'Maschile (típicamente)', { texto: 'hotel, bar, tram, deficit', hablar: true }, 'Por defecto masculino, excepto sufijos -zione, -sion']
+    ]
+  });
+}
+
+function renderTarjetaArticoliDefinitiSistema() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Articoli Definiti: il, la, i, le, lo, gli',
+    columnas: ['Articolo', 'Uso', 'Singolare', 'Plurale'],
+    filas: [
+      ['il', 'Masc. sing. (consonante normal)', { texto: 'il ragazzo', hablar: true }, { texto: 'i ragazzi', hablar: true }],
+      ['lo', 'Masc. sing. (s + consonante, z, gn, ps)', { texto: 'lo studente, lo zio, lo gnocco', hablar: true }, { texto: 'gli studenti, gli zii', hablar: true }],
+      ['la', 'Fem. sing. (cualquier inicio)', { texto: 'la ragazza, la amica, la zia', hablar: true }, { texto: 'le ragazze', hablar: true }],
+      ['i', 'Masc. plural (consonante normal)', { texto: '—', hablar: false }, { texto: 'i ragazzi', hablar: true }],
+      ['gli', 'Masc. plural (vocal, s+cons, z)', { texto: '—', hablar: false }, { texto: 'gli amici, gli studenti, gli zii', hablar: true }],
+      ['le', 'Fem. plural (cualquier inicio)', { texto: '—', hablar: false }, { texto: 'le ragazze, le amiche', hablar: true }]
+    ]
+  });
+}
+
+function renderTarjetaArticoliIndefiniti() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Articoli Indefiniti: un, una, uno',
+    columnas: ['Articolo', 'Uso', 'Esempio'],
+    filas: [
+      ['un', 'Masc. sing. (consonante, vocal)', { texto: 'un ragazzo, un amico', hablar: true }],
+      ['uno', 'Masc. sing. (s + consonante, z, gn, ps)', { texto: 'uno studente, uno zio', hablar: true }],
+      ['una', 'Fem. sing. (consonante)', { texto: 'una ragazza, una casa', hablar: true }],
+      ['un\'', 'Fem. sing. (vocal)', { texto: 'un\'amica, un\'ora', hablar: true }],
+      ['Nada', 'Plural (no existe)', { texto: 'ragazzi (sin artículo), ragazze (sin artículo)', hablar: true }]
+    ]
+  });
+}
+
+function renderTarjetaConcordanza() {
+  return crearTarjetaTextoLargo({
+    titulo: 'Concordancia: Genere e Numero',
+    parrafos: [
+      '<strong>REGLA FUNDAMENTAL:</strong> Artículo + Sustantivo + Adjetivo deben concordar EN GÉNERO Y NÚMERO. <span class="hablar" data-hablar="il ragazzo alto">il ragazzo alto</span> (masc. sing.), <span class="hablar" data-hablar="la ragazza alta">la ragazza alta</span> (fem. sing.), <span class="hablar" data-hablar="i ragazzi alti">i ragazzi alti</span> (masc. plural), <span class="hablar" data-hablar="le ragazze alte">le ragazze alte</span> (fem. plural).',
+      '<strong>Adjetivos en -e (ambos géneros):</strong> Algunos adjetivos NO cambian por género, solo por número. <span class="hablar" data-hablar="il ragazzo grande">il ragazzo grande</span>, <span class="hablar" data-hablar="la ragazza grande">la ragazza grande</span>, <span class="hablar" data-hablar="i ragazzi grandi">i ragazzi grandi</span>, <span class="hablar" data-hablar="le ragazze grandi">le ragazze grandi</span>.',
+      '<strong>Posición del adjetivo:</strong> Normalmente DESPUÉS del sustantivo: <span class="hablar" data-hablar="una casa bella">una casa bella</span> (una casa bonita). Algunos (bello, buono, grande) pueden ir ANTES: <span class="hablar" data-hablar="una bella casa">una bella casa</span>, <span class="hablar" data-hablar="un buon vino">un buon vino</span>.',
+      '<strong>Plural de -o:</strong> <span class="hablar" data-hablar="rosso (rojo) → rossi">rosso → rossi</span>, <span class="hablar" data-hablar="rossa (roja) → rosse">rossa → rosse</span>. <span class="hablar" data-hablar="il vino rosso">il vino rosso</span> (the red wine masc.) vs <span class="hablar" data-hablar="la birra rossa">la birra rossa</span> (the red beer fem.).'
+    ]
+  });
+}
+
+function renderTarjetaPluralIrregolari() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Plurali Irregolari — Cambios especiales',
+    columnas: ['Singolare', 'Plurale', 'Patrón', 'Exemple'],
+    filas: [
+      [{ texto: 'uomo (hombre)', hablar: true }, { texto: 'uomini', hablar: true }, '-o → -i (CAMBIO RAÍZ)', { texto: 'l\'uomo alto → gli uomini alti', hablar: true }],
+      [{ texto: 'braccio (brazo)', hablar: true }, { texto: 'braccia', hablar: true }, '-o → -a (fem. por sentido)', { texto: 'il braccio lungo → le braccia lunghe', hablar: true }],
+      [{ texto: 'dito (dedo)', hablar: true }, { texto: 'dita', hablar: true }, '-o → -a (fem. por sentido)', { texto: 'il dito → le dita', hablar: true }],
+      [{ texto: 'frutto (fruta)', hablar: true }, { texto: 'frutti/frutta', hablar: true }, 'VARIABLE', { texto: 'i frutti (individual), la frutta (colectivo)', hablar: true }],
+      [{ texto: 'tempio (templo)', hablar: true }, { texto: 'templi/tempia', hablar: true }, 'VARIABLE', { texto: 'i templi (templos), le tempia (sienes)', hablar: true }],
+      [{ texto: 'paio (par)', hablar: true }, { texto: 'paia', hablar: true }, '-o → -a (fem.)', { texto: 'un paio di scarpe (fem. pl.)', hablar: true }]
+    ]
+  });
+}
+
+// ── UNIDAD J: PREPOSIZIONI ──────────────────────────────────────────────
+
+function renderTarjetaPreposizioniLuogo() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Preposizioni di Luogo',
+    columnas: ['Preposizione', 'Significado', 'Ejemplo'],
+    filas: [
+      [{ texto: 'a', hablar: true }, 'hacia, en (destino/ubicación)', { texto: 'Vado a Roma', hablar: true }],
+      [{ texto: 'da', hablar: true }, 'desde, de (origen/procedencia)', { texto: 'Vengo da Milano', hablar: true }],
+      [{ texto: 'di', hablar: true }, 'de (pertenencia, material)', { texto: 'La casa di Marco', hablar: true }],
+      [{ texto: 'in', hablar: true }, 'en, dentro (lugar)', { texto: 'Sono in hotel', hablar: true }],
+      [{ texto: 'su', hablar: true }, 'sobre, en (superfície)', { texto: 'Il libro è su la tavola', hablar: true }],
+      [{ texto: 'sotto', hablar: true }, 'bajo, debajo', { texto: 'Il gatto è sotto il letto', hablar: true }],
+      [{ texto: 'tra / fra', hablar: true }, 'entre', { texto: 'Siamo tra le montagne', hablar: true }],
+      [{ texto: 'davanti a', hablar: true }, 'frente a, ante', { texto: 'L\'hotel è davanti alla stazione', hablar: true }],
+      [{ texto: 'dietro', hablar: true }, 'detrás', { texto: 'La cucina è dietro il bar', hablar: true }],
+      [{ texto: 'vicino a', hablar: true }, 'cerca de, junto a', { texto: 'Viviamo vicino al lago', hablar: true }],
+      [{ texto: 'lontano da', hablar: true }, 'lejos de', { texto: 'Il rifugio è lontano dal paese', hablar: true }],
+      [{ texto: 'dentro', hablar: true }, 'dentro', { texto: 'Resto dentro l\'albergo', hablar: true }],
+      [{ texto: 'fuori', hablar: true }, 'fuera', { texto: 'Mangiamo fuori stasera', hablar: true }]
+    ]
+  });
+}
+
+function renderTarjetaPreposizioniTempo() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Preposizioni di Tempo',
+    columnas: ['Preposizione', 'Significado', 'Ejemplo'],
+    filas: [
+      [{ texto: 'a', hablar: true }, 'a (hora del día)', { texto: 'A le tre arriviamo', hablar: true }],
+      [{ texto: 'di', hablar: true }, 'de (parte del día)', { texto: 'Di mattina lavoro, di sera riposo', hablar: true }],
+      [{ texto: 'in', hablar: true }, 'en (período largo)', { texto: 'In estate vado in montagna', hablar: true }],
+      [{ texto: 'da', hablar: true }, 'desde (duración)', { texto: 'Lavoro da tre anni qui', hablar: true }],
+      [{ texto: 'per', hablar: true }, 'durante, por (duración)', { texto: 'Resto in Italia per due mesi', hablar: true }],
+      [{ texto: 'tra / fra', hablar: true }, 'dentro de (tiempo futuro)', { texto: 'Arriviamo tra due ore', hablar: true }],
+      [{ texto: 'prima di', hablar: true }, 'antes de', { texto: 'Prima di partire mangio', hablar: true }],
+      [{ texto: 'dopo', hablar: true }, 'después, después de', { texto: 'Dopo il lavoro bevo un caffè', hablar: true }],
+      [{ texto: 'durante', hablar: true }, 'durante', { texto: 'Durante la cena parliamo', hablar: true }],
+      [{ texto: 'su', hablar: true }, 'hacia (aproximadamente)', { texto: 'Su le dieci arrivo', hablar: true }]
+    ]
+  });
+}
+
+function renderTarjetaPreposizioniModo() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Preposizioni di Modo',
+    columnas: ['Preposizione', 'Significado', 'Ejemplo'],
+    filas: [
+      [{ texto: 'con', hablar: true }, 'con (compañía, instrumento)', { texto: 'Viaggio con amici, scrivo con una penna', hablar: true }],
+      [{ texto: 'senza', hablar: true }, 'sin', { texto: 'Bevo caffè senza zucchero', hablar: true }],
+      [{ texto: 'per', hablar: true }, 'por (medio, modo)', { texto: 'Viaggio per montagna', hablar: true }],
+      [{ texto: 'a', hablar: true }, 'a (modo de hacer)', { texto: 'Guido a velocità moderata', hablar: true }],
+      [{ texto: 'in', hablar: true }, 'en (medio de transporte)', { texto: 'Vado in macchina, in treno', hablar: true }],
+      [{ texto: 'da', hablar: true }, 'de (forma, aspecto)', { texto: 'Parla da professionista', hablar: true }]
+    ]
+  });
+}
+
+function renderTarjetaPreposizioniCausa() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Preposizioni di Causa',
+    columnas: ['Preposizione', 'Significado', 'Ejemplo'],
+    filas: [
+      [{ texto: 'per', hablar: true }, 'por (causa, razón)', { texto: 'Sono felice per le vacanze', hablar: true }],
+      [{ texto: 'da', hablar: true }, 'por (causa inherente)', { texto: 'Tremava dal freddo', hablar: true }],
+      [{ texto: 'a causa di', hablar: true }, 'por (causa de)', { texto: 'Non arriviamo a causa della neve', hablar: true }],
+      [{ texto: 'grazie a', hablar: true }, 'gracias a (causa positiva)', { texto: 'Ho imparato grazie ai tuoi insegnamenti', hablar: true }]
+    ]
+  });
+}
+
+function renderTarjetaPreposizioniArticolate() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Preposizioni Articolate (a+il=al, di+il=del, ecc.)',
+    columnas: ['Preposizione', 'il', 'la', 'lo', 'i', 'le', 'gli'],
+    filas: [
+      [{ texto: 'a (a+il)', hablar: true }, 'al', 'alla', 'allo', 'ai', 'alle', 'agli'],
+      [{ texto: 'da (da+il)', hablar: true }, 'dal', 'dalla', 'dallo', 'dai', 'dalle', 'dagli'],
+      [{ texto: 'di (di+il)', hablar: true }, 'del', 'della', 'dello', 'dei', 'delle', 'degli'],
+      [{ texto: 'in (in+il)', hablar: true }, 'nel', 'nella', 'nello', 'nei', 'nelle', 'negli'],
+      [{ texto: 'su (su+il)', hablar: true }, 'sul', 'sulla', 'sullo', 'sui', 'sulle', 'sugli']
+    ]
+  });
+}
+
+// ── UNIDAD K: COMPARATIVI E SUPERLATIVI ─────────────────────────────────
+
+function renderTarjetaComparativoUguaglianza() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Comparativo di Uguaglianza (come...come, tanto...quanto)',
+    columnas: ['Estructura', 'Ejemplo', 'Significado'],
+    filas: [
+      [{ texto: 'Aggettivo + come + aggettivo', hablar: true }, { texto: 'Marco è alto come suo padre', hablar: true }, 'Marco es tan alto como su padre'],
+      [{ texto: 'tanto/tanta + nome + quanto/quanta + nome', hablar: true }, { texto: 'Ho tanta fretta quanto te', hablar: true }, 'Tengo tanta prisa como tú'],
+      [{ texto: 'verbo + come + verbo (al infinito)', hablar: true }, { texto: 'Mi piace leggere come scrivere', hablar: true }, 'Me gusta leer como escribir']
+    ]
+  });
+}
+
+function renderTarjetaComparativoMaggioranza() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Comparativo di Maggioranza (più...di)',
+    columnas: ['Estructura', 'Ejemplo', 'Significado'],
+    filas: [
+      [{ texto: 'più + aggettivo + di', hablar: true }, { texto: 'Questo hotel è più lussuoso di quello', hablar: true }, 'Este hotel es más lujoso que ese'],
+      [{ texto: 'più + nome + di', hablar: true }, { texto: 'Ho più esperienza di te', hablar: true }, 'Tengo más experiencia que tú'],
+      [{ texto: 'più + avverbio + di', hablar: true }, { texto: 'Corro più velocemente di prima', hablar: true }, 'Corro más rápido que antes']
+    ]
+  });
+}
+
+function renderTarjetaComparativoMinoranza() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Comparativo di Minoranza (meno...di)',
+    columnas: ['Estructura', 'Ejemplo', 'Significado'],
+    filas: [
+      [{ texto: 'meno + aggettivo + di', hablar: true }, { texto: 'Questa strada è meno pericolosa di quella', hablar: true }, 'Este camino es menos peligroso que ese'],
+      [{ texto: 'meno + nome + di', hablar: true }, { texto: 'Ho meno soldi di prima', hablar: true }, 'Tengo menos dinero que antes'],
+      [{ texto: 'meno + avverbio + di', hablar: true }, { texto: 'Lavora meno frequentemente di prima', hablar: true }, 'Trabaja menos frecuentemente que antes']
+    ]
+  });
+}
+
+function renderTarjetaSuperlativoRelativo() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Superlativo Relativo (il più / il meno)',
+    columnas: ['Estructura', 'Ejemplo', 'Significado'],
+    filas: [
+      [{ texto: 'il/la più + aggettivo', hablar: true }, { texto: 'Questo rifugio è il più alto delle Alpi', hablar: true }, 'Este refugio es el más alto de los Alpes'],
+      [{ texto: 'il/la meno + aggettivo', hablar: true }, { texto: 'Questa strada è la meno trafficata', hablar: true }, 'Este camino es el menos transitado'],
+      [{ texto: 'il più/meno + nome', hablar: true }, { texto: 'Ha il più talento della classe', hablar: true }, 'Tiene el más talento de la clase']
+    ]
+  });
+}
+
+function renderTarjetaSuperlativoAssoluto() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Superlativo Assoluto (-issimo)',
+    columnas: ['Adjetivo', 'Superlativo Assoluto', 'Ejemplo'],
+    filas: [
+      [{ texto: 'bello (bonito)', hablar: true }, { texto: 'bellissimo', hablar: true }, { texto: 'Che vista bellissima!', hablar: true }],
+      [{ texto: 'grande (grande)', hablar: true }, { texto: 'grandissimo', hablar: true }, { texto: 'È grandissimo!', hablar: true }],
+      [{ texto: 'piccolo (pequeño)', hablar: true }, { texto: 'piccolissimo', hablar: true }, { texto: 'Un insetto piccolissimo', hablar: true }],
+      [{ texto: 'caldo (caliente)', hablar: true }, { texto: 'caldissimo', hablar: true }, { texto: 'Che caffè caldissimo!', hablar: true }],
+      [{ texto: 'freddo (frío)', hablar: true }, { texto: 'freddissimo', hablar: true }, { texto: 'È freddissimo in montagna', hablar: true }]
+    ]
+  });
+}
+
+// ── UNIDAD L: PRONOMI RELATIVI ──────────────────────────────────────────
+
+function renderTarjetaPronomiSoggettoRelativo() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Pronomi Soggetto Relativo (che, il quale)',
+    columnas: ['Pronome', 'Uso', 'Ejemplo'],
+    filas: [
+      [{ texto: 'che', hablar: true }, 'Sujeto, cualquier antecedente (más común)', { texto: 'L\'uomo che parla è Marco', hablar: true }],
+      [{ texto: 'il quale', hablar: true }, 'Sujeto, más formal, evita ambigüedad', { texto: 'Il fratello di Maria, il quale è medico, lavora qui', hablar: true }],
+      [{ texto: 'la quale', hablar: true }, 'Sujeto femenino', { texto: 'La ragazza, la quale studia inglese, è americana', hablar: true }]
+    ]
+  });
+}
+
+function renderTarjetaPronomiOggettoRelativo() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Pronomi Oggetto Relativo (che, il quale)',
+    columnas: ['Pronome', 'Uso', 'Ejemplo'],
+    filas: [
+      [{ texto: 'che', hablar: true }, 'Objeto directo (muy común)', { texto: 'La cosa che voglio è qui', hablar: true }],
+      [{ texto: 'il quale', hablar: true }, 'Objeto directo, más formal', { texto: 'Il libro il quale ho letto ieri è interessante', hablar: true }],
+      [{ texto: 'che', hablar: true }, 'Después de preposición + verbo', { texto: 'La ragazza che ti ho presentato', hablar: true }]
+    ]
+  });
+}
+
+function renderTarjetaPronomiCuiRelativo() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Pronomi "cui" (il cui, di cui, a cui)',
+    columnas: ['Estructura', 'Uso', 'Ejemplo'],
+    filas: [
+      [{ texto: 'il cui / la cui / i cui / le cui', hablar: true }, 'Posesivo relativo', { texto: 'L\'uomo il cui figlio è qui', hablar: true }],
+      [{ texto: 'di cui', hablar: true }, 'Después de preposición "di"', { texto: 'La ragazza di cui ti parlo', hablar: true }],
+      [{ texto: 'a cui', hablar: true }, 'Después de preposición "a"', { texto: 'La persona a cui do il regalo', hablar: true }],
+      [{ texto: 'con cui / per cui / in cui', hablar: true }, 'Otras preposiciones', { texto: 'L\'amico con cui viaggio, il motivo per cui resto', hablar: true }]
+    ]
+  });
+}
+
+function renderTarjetaPronomiLocativiRelativo() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Pronomi Locativi Relativo (dove, quando)',
+    columnas: ['Pronome', 'Uso', 'Ejemplo'],
+    filas: [
+      [{ texto: 'dove', hablar: true }, 'Lugar, equivale a "in cui"', { texto: 'La città dove vivo è bella', hablar: true }],
+      [{ texto: 'quando', hablar: true }, 'Tiempo, equivale a "in cui"', { texto: 'Il giorno quando arriviamo', hablar: true }]
+    ]
+  });
+}
+
+// ── UNIDAD M: ANDARE VS VENIRE ──────────────────────────────────────────
+
+function renderTarjetaAndareVerbo() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Andare — Ir, Partir, Desplazarse',
+    columnas: ['Significado', 'Ejemplo', 'Notas'],
+    filas: [
+      ['Ir a (destino)', { texto: 'Vado a Roma domani', hablar: true }, 'Movimiento hacia un lugar'],
+      ['Partir, salir', { texto: 'Quando andiamo? Andiamo subito', hablar: true }, 'Salida inmediata'],
+      ['Desempeñarse, funcionar', { texto: 'Come va il lavoro? — Va bene', hablar: true }, 'Estado o funcionamiento'],
+      ['Estar bien/mal', { texto: 'Questo colore mi va bene', hablar: true }, 'Convenir, sentar bien'],
+      ['Deber (futuro probable)', { texto: 'Questo non va bene, andrà male', hablar: true }, 'Predicción']
+    ]
+  });
+}
+
+function renderTarjetaVenireVerbo() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Venire — Venir, Llegar, Aparecer',
+    columnas: ['Significado', 'Ejemplo', 'Notas'],
+    filas: [
+      ['Venir, llegar a', { texto: 'Vengo da te domani', hablar: true }, 'Movimiento hacia quien habla'],
+      ['Llegar a ser, hacerse', { texto: 'Venire medico, venire forte', hablar: true }, 'Cambio de estado'],
+      ['Ocurrir, suceder', { texto: 'Mi viene un\'idea', hablar: true }, 'Sobrevenir'],
+      ['Resultar, salir', { texto: 'La pasta mi viene bene', hablar: true }, 'Resultado de una acción'],
+      ['Antojo, ganas', { texto: 'Mi viene voglia di caffè', hablar: true }, 'Deseo repentino']
+    ]
+  });
+}
+
+function renderTarjetaAndareVenireComparacion() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Andare vs Venire — Cuándo cada uno',
+    columnas: ['ANDARE', 'VENIRE', 'Diferencia'],
+    filas: [
+      [{ texto: 'Vado a Roma', hablar: true }, { texto: 'Vengo a Roma (desde lejos)', hablar: true }, 'ANDARE = me alejo, VENIRE = vengo hacia aquí'],
+      [{ texto: 'Marco va a casa', hablar: true }, { texto: 'Marco viene a casa mia', hablar: true }, 'ANDARE = se va, VENIRE = viene a mi casa'],
+      [{ texto: 'Vado via, me voy', hablar: true }, { texto: 'Vengo qui, vengo aquí', hablar: true }, 'Dirección opuesta']
+    ]
+  });
+}
+
+// ── UNIDAD N: PASSATO PROSSIMO VS IMPERFETTO ────────────────────────────
+
+function renderTarjetaPassatoProssimoUso() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Passato Prossimo — Hechos completados, recientes',
+    columnas: ['Uso', 'Ejemplo', 'Notas'],
+    filas: [
+      ['Acción completada recientemente', { texto: 'Ho mangiato una pizza', hablar: true }, 'Hoy, esta semana'],
+      ['Acción puntual, única', { texto: 'Sono arrivato in montagna', hablar: true }, 'Momento específico'],
+      ['Acción con resultado visible', { texto: 'Ho rotto la tazza', hablar: true }, 'Consecuencia presente'],
+      ['Acción repetida (número determinado)', { texto: 'Sono stato in Italia tre volte', hablar: true }, 'Contado, cuantificado']
+    ]
+  });
+}
+
+function renderTarjetaImperfettoUso() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Imperfetto — Acciones habituales, durativas',
+    columnas: ['Uso', 'Ejemplo', 'Notas'],
+    filas: [
+      ['Acciones habituales en el pasado', { texto: 'Ogni giorno andavo in montagna', hablar: true }, 'Rutina pasada'],
+      ['Descripción en pasado', { texto: 'Il cielo era blu, l\'aria era fresca', hablar: true }, 'Escenario, atmósfera'],
+      ['Acción durativa, en progreso', { texto: 'Mentre lavoravo, è arrivato Marco', hablar: true }, 'Fondo de una acción puntual'],
+      ['Estados mentales/emocionales pasados', { texto: 'Avevo paura, ero felice', hablar: true }, 'Sentimientos duraderos']
+    ]
+  });
+}
+
+function renderTarjetaPassatoImperfettoComparacion() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Passato Prossimo vs Imperfetto — Cuándo cada uno',
+    columnas: ['PASSATO PROSSIMO (Completado)', 'IMPERFETTO (Durativo)', 'Contexto'],
+    filas: [
+      [{ texto: 'Ho visto Marco', hablar: true }, { texto: 'Vedevo Marco ogni giorno', hablar: true }, 'Acción puntual vs habitual'],
+      [{ texto: 'Sono arrivato', hablar: true }, { texto: 'Arrivavo sempre a mezzogiorno', hablar: true }, 'Una vez vs regularidad'],
+      [{ texto: 'Ha nevicato', hablar: true }, { texto: 'Nevicava spesso', hablar: true }, 'Evento específico vs frecuencia']
+    ]
+  });
+}
+
+// ── UNIDAD O: SUBJUNTIVO — TRIGGERS ────────────────────────────────────
+
+function renderTarjetaSubjuntivoEmocion() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Subjuntivo — Verbos de Emoción',
+    columnas: ['Verbo di Emozione', 'Estructura', 'Ejemplo'],
+    filas: [
+      [{ texto: 'temere (temer)', hablar: true }, 'Temo che + subjuntivo', { texto: 'Temo che non arrivi', hablar: true }],
+      [{ texto: 'sperare (esperar)', hablar: true }, 'Spero che + subjuntivo', { texto: 'Spero che voi veniate', hablar: true }],
+      [{ texto: 'essere felice (estar feliz)', hablar: true }, 'Sono felice che + subjuntivo', { texto: 'Sono felice che tu sia qui', hablar: true }],
+      [{ texto: 'essere dispiaciuto (estar triste)', hablar: true }, 'Mi dispiace che + subjuntivo', { texto: 'Mi dispiace che lui non possa venire', hablar: true }],
+      [{ texto: 'avere paura (tener miedo)', hablar: true }, 'Ho paura che + subjuntivo', { texto: 'Ho paura che sia troppo tardi', hablar: true }]
+    ]
+  });
+}
+
+function renderTarjetaSubjuntivoDuda() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Subjuntivo — Duda/Negación',
+    columnas: ['Estructura', 'Ejemplo', 'Diferencia'],
+    filas: [
+      [{ texto: 'Dubito che + subjuntivo', hablar: true }, { texto: 'Dubito che sia vero', hablar: true }, 'Duda = subjuntivo'],
+      [{ texto: 'Non credo che + subjuntivo', hablar: true }, { texto: 'Non credo che lui venga', hablar: true }, 'Negación = subjuntivo'],
+      [{ texto: 'Credo che + indicativo', hablar: true }, { texto: 'Credo che lui viene', hablar: true }, 'Afirmación = indicativo'],
+      [{ texto: 'È possibile che + subjuntivo', hablar: true }, { texto: 'È possibile che piova', hablar: true }, 'Posibilidad = subjuntivo']
+    ]
+  });
+}
+
+function renderTarjetaSubjuntivoTemporal() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Subjuntivo — Oraciones Temporales',
+    columnas: ['Conjunción Temporal', 'Estructura', 'Ejemplo'],
+    filas: [
+      [{ texto: 'quando (cuando)', hablar: true }, 'Quando + subjuntivo', { texto: 'Quando tu arrivi, mangiamo', hablar: true }],
+      [{ texto: 'finché (hasta que)', hablar: true }, 'Finché + subjuntivo', { texto: 'Aspetto finché tu non torni', hablar: true }],
+      [{ texto: 'prima che (antes de que)', hablar: true }, 'Prima che + subjuntivo', { texto: 'Prima che partiate, devo dirvi qualcosa', hablar: true }],
+      [{ texto: 'nel momento in cui', hablar: true }, 'Nel momento che + subjuntivo', { texto: 'Nel momento che arrivi, iniziamo', hablar: true }]
+    ]
+  });
+}
+
+function renderTarjetaSubjuntivoCondicional() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Subjuntivo — Oraciones Condicionales',
+    columnas: ['Tipo', 'Estructura', 'Ejemplo'],
+    filas: [
+      ['Posible (si + presente)', 'Se + subjuntivo presente, futuro indicativo', { texto: 'Se vieni, saremo felici', hablar: true }],
+      ['Potencial (si + pasado)', 'Se + subjuntivo imperfetto, condizionale', { texto: 'Se venissi, saremmo felici', hablar: true }],
+      ['Imposible (si + pasado remoto)', 'Se + subjuntivo trapassato, condizionale perfetto', { texto: 'Se fossi venuto, saremmo stati felici', hablar: true }]
+    ]
+  });
+}
+
+function renderTarjetaSubjuntivoFinal() {
+  return crearTarjetaTablaGenerica({
+    titulo: 'Subjuntivo — Oraciones Finales (para que)',
+    columnas: ['Conjunción Final', 'Estructura', 'Ejemplo'],
+    filas: [
+      [{ texto: 'affinché (para que)', hablar: true }, 'Affinché + subjuntivo', { texto: 'Ti dico questo affinché tu capisca', hablar: true }],
+      [{ texto: 'perché (para que)', hablar: true }, 'Perché + subjuntivo', { texto: 'Lavoro perché la famiglia stia bene', hablar: true }],
+      [{ texto: 'in modo che (de modo que)', hablar: true }, 'In modo che + subjuntivo', { texto: 'Parlo lentamente in modo che capisca', hablar: true }]
     ]
   });
 }
